@@ -1,4 +1,4 @@
-package main.java.com.easyrest.pages;
+package com.easyrest.pages;
 
 public class Page {
 }
