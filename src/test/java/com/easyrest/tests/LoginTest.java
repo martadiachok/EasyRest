@@ -1,5 +1,6 @@
 package com.easyrest.tests;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
@@ -17,8 +18,9 @@ public class LoginTest {
 
     @Test
     public void testLogin() throws InterruptedException {
-        //System.setProperty("webdriver.chrome.driver","/usr/local/bin/chromedriver");
-        WebDriver driver = new ChromeDriver();
+
+        WebDriverManager.chromedriver().setup();
+        ChromeDriver driver = new ChromeDriver();
         driver.get("http://localhost:8880/log-in");
 
         WebElement inputEmail = driver.findElement(By.xpath("/html/body/div/main/div/div[2]/form/div/div[1]/div/div/input"));
