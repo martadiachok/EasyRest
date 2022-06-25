@@ -21,23 +21,23 @@ public class LoginTest {
 
         WebDriverManager.chromedriver().setup();
         ChromeDriver driver = new ChromeDriver();
-        driver.get("http://localhost:8880/log-in");
+        driver.get("http://localhost:3000/log-in");
 
         WebElement inputEmail = driver.findElement(By.xpath("/html/body/div/main/div/div[2]/form/div/div[1]/div/div/input"));
         inputEmail.clear();
-        inputEmail.sendKeys("martad4756170@gmail.com");
+        inputEmail.sendKeys("tanyasanchez@test.com");
         Thread.sleep(1500);
 
         WebElement inputPassword = driver.findElement(By.xpath("/html/body/div/main/div/div[2]/form/div/div[2]/div/div/input"));
         inputPassword.clear();
-        inputPassword.sendKeys("12345678");
+        inputPassword.sendKeys("1");
         Thread.sleep(2000);
 
         WebElement buttonSignIn = driver.findElement(By.xpath("/html/body/div/main/div/div[2]/form/div/div[3]/div/button/span[1]"));
         buttonSignIn.click();
 
-        String URL = "http://localhost:8880/restaurants";
-        Assert.assertEquals(URL, "http://localhost:8880/restaurants" );
+        String URL = "http://localhost:3000/restaurants";
+        Assert.assertEquals(URL, "http://localhost:3000/restaurants" );
 
         driver.close();
         driver.quit();
