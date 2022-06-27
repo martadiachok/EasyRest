@@ -9,21 +9,22 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.safari.SafariDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import readProperties.ConfigProvider;
 
 import java.lang.*;
 import java.time.Duration;
 import java.util.concurrent.TimeUnit;
+
+import readProperties.ConfigProvider;
 
 public class LoginTest extends BaseTest {
 
     @Test
     public void testLogin() throws InterruptedException {
 
-        String clientEmail = "martad4756170@gmail.com"; //ConfigProvider.clientEmail;
-        String clientPassword = "12345678"; //ConfigProvider.clientPassword;
+        String clientEmail = ConfigProvider.clientEmail;
+        String clientPassword = ConfigProvider.clientPassword;
 
-        driver.get("http://localhost:8880/log-in");
+        driver.get(ConfigProvider.urlLoginMac);
 
         WebElement inputEmail = driver.findElement(By.xpath("/html/body/div/main/div/div[2]/form/div/div[1]/div/div/input"));
         inputEmail.clear();
@@ -39,10 +40,7 @@ public class LoginTest extends BaseTest {
         buttonSignIn.click();
         Thread.sleep(5000);
 
-        // Assert.assertEquals(ConfigProvider.urlRestaurantsMac, ConfigProvider.urlRestaurantsMac );
-
-        String URL = "http://localhost:8880/restaurants";
-        Assert.assertEquals(URL, "http://localhost:8880/restaurants" );
+        Assert.assertEquals(ConfigProvider.urlRestaurantsMac, ConfigProvider.urlRestaurantsMac );
 
     }
 
