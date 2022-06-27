@@ -1,6 +1,5 @@
 package com.easyrest.tests;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -9,7 +8,7 @@ import java.lang.*;
 
 import readProperties.ConfigProvider;
 
-import static com.easyrest.locators.Locators.*;
+import static com.easyrest.locators.LoginPageLocators.*;
 
 public class LoginTest extends BaseTest {
 
