@@ -10,8 +10,8 @@ public interface ConfigProvider { // коли ми дістаємо щось з�
         return ConfigFactory.load("properties.conf");
     }
 
-    String urlMac = readConfig.getString("urlMac");
-    String urlWind = readConfig.getString("urlWind");
+    String urlMac = readConfig.getString("urlHomePageMac");
+    String urlWind = readConfig.getString("urlHomePageWind");
 
     String urlLoginMac = readConfig.getString("urlLoginMac");
     String urlLoginWind = readConfig.getString("urlLoginWind");
