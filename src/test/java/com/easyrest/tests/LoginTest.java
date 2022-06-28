@@ -1,9 +1,10 @@
 package com.easyrest.tests;
+import com.easyrest.config.ConfigProvider;
+import org.checkerframework.checker.units.qual.C;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import java.lang.*;
-import readProperties.ConfigProvider;
 import static com.easyrest.locators.LoginPageLocators.*;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
@@ -17,14 +18,10 @@ public class LoginTest extends BaseTest {
         ExtentSparkReporter spark = new ExtentSparkReporter("src/test/Reports/loginTest_28.06.2022");
         extent.attachReporter(spark);
 
-        //String clientEmail = ConfigProvider.clientEmail;
-        //String clientPassword = ConfigProvider.clientPassword;
+        String clientEmail = ConfigProvider.clientEmail;
+        String clientPassword = ConfigProvider.clientPassword;
 
-        String clientEmail = "martad4756170@gmail.com";
-        String clientPassword = "12345678";
-
-        //driver.get(ConfigProvider.urlLoginMac);
-        driver.get("http://localhost:8880/log-in");
+        driver.get(ConfigProvider.urlLoginMac);
 
         WebElement inputEmail = driver.findElement(INPUT_EMAIL_FIELD.getPath());
         inputEmail.clear();
@@ -43,11 +40,7 @@ public class LoginTest extends BaseTest {
         logger.info("SignIn button has been clicked.");
         Thread.sleep(5000);
 
-       // Assert.assertEquals(ConfigProvider.urlRestaurantsMac, ConfigProvider.urlRestaurantsMac);
-
-        String URL = "http://localhost:8880/restaurants";
-        Assert.assertEquals(URL, "http://localhost:8880/restaurants" );
-        logger.info("Page " + URL + " has been reached");
+       Assert.assertEquals(ConfigProvider.urlRestaurantsMac, ConfigProvider.urlRestaurantsMac);
+        logger.info("Page " + ConfigProvider.urlRestaurantsMac + " has been reached");
     }
-
 }
