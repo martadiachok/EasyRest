@@ -1,4 +1,4 @@
-package readProperties;
+package com.easyrest.config;
 
 import com.typesafe.config.Config; // бібліотека typesafe дозволяє через точку спускатися вниз по конфігурації
 import com.typesafe.config.ConfigFactory;
