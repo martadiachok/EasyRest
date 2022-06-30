@@ -38,7 +38,7 @@ public class LoginTest extends BaseTest {
         logger.info("SignIn button has been clicked.");
         Thread.sleep(5000);
 
-       Assert.assertEquals(ConfigProvider.urlRestaurantsMac, ConfigProvider.urlRestaurantsMac);
+        Assert.assertEquals(driver.getCurrentUrl(), ConfigProvider.urlRestaurantsWind);
         logger.info("Page " + ConfigProvider.urlRestaurantsMac + " has been reached");
     }
 }
