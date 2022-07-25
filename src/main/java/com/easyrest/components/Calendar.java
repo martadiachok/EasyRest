@@ -7,10 +7,11 @@ import org.openqa.selenium.WebElement;
 import java.util.List;
 
 public class Calendar {
-    protected WebDriver driver;
     public Calendar(WebDriver driver) {
         this.driver = driver;
     }
+    
+    protected WebDriver driver;
 
     private By chooseYearButton = By.xpath("//*[text()='2022']");
     private By yearList = By.xpath("//div[@role='button']");
