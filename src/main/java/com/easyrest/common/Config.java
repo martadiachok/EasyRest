@@ -1,4 +1,4 @@
-package common;
+package com.easyrest.common;
 
 public class Config {
 
