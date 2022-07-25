@@ -21,5 +21,7 @@ public interface ConfigProvider { // коли ми дістаємо щось з�
 
     String clientEmail = readConfig.getString("usersParams.client.email");
     String clientPassword = readConfig.getString("usersParams.client.password");
+    String loginPageUrlMac = readConfig.getString("URL.logInPageUrl.urlLoginMac");
+    String signUpPageUrlMac = readConfig.getString("URL.signUpPageUrl.signUpPageUrlMac");
 
 }
