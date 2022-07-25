@@ -13,7 +13,7 @@ public class WaiterPage {
 
     private By expandClient = By.xpath("//button[contains(@aria-label,'Show more')]");
     private By startOrder = By.xpath("//span[contains(.,'Start order')]");
-    private By closetOrder = By.xpath("//span[contains(.,'Close order')]");
+    private By closeOrder = By.xpath("//span[contains(.,'Close order')]");
     private By expandHistory = By.xpath("//button[contains(@aria-label,'Show more')]");
 
 }
