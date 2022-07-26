@@ -4,6 +4,8 @@ import com.easyrest.config.ConfigProvider;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import static com.easyrest.config.ConfigProvider.readConfig;
+
 
 public class SignInPage extends BasePage {
     public SignInPage(WebDriver driver) {
@@ -20,7 +22,8 @@ public class SignInPage extends BasePage {
      * General methods
      */
     public SignInPage goToSignInPage() {
-        driver.get(ConfigProvider.urlLoginMac);
+        // TODO: pass url as a parameter from test
+        openPage(ConfigProvider.loginPageUrlMac);
         return this;
     }
 
@@ -41,9 +44,9 @@ public class SignInPage extends BasePage {
      * Methods to find all fields, fill them with data and click 'signInButton'
      */
     public SignInPage loginValidUser(String userName, String password) {
-        driver.findElement(emailField).sendKeys(userName);
-        driver.findElement(passwordField).sendKeys(password);
-        driver.findElement(signInButton).click();
+        inputEmail(userName);
+        inputPassword(password);
+        clickSignIn();
         return new SignInPage(driver);
     }
 

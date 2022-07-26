@@ -3,8 +3,8 @@ package com.easyrest.pages;
 import com.easyrest.config.ConfigProvider;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-
 import com.easyrest.components.Calendar;
+import static com.easyrest.config.ConfigProvider.readConfig;
 
 public class SignUpPage extends BasePage {
     public SignUpPage(WebDriver driver) {
@@ -20,13 +20,13 @@ public class SignUpPage extends BasePage {
     private By createAccountButton = By.xpath("//span[text()='Create account']");
     private By signInInsteadButton = By.xpath("//span[text()='Sign in instead']");
     private By signInMenuButton = By.xpath("//span[text()='Sign In']");
-    Calendar calendar = new Calendar(driver);
+    private Calendar calendar;
 
     /**
      * General methods
      */
-    public SignUpPage goToSignInPage() {
-        driver.get(ConfigProvider.signUpPageUrlMac);
+    public SignUpPage goToSignUpPage() {
+        openPage(ConfigProvider.signUpPageUrlMac);
         return this;
     }
 
@@ -54,9 +54,9 @@ public class SignUpPage extends BasePage {
         return this;
     }
 
-    public void inputBirthDay(String year, String month, String date){
+    public Calendar clickOnBirthdayField() {
         driver.findElement(birthDateField).click();
-        calendar.inputDate(year, month, date);
+        return new Calendar(driver);
     }
 
     /**

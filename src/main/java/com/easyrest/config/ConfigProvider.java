@@ -10,18 +10,9 @@ public interface ConfigProvider {
         return ConfigFactory.load("properties.conf");
     }
 
-    String urlMac = readConfig.getString("urlHomePageMac");
-    String urlWind = readConfig.getString("urlHomePageWind");
-
-    String urlLoginMac = readConfig.getString("urlLoginMac");
-    String urlLoginWind = readConfig.getString("urlLoginWind");
-
-    String urlRestaurantsMac = readConfig.getString("urlRestaurantsMac");
-    String urlRestaurantsWind = readConfig.getString("urlRestaurantsWind");
-
     String clientEmail = readConfig.getString("usersParams.client.email");
     String clientPassword = readConfig.getString("usersParams.client.password");
-    String loginPageUrlMac = readConfig.getString("URL.logInPageUrl.urlLoginMac");
-    String signUpPageUrlMac = readConfig.getString("URL.signUpPageUrl.signUpPageUrlMac");
+    String loginPageUrlMac = readConfig.getString("url.logInPageUrl.urlLoginMac");
+    String signUpPageUrlMac = readConfig.getString("url.signUpPageUrl.signUpPageUrlMac");
 
 }

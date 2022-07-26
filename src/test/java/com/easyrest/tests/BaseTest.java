@@ -25,11 +25,6 @@ abstract public class BaseTest {
     protected ExtentTest test;
     protected ExtentSparkReporter spark;
 
-    // наслідники зможуть працювати з методами цих сторінок
-    protected BasePage basePage = new BasePage(driver);
-    protected SignInPage signInPage = new SignInPage(driver);
-    protected SignUpPage signUpPage = new SignUpPage(driver);
-
     /**
      * Initialization of webdriver and assigning the settings for the webdriver
      */
@@ -60,17 +55,13 @@ abstract public class BaseTest {
 
     @AfterTest
     public void tearDown() {
-        driver.close(); // закриває хром драйвер, драйвер відповідає за процес взаємодії з браузером
-        driver.quit(); // закриваємо браузер (хром)
+        // закриває хром драйвер, драйвер відповідає за процес взаємодії з браузером
+        driver.close();
+
+        // закриваємо браузер (хром)
+        driver.quit();
+
+        //indicates that test is done and will not be monitored anymore
         extent.flush();
     }
-
-    /* @AfterTest
-    public void clearCookiesAndLocalStorage() {
-        if(CLEAR_COOKIES_AND_STORAGE) {
-            JavascriptExecutor javascriptExecutor = (JavascriptExecutor) driver;
-            driver.manage().deleteAllCookies();
-            javascriptExecutor.executeScript("window.sessionStorage.clean()");
-        }
-    } */
 }
