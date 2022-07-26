@@ -3,11 +3,7 @@ package com.easyrest.pages;
 import com.easyrest.config.ConfigProvider;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.testng.annotations.Test;
 
-import java.time.Duration;
-import java.util.List;
 import com.easyrest.components.Calendar;
 
 public class SignUpPage extends BasePage {
@@ -59,8 +55,8 @@ public class SignUpPage extends BasePage {
     }
 
     public void inputBirthDay(String year, String month, String date){
-    driver.findElement(birthDateField).click();
-    calendar.inputDate(year, month, date);
+        driver.findElement(birthDateField).click();
+        calendar.inputDate(year, month, date);
     }
 
     /**

@@ -3,7 +3,7 @@ package com.easyrest.config;
 import com.typesafe.config.Config; // бібліотека typesafe дозволяє через точку спускатися вниз по конфігурації
 import com.typesafe.config.ConfigFactory;
 
-public interface ConfigProvider { // коли ми дістаємо щось звідкись правильно називати Provider
+public interface ConfigProvider {
     Config readConfig  = readConfig();
 
     static Config readConfig() {
