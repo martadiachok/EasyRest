@@ -17,8 +17,6 @@ public class Calendar {
     private By yearList = By.xpath("//div[@role='button']");
     private By monthName = By.xpath("//*[@class='MuiTypography-root-41 MuiTypography-body1-50 MuiTypography-alignCenter-64']");
     private By switchMonthLeftButton = By.xpath("/html/body/div[2]/div[2]/div/div[1]/div[2]/div[1]/button[1]");
-    // private final By switchMonthLeftButton = By.xpath("//*[@class='MuiButtonBase-root-105 MuiIconButton-root-337 MuiPickersCalendarHeader-iconButton-334']");
-
     private By switchMonthRightButton = By.xpath("/html/body/div[2]/div[2]/div/div[1]/div[2]/div[1]/button[2]");
     private By monthDates = By.xpath("//div[@role='presentation']");
     private By confirmFormButton = By.xpath("//span[text()='OK']");

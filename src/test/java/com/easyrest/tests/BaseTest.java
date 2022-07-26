@@ -1,9 +1,6 @@
 package com.easyrest.tests;
 
 import com.easyrest.constants.Constants;
-import com.easyrest.pages.BasePage;
-import com.easyrest.pages.SignInPage;
-import com.easyrest.pages.SignUpPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
