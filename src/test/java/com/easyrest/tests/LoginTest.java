@@ -3,6 +3,7 @@ package com.easyrest.tests;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.easyrest.config.ConfigProvider;
+import com.easyrest.pages.ModeratorPanel;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
@@ -42,6 +43,8 @@ public class LoginTest extends BaseTest {
 
         Assert.assertEquals(driver.getCurrentUrl(), ConfigProvider.urlRestaurantsMac);
         test.info("Page " + ConfigProvider.urlRestaurantsMac + " has been reached");
+
+
 
     }
 }
