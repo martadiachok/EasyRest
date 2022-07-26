@@ -20,7 +20,6 @@ public class SignUpPage extends BasePage {
     private By createAccountButton = By.xpath("//span[text()='Create account']");
     private By signInInsteadButton = By.xpath("//span[text()='Sign in instead']");
     private By signInMenuButton = By.xpath("//span[text()='Sign In']");
-    private Calendar calendar;
 
     /**
      * General methods
