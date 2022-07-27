@@ -126,7 +126,6 @@ public class AdminPanel extends BasePage {
         String userName = getFirstNameFromClient();
         clickToBanFirstClient();
         checkIfClientMovedToBannedList(userName);
-
         return this;
     }
 
@@ -135,7 +134,6 @@ public class AdminPanel extends BasePage {
         String userName = getFirstNameFromClient();
         clickToMakeFirstClientActive();
         checkIfClientMovedToActiveList(userName);
-
         return this;
     }
 
@@ -164,7 +162,6 @@ public class AdminPanel extends BasePage {
         String userName = getFirstNameFromClient();
         clickToBanFirstClient();
         checkIfClientMovedToBannedList(userName);
-
         return this;
     }
 
@@ -173,7 +170,6 @@ public class AdminPanel extends BasePage {
         String userName = getFirstNameFromClient();
         clickToMakeFirstClientActive();
         checkIfClientMovedToActiveList(userName);
-
         return this;
     }
 
@@ -202,7 +198,6 @@ public class AdminPanel extends BasePage {
         String userName = getFirstNameFromClient();
         clickToBanFirstClient();
         checkIfClientMovedToBannedList(userName);
-
         return this;
     }
 
@@ -211,7 +206,6 @@ public class AdminPanel extends BasePage {
         String userName = getFirstNameFromClient();
         clickToMakeFirstClientActive();
         checkIfClientMovedToActiveList(userName);
-
         return this;
     }
 
