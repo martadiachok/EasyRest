@@ -126,7 +126,7 @@ public class RestaurantsList extends BasePage {
     public RestaurantsList clickOnButtonWatchMenu(){
 
         driver.findElement(watchMenuButton).click();
-        return new RestaurantsList(driver);
+        return new MenuPage(driver);
     }
     public RestaurantsList clickOnButtonDetails(){
 
