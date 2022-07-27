@@ -11,9 +11,7 @@ public class AdminPanel extends BasePage {
     public AdminPanel(WebDriver driver) {
         super(driver);
     }
-
-    private By AdminPanelButton = By.xpath("//a[@href = '/admin']");
-    private By LogOutButton = By.xpath("//*[text()='Log Out']");
+    
     private By usersButton = By.xpath("//span[text()='Users']");
     private By ownersButton = By.xpath("//a[@href = '/admin/owners']");
     private By moderatorsButton = By.xpath("//a[@href = '/admin/moderators']");
@@ -34,7 +32,7 @@ public class AdminPanel extends BasePage {
     private By birthDateField = By.xpath("//input[@name='birthDate']");
     private By passwordField = By.xpath("//input[@name='password']");
     private By confirmPasswordField = By.xpath("//input[@name='repeated_password']");
-    private By createAccountButtonField = By.xpath("//span[text()='Create account']");
+    private By createAccountButton = By.xpath("//span[text()='Create account']");
     private By cancelButton = By.xpath("//span[text()='Cancel']");
 
     /**
@@ -247,18 +245,26 @@ public class AdminPanel extends BasePage {
         return this;
     }
 
-    public AdminPanel clickOnBirthdayField() {
+    public Calendar clickOnBirthdayField() {
         driver.findElement(birthDateField).click();
         return new Calendar(driver);
     }
 
+    public void clickCreateAccount() {
+        driver.findElement(createAccountButton).click();
+    }
 
-
+    public void clickCancelButton() {
+        driver.findElement(cancelButton).click();
+    }
 
     /**
      * Methods to deal with restaurants
      */
 
-
+    public AdminPanel clickRestaurants(){
+        driver.findElement(restaurantsButton).click();
+        return this;
+    }
 
 }
