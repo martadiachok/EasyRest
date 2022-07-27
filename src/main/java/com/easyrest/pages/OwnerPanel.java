@@ -21,30 +21,7 @@ public class OwnerPanel extends BasePage {
     By updateInfoRestButton = By.xpath("//span [text() = 'Update']");
 
     By menuesMenuButton = By.xpath("//span [text() = 'Menues']");
-    By createMenuSubMenuButton = By.xpath("//span [text() = 'Create menu']");
-    By menuNameField = By.xpath("//input [@name = 'menuName']");
-    //Find first element 'Next' (Create Metod-)
-    By nextButton = By.xpath("//span [text() = 'Next']");
-    //
-    By typeMenuButton = By.xpath("//input [@value = 'list']");
-    By addPhotoDishButton = By.xpath("//label [@for='add-item']");
-    By nameDishField = By.xpath("//textarea[@name ='name']");
-    By descriptionDishField = By.xpath("//textarea[@name ='description']");
-    By ingredientsDishField = By.xpath("//textarea[@name ='ingredients']");
-    By valueDishField = By.xpath("//input[@name ='amount']");
-    By priceDishField = By.xpath("//input[@name ='price']");
-    By categoryDishMenu = By.xpath("//select [@name ='category']");
-    By soupCategory = By.xpath("//option [@value ='1']");
-    By coctailsCategory = By.xpath("//option [@value ='2']");
-    By salatsCategory = By.xpath("//option [@value ='3']");
-    By withBeerCategory = By.xpath("//option [@value ='4']");
-    By hotCategory = By.xpath("//option [@value ='5']");
-    By pizzaCategory = By.xpath("//option [@value ='6']");
-    By meatCategory = By.xpath("//option [@value ='7']");
-    By pastaCategory = By.xpath("//option [@value ='8']");
-    By bakeryCategory = By.xpath("//option [@value ='9']");
-    By hardLiquerCategory = By.xpath("//option [@value ='10']");
-    By finishButton = By.xpath("//span[text()='Finish']");
+
 
     By waitersMenuButton = By.xpath("//span[text()='Waiters']");
     By addWaiterButton = By.xpath("//button[@title='Add Waiter']");
@@ -149,118 +126,7 @@ public class OwnerPanel extends BasePage {
         return new OwnerPanel(driver);
     }
 
-    public OwnerPanel clickOnMenuButtonCreateMenu(){
 
-        driver.findElement(createMenuSubMenuButton).click();
-        return new OwnerPanel(driver);
-    }
-    public OwnerPanel sendToFieldMenuName(){
-
-        driver.findElement(menuNameField).sendKeys();
-        return new OwnerPanel(driver);
-    }
-    //
-
-    /**
-     *
-     * @metodFor"NextButton"
-     */
-    //
-    public OwnerPanel clickOnButtonTypeMenu(){
-
-        driver.findElement(typeMenuButton).click();
-        return new OwnerPanel(driver);
-    }
-    public OwnerPanel clickOnButtonAddPhotoDish(){
-
-        driver.findElement(addPhotoDishButton).click();
-        return new OwnerPanel(driver);
-    }
-    public OwnerPanel sendToFieldNameDish(){
-
-        driver.findElement(nameDishField).sendKeys();
-        return new OwnerPanel(driver);
-    }
-    public OwnerPanel sendToFieldDescriptionDish(){
-
-        driver.findElement(descriptionDishField).sendKeys();
-        return new OwnerPanel(driver);
-    }
-    public OwnerPanel sendToFieldIngredientsDish(){
-
-        driver.findElement(ingredientsDishField).sendKeys();
-        return new OwnerPanel(driver);
-    }
-    public OwnerPanel sendToFieldValueDish(){
-
-        driver.findElement(valueDishField).sendKeys();
-        return new OwnerPanel(driver);
-    }
-    public OwnerPanel sendToFieldPriceDish(){
-
-        driver.findElement(priceDishField).sendKeys();
-        return new OwnerPanel(driver);
-    }
-    public OwnerPanel clickOnMenuCategoryDish(){
-
-        driver.findElement(categoryDishMenu).click();
-        return new OwnerPanel(driver);
-    }
-    public OwnerPanel clickOnCategorySoup(){
-
-        driver.findElement(soupCategory).click();
-        return new OwnerPanel(driver);
-    }
-    public OwnerPanel clickOnCategoryCoctails(){
-
-        driver.findElement(coctailsCategory).click();
-        return new OwnerPanel(driver);
-    }
-    public OwnerPanel clickOnCategorySalats(){
-
-        driver.findElement(salatsCategory).click();
-        return new OwnerPanel(driver);
-    }
-    public OwnerPanel clickOnCategoryWithBeer(){
-
-        driver.findElement(withBeerCategory).click();
-        return new OwnerPanel(driver);
-    }
-    public OwnerPanel clickOnCategoryHot(){
-
-        driver.findElement(hotCategory).click();
-        return new OwnerPanel(driver);
-    }
-    public OwnerPanel clickOnCategoryPizza(){
-
-        driver.findElement(pizzaCategory).click();
-        return new OwnerPanel(driver);
-    }
-    public OwnerPanel clickOnCategoryMeat(){
-
-        driver.findElement(meatCategory).click();
-        return new OwnerPanel(driver);
-    }
-    public OwnerPanel clickOnCategoryPasta(){
-
-        driver.findElement(pastaCategory).click();
-        return new OwnerPanel(driver);
-    }
-    public OwnerPanel clickOnCategoryBakery(){
-
-        driver.findElement(bakeryCategory).click();
-        return new OwnerPanel(driver);
-    }
-    public OwnerPanel clickOnCategoryHardLiquer(){
-
-        driver.findElement(hardLiquerCategory).click();
-        return new OwnerPanel(driver);
-    }
-    public OwnerPanel clickOnButtonFinish(){
-
-        driver.findElement(finishButton).click();
-        return new OwnerPanel(driver);
-    }
 
 
 

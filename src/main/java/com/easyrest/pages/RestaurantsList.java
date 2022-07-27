@@ -50,12 +50,12 @@ public class RestaurantsList extends BasePage {
     public RestaurantsList clickOnMenuItemSignIn(){
 
         driver.findElement(signInMenuItem).click();
-        return new RestaurantsList(driver);
+        return new SignInPage(driver);
     }
     public RestaurantsList clickOnMenuItemSignUp(){
 
         driver.findElement(signUpMenuItem).click();
-        return new RestaurantsList(driver);
+        return new SignUpPage(driver);
     }
 
     public RestaurantsList clickOnMenuItemViewAll(){
