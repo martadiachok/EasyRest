@@ -59,18 +59,23 @@ public class AdminPanel extends BasePage {
         return this;
     }
 
-    public AdminPanel checkIfActiveUserMovedToBan() {
+    public WebElement checkActiveUserName() {
         clickActiveUsers();
-        List<WebElement> activeUsersName = driver.findElements(userName);
-        WebElement nameFromList = activeUsersName.get(0);
-        String bannedUser = nameFromList.getText();
-        clickBannedUsers();
-        List<WebElement> BannedUsersName = driver.findElements(userName);
-        for (WebElement BannedUsersNames : BannedUsersName) {
-            if(BannedUsersNames.)
-        }
+        List<WebElement> activeUserName = driver.findElements(userName);
+        WebElement firstNameFromList = activeUserName.get(0);
+        firstNameFromList.getText();
+        return firstNameFromList;
+    }
 
-        return this;
+    public boolean checkIfActiveUserMovedToBan(WebElement firstNameFromList) {
+        clickBannedUsers();
+        List<WebElement> bannedUsersName = driver.findElements(userName);
+        boolean isUserInBannedList = true;
+        for (WebElement bannedUsersNames : bannedUsersName) {
+            if(bannedUsersNames == firstNameFromList){
+            }
+        }
+        return isUserInBannedList;
     }
 
     public AdminPanel removeBanFromBannedUser(){
