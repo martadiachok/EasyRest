@@ -1,12 +1,7 @@
 package com.easyrest.tests;
 
 import com.aventstack.extentreports.ExtentReports;
-import com.aventstack.extentreports.reporter.ExtentSparkReporter;
-import com.easyrest.config.ConfigProvider;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.testng.Assert;
-import org.testng.ITestResult;
+import com.easyrest.pages.SignUpPage;
 import org.testng.annotations.Test;
 
 
@@ -19,7 +14,16 @@ public class LoginTest extends BaseTest {
         //ExtentSparkReporter spark = new ExtentSparkReporter("src/test/Reports/loginTest_28.06.2022");
         //extent.attachReporter(spark);
 
-        String clientEmail = ConfigProvider.clientEmail;
+        SignUpPage page = new SignUpPage(driver);
+
+        page.goToSignUpPage();
+
+        page.clickOnBirthdayField().inputDate("2012", "July", "7");
+
+        Thread.sleep(3000);
+
+
+/*        String clientEmail = ConfigProvider.clientEmail;
         String clientPassword = ConfigProvider.clientPassword;
 
         driver.get(ConfigProvider.urlLoginMac);
@@ -41,7 +45,6 @@ public class LoginTest extends BaseTest {
         Thread.sleep(5000);
 
         Assert.assertEquals(driver.getCurrentUrl(), ConfigProvider.urlRestaurantsMac);
-        test.info("Page " + ConfigProvider.urlRestaurantsMac + " has been reached");
-
+        test.info("Page " + ConfigProvider.urlRestaurantsMac + " has been reached");  */
     }
 }
