@@ -7,33 +7,33 @@ import java.util.List;
 import com.easyrest.components.Calendar;
 
 public class AdminPanel extends BasePage {
-
-    public AdminPanel(WebDriver driver) {
-        super(driver);
-    }
     
-    private By usersButton = By.xpath("//span[text()='Users']");
-    private By ownersButton = By.xpath("//a[@href = '/admin/owners']");
-    private By moderatorsButton = By.xpath("//a[@href = '/admin/moderators']");
-    private By restaurantsButton = By.xpath("//a[@href = '/admin/restaurants']");
-    private By allButton = By.xpath("//span[contains(text(),'All')]");
-    private By activeButton = By.xpath("//span[contains(text(),'Active')]");
-    private By bannedButton = By.xpath("//span[contains(text(),'Banned')]");
-    private By actionButton = By.cssSelector("td:nth-child(6)");
-    private By usersName = By.cssSelector("th:nth-child(1)");
-    private By addModeratorButton = By.xpath("//span[text()='Add moderator']");
+    private final By usersButton = By.xpath("//span[text()='Users']");
+    private final By ownersButton = By.xpath("//a[@href = '/admin/owners']");
+    private final By moderatorsButton = By.xpath("//a[@href = '/admin/moderators']");
+    private final By restaurantsButton = By.xpath("//a[@href = '/admin/restaurants']");
+    private final By allButton = By.xpath("//span[contains(text(),'All')]");
+    private final By activeButton = By.xpath("//span[contains(text(),'Active')]");
+    private final By bannedButton = By.xpath("//span[contains(text(),'Banned')]");
+    private final By actionButton = By.cssSelector("td:nth-child(6)");
+    private final By usersName = By.cssSelector("th:nth-child(1)");
+    private final By addModeratorButton = By.xpath("//span[text()='Add moderator']");
 
     /**
      *  "CREATE MODERATOR ACCOUNT" FORM LOCATORS
      */
-    private By nameField = By.xpath("//input[@name='name']");
-    private By emailField = By.xpath("//input[@name='email']");
-    private By phoneNumberField = By.xpath("//input[@name='phoneNumber']");
-    private By birthDateField = By.xpath("//input[@name='birthDate']");
-    private By passwordField = By.xpath("//input[@name='password']");
-    private By confirmPasswordField = By.xpath("//input[@name='repeated_password']");
-    private By createAccountButton = By.xpath("//span[text()='Create account']");
-    private By cancelButton = By.xpath("//span[text()='Cancel']");
+    private final By nameField = By.xpath("//input[@name='name']");
+    private final By emailField = By.xpath("//input[@name='email']");
+    private final By phoneNumberField = By.xpath("//input[@name='phoneNumber']");
+    private final By birthDateField = By.xpath("//input[@name='birthDate']");
+    private final By passwordField = By.xpath("//input[@name='password']");
+    private final By confirmPasswordField = By.xpath("//input[@name='repeated_password']");
+    private final By createAccountButton = By.xpath("//span[text()='Create account']");
+    private final By cancelButton = By.xpath("//span[text()='Cancel']");
+
+    public AdminPanel(WebDriver driver) {
+        super(driver);
+    }
 
     /**
      * General methods to deal with all type of users.
