@@ -8,15 +8,16 @@ import static com.easyrest.config.ConfigProvider.readConfig;
 
 
 public class SignInPage extends BasePage {
+
+    private final By emailField = By.xpath("//input[@name='email']");
+    private final By passwordField = By.xpath("//input[@name='password']");
+    private final By signInButton = By.xpath("//span[text()='Sign In']");
+    private final By createAccountButton = By.xpath("//span[text()='Create account']");
+    private final By signUpMenuButton = By.xpath("//span[text()='Sign Up']");
+
     public SignInPage(WebDriver driver) {
         super(driver);
     }
-
-    private By emailField = By.xpath("//input[@name='email']");
-    private By passwordField = By.xpath("//input[@name='password']");
-    private By signInButton = By.xpath("//span[text()='Sign In']");
-    private By createAccountButton = By.xpath("//span[text()='Create account']");
-    private By signUpMenuButton = By.xpath("//span[text()='Sign Up']");
 
     /**
      * General methods

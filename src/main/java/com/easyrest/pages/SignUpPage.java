@@ -7,19 +7,20 @@ import com.easyrest.components.Calendar;
 import static com.easyrest.config.ConfigProvider.readConfig;
 
 public class SignUpPage extends BasePage {
+
+    private final By nameField = By.xpath("//input[@name='name']");
+    private final By emailField = By.xpath("//input[@name='email']");
+    private final By phoneNumberField = By.xpath("//input[@name='phoneNumber']");
+    private final By birthDateField = By.xpath("//input[@name='birthDate']");
+    private final By passwordField = By.xpath("//input[@name='password']");
+    private final By confirmPasswordField = By.xpath("//input[@name='repeated_password']");
+    private final By createAccountButton = By.xpath("//span[text()='Create account']");
+    private final By signInInsteadButton = By.xpath("//span[text()='Sign in instead']");
+    private final By signInMenuButton = By.xpath("//span[text()='Sign In']");
+
     public SignUpPage(WebDriver driver) {
         super(driver);
     }
-
-    private By nameField = By.xpath("//input[@name='name']");
-    private By emailField = By.xpath("//input[@name='email']");
-    private By phoneNumberField = By.xpath("//input[@name='phoneNumber']");
-    private By birthDateField = By.xpath("//input[@name='birthDate']");
-    private By passwordField = By.xpath("//input[@name='password']");
-    private By confirmPasswordField = By.xpath("//input[@name='repeated_password']");
-    private By createAccountButton = By.xpath("//span[text()='Create account']");
-    private By signInInsteadButton = By.xpath("//span[text()='Sign in instead']");
-    private By signInMenuButton = By.xpath("//span[text()='Sign In']");
 
     /**
      * General methods
