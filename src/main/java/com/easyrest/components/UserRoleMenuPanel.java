@@ -12,7 +12,7 @@ public class UserRoleMenuPanel {
 
     public UserRoleMenuPanel(WebDriver driver) { this.driver = driver; }
 
-    public UserRoleMenuPanel clickOnUserProfileIcon(){
+    private UserRoleMenuPanel clickOnUserProfileIcon(){
         driver.findElement(userProfileIcon).click();
         return new UserRoleMenuPanel(driver);
     }
