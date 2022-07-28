@@ -25,7 +25,9 @@ public class LoginTest extends BaseTest {
 
 /*        String clientEmail = ConfigProvider.clientEmail;
         String clientPassword = ConfigProvider.clientPassword;
+
         driver.get(ConfigProvider.urlLoginMac);
+
         WebElement inputEmail = driver.findElement(By.xpath("/html/body/div/main/div/div[2]/form/div/div[1]/div/div/input"));
         inputEmail.clear();
         inputEmail.sendKeys(clientEmail);
@@ -36,10 +38,12 @@ public class LoginTest extends BaseTest {
         inputPassword.sendKeys(clientPassword);
         test.info("Password has been entered.");
         Thread.sleep(2000);
+
         WebElement buttonSignIn = driver.findElement(By.xpath("/html/body/div/main/div/div[2]/form/div/div[3]/div/button/span[1]"));
         buttonSignIn.click();
         test.info("SignIn button has been clicked.");
         Thread.sleep(5000);
+
         Assert.assertEquals(driver.getCurrentUrl(), ConfigProvider.urlRestaurantsMac);
         test.info("Page " + ConfigProvider.urlRestaurantsMac + " has been reached");  */
     }
