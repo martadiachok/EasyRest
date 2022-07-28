@@ -23,7 +23,7 @@ public class SignInPage extends BasePage {
      */
     public SignInPage goToSignInPage() {
         // TODO: pass url as a parameter from test
-        openPage(ConfigProvider.loginPageUrlMac);
+        openPage(ConfigProvider.logInPageUrl);
         return this;
     }
 
