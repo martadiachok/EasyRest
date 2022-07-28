@@ -50,13 +50,13 @@ public class RestaurantsList extends BasePage {
         return new RestaurantsList(driver);
     }
 
-    public RestaurantsList clickOnMenuItemSignIn() {
+    public SignInPage clickOnMenuItemSignIn() {
 
         driver.findElement(signInMenuItem).click();
         return new SignInPage(driver);
     }
 
-    public RestaurantsList clickOnMenuItemSignUp() {
+    public SignUpPage clickOnMenuItemSignUp() {
 
         driver.findElement(signUpMenuItem).click();
         return new SignUpPage(driver);
@@ -140,7 +140,7 @@ public class RestaurantsList extends BasePage {
         return new RestaurantsList(driver);
     }
 
-    public RestaurantsList clickOnButtonWatchMenu() {
+    public MenuPage clickOnButtonWatchMenu() {
 
         driver.findElement(watchMenuButton).click();
         return new MenuPage(driver);

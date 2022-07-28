@@ -6,7 +6,6 @@ import org.openqa.selenium.WebDriver;
 
 public class ModeratorPanel extends BasePage {
 
-
     private final By restaurantsListMenuItem = By.xpath("//span [text()='Restaurants List']");
     private final By homeMenuItem = By.xpath("//span [text() = 'Home']");
     private final By easyRestMenuItem = By.xpath("//a [text() = 'Easy-rest']");
