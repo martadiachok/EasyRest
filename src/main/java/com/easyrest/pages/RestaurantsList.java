@@ -151,4 +151,5 @@ public class RestaurantsList extends BasePage {
         driver.findElement(DetailsButton).click();
         return new RestaurantsList(driver);
     }
+
 }

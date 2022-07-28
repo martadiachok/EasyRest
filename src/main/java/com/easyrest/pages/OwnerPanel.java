@@ -1,6 +1,7 @@
 package com.easyrest.pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 
 public class OwnerPanel extends BasePage {
@@ -57,6 +58,12 @@ public class OwnerPanel extends BasePage {
 
     public OwnerPanel(WebDriver driver) {
         super(driver);
+    }
+
+    private OwnerPanel clearAndFillInput(By element, String text) {
+        driver.findElement(element).clear();
+        driver.findElement(element).sendKeys(text);
+        return new OwnerPanel(driver);
     }
 
     public OwnerPanel clickOnMenuItemUser() {
@@ -146,49 +153,42 @@ public class OwnerPanel extends BasePage {
         return new OwnerPanel(driver);
     }
 
-
     public OwnerPanel sendToFieldName(String name) {
-        driver.findElement(nameField).clear();
-        driver.findElement(nameField).sendKeys(name);
+        clearAndFillInput(mailField, name);
         return new OwnerPanel(driver);
     }
 
     public OwnerPanel sendToFieldMail(String email) {
-        driver.findElement(mailField).clear();
-        driver.findElement(mailField).sendKeys(email);
+        clearAndFillInput(mailField, email);
         return new OwnerPanel(driver);
     }
 
+
     public OwnerPanel sendToFieldPassword(String password) {
-        driver.findElement(passwordField).clear();
-        driver.findElement(passwordField).sendKeys(password);
+        clearAndFillInput(passwordField, password);
         return new OwnerPanel(driver);
     }
 
     public OwnerPanel sendToFieldPhone(String phone) {
-        driver.findElement(phoneField).clear();
-        driver.findElement(phoneField).sendKeys(phone);
+        clearAndFillInput(phoneField, phone);
         return new OwnerPanel(driver);
     }
 
     public OwnerPanel sendToFieldRestaurantAddress(String addressRest) {
-        driver.findElement(restaurantAddressField).clear();
-        driver.findElement(restaurantAddressField).sendKeys(addressRest);
+        clearAndFillInput(restaurantAddressField, addressRest);
         return new OwnerPanel(driver);
     }
 
+
     public OwnerPanel sendToFieldRestaurantPhone(String phoneRest) {
-        driver.findElement(restaurantPhoneField).clear();
-        driver.findElement(restaurantPhoneField).sendKeys(phoneRest);
+        clearAndFillInput(restaurantPhoneField, phoneRest);
         return new OwnerPanel(driver);
     }
 
     public OwnerPanel sendToFieldRestaurantPreviewText(String previewText) {
-        driver.findElement(restaurantPreviewTextField).clear();
-        driver.findElement(restaurantPreviewTextField).sendKeys(previewText);
+        clearAndFillInput(restaurantPreviewTextField, previewText);
         return new OwnerPanel(driver);
     }
-
 
     public OwnerPanel clickOnTagsMenuRestaurant() {
 
@@ -274,10 +274,8 @@ public class OwnerPanel extends BasePage {
         return new OwnerPanel(driver);
     }
 
-
     public OwnerPanel sendToFieldRestaurantDescription(String descriptionRest) {
-        driver.findElement(restaurantDescriptionField).clear();
-        driver.findElement(restaurantDescriptionField).sendKeys(descriptionRest);
+        clearAndFillInput(restaurantDescriptionField, descriptionRest);
         return new OwnerPanel(driver);
     }
 
@@ -286,7 +284,6 @@ public class OwnerPanel extends BasePage {
         driver.findElement(addButton).click();
         return new OwnerPanel(driver);
     }
-
 
     public OwnerPanel clickOnButtonDeleteWaiter() {
 
@@ -311,5 +308,4 @@ public class OwnerPanel extends BasePage {
         driver.findElement(deleteAdministratorButton).click();
         return new OwnerPanel(driver);
     }
-
 }

@@ -1,5 +1,7 @@
 package com.easyrest.pages;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -24,8 +26,8 @@ public class BasePage {
         new WebDriverWait(driver, Duration.ofSeconds(EXPLICIT_WAIT)).until(ExpectedConditions.visibilityOf(element));
         return element;
     }
-
-
-
-
+    
+    public void clearWithKeysAndFillInput(By element, String text) {
+        driver.findElement(element).sendKeys(Keys.chord(Keys.CONTROL, "a"), text);
+    }
 }
