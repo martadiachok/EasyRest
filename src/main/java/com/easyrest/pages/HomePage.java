@@ -5,9 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
     public class HomePage extends BasePage{
-        public HomePage(WebDriver driver) {
-            super(driver);
-        }
+
 
         private final By home = By.xpath("//*[text() = 'Home']");
         private final By viewAll = By.xpath("//*[text() =  'View All']");
@@ -25,6 +23,10 @@ import org.openqa.selenium.WebDriver;
         private final By turkishCuisine = By.xpath("//*[@href =  '/restaurants?tag=turkish cuisine']");
 
         private final By restaurantsList = By.xpath("//*[@href =  '/restaurants']");
+
+        public HomePage(WebDriver driver) {
+            super(driver);
+        }
 
         public RestaurantsList clickViewAllButton(){
             driver.findElement(viewAll).click();

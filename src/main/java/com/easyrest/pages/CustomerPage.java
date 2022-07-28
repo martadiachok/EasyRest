@@ -8,9 +8,6 @@ import java.util.List;
 
 public class CustomerPage extends BasePage {
 
-    public CustomerPage(WebDriver driver) {
-        super(driver);
-    }
     private final By accountButton = By.xpath("//button[@aria-haspopup='true']//child::div");
     //button from drop-down list in the account sign
     private final By myRestaurantsAccount = By.xpath("//ul[@role='menu']//child::a");
@@ -36,6 +33,10 @@ public class CustomerPage extends BasePage {
     private final By orderDetailsForConfirm = By.xpath("//div[@role = 'button']");
     private final By decline = By.xpath("//*[text() =  'Decline']");
 
+
+    public CustomerPage(WebDriver driver) {
+        super(driver);
+    }
 
     public CustomerPage seePersonalInfo() {
         driver.findElement(personalInfo).click();
