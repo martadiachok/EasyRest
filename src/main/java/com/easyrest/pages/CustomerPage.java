@@ -97,9 +97,9 @@ public class CustomerPage extends BasePage {
         return new CustomerPage(driver);
     }
 
-    public CustomerPage logOut() {
+    public SignInPage logOut() {
         driver.findElement(logOut).click();
-        return new CustomerPage(driver);
+        return new SignInPage(driver);
     }
 
     public CustomerPage clickAddRestaurantPlusButton() {
