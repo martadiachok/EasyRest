@@ -12,13 +12,13 @@ public class WaiterTest extends BaseTest {
     public void verifyOrderExist() {
 
         //Given
-        //ToDo Add sing in
+        // ToDo Add sing in
         WaiterPage page = new WaiterPage(driver);
 
         //When
-        page.getAllOrders();
+        Integer orderNumber = page.startRandomOrder();
 
         //Then
-        assertTrue(page.verifyOrderExist(14));
+        assertTrue(page.verifyOrderMovedToInProgress(orderNumber));
     }
 }
