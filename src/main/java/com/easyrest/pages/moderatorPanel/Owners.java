@@ -1,5 +1,4 @@
 package com.easyrest.pages.moderatorPanel;
-package com.easyrest.pages.adminPanel;
 
 import com.easyrest.components.admin.ActionOnUser;
 import com.easyrest.components.moderator.LeftSideMenu;
@@ -11,9 +10,11 @@ public class Owners extends BasePage {
     LeftSideMenu leftSideMenu = new LeftSideMenu(driver);
     ActionOnUser actionOnOwner = new ActionOnUser(driver);
 
-    public Owners(WebDriver driver) { super(driver); }
+    public Owners(WebDriver driver) {
+        super(driver);
+    }
 
-    public Owners clickActiveOwners(){
+    public Owners clickActiveOwners() {
         leftSideMenu.clickOnMenuButtonOwners();
         actionOnOwner.clickActiveButton();
         return this;
@@ -25,7 +26,7 @@ public class Owners extends BasePage {
         return this;
     }
 
-    public Owners banOwners(){
+    public Owners banOwners() {
         clickActiveOwners();
         String userName = actionOnOwner.getFirstNameFromClient();
         actionOnOwner.clickToBanFirstClient();
@@ -33,7 +34,7 @@ public class Owners extends BasePage {
         return this;
     }
 
-    public Owners makeOwnersActive(){
+    public Owners makeOwnersActive() {
         clickBannedOwners();
         String userName = actionOnOwner.getFirstNameFromClient();
         actionOnOwner.clickToMakeFirstClientActive();
