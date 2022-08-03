@@ -14,7 +14,7 @@ import java.util.List;
 
 public class TestTimePicker extends BaseTest {
 
-    private final By hours = By.xpath("//div[contains(@class,'MuiPickersTimePicker-hourMinuteLabel')]/h2[1]");
+    private final By hours = By.xpath("//span[contains(@class,'MuiPickersClockNumber-clockNumber')]");
 
     @Test
     public void test() {
@@ -31,9 +31,10 @@ public class TestTimePicker extends BaseTest {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.findElement(By.xpath("//*[@aria-label='Show cart']")).click();
     driver.findElement(By.xpath("//span[text()='Submit order']")).click();
-    driver.findElement(By.xpath("//*[text()='Time picker']"));
+    driver.findElement(By.xpath("//*[text()='Time picker']/..")).click();
 
     List<WebElement> hoursList = driver.findElements(hours);
+    hoursList.get(2).click();
 
     }
 
