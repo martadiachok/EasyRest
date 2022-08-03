@@ -16,12 +16,14 @@ public class UserRoleMenuPanel {
 
     public void clickOnUserPanel() {
         header.clickOnUserProfileIcon();
-        driver.findElement(userPanelButton).click();
+        driver.findElement(userPanelButton)
+                .click();
     }
 
     public void clickOnLogOut() {
         header.clickOnUserProfileIcon();
-        driver.findElement(logOutButton).click();
+        driver.findElement(logOutButton)
+                .click();
     }
 
 }

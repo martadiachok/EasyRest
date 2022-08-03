@@ -15,19 +15,23 @@ public class Header {
     public Header(WebDriver driver) { this.driver = driver; }
 
     protected void clickOnUserProfileIcon(){
-        driver.findElement(userProfileIcon).click();
+        driver.findElement(userProfileIcon)
+                .click();
     }
 
     private void clickOnRestaurantList(){
-        driver.findElement(restaurantListButton);
+        driver.findElement(restaurantListButton)
+                .click();
     }
 
     private void clickOnHome(){
-        driver.findElement(homeButton);
+        driver.findElement(homeButton)
+                .click();
     }
 
     private void clickOnLogo(){
-        driver.findElement(logo);
+        driver.findElement(logo)
+                .click();
     }
 
 }
