@@ -1,36 +1,38 @@
 package com.easyrest.tests;
 
+import com.easyrest.constants.Constants;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.ITestListener;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
-
 import java.io.IOException;
 import java.time.Duration;
-import java.util.concurrent.TimeUnit;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import java.io.File;
 
 abstract public class BaseTest {
-    public WebDriver driver;
-    public ExtentReports extent;
-    public ExtentSparkReporter spark;
-    public ExtentTest test;
+    protected WebDriver driver;
+    protected ExtentReports extent;
+    protected ExtentTest test;
+    protected ExtentSparkReporter spark;
 
+    /**
+     * Initialization of webdriver and assigning the settings for the webdriver
+     */
     @BeforeTest
     public void setUp() {
+        // method setup() - download webdriver and show path to it
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(20));
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(25));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(Constants.TimeoutVariable.IMPLICIT_WAIT));
         String reportPath = System.getProperty("user.dir") + "\\reports\\index.html";
         // Create object of ExtentSparkReporter class and set up address for report saving
         spark = new ExtentSparkReporter(reportPath);
@@ -50,8 +52,12 @@ abstract public class BaseTest {
 
     @AfterTest
     public void tearDown() {
+        // закриває хром драйвер, драйвер відповідає за процес взаємодії з браузером
         driver.close();
+
+        // закриваємо браузер (хром)
         driver.quit();
+
         //indicates that test is done and will not be monitored anymore
         extent.flush();
     }
