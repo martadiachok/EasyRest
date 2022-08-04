@@ -15,6 +15,8 @@ import java.util.List;
 public class TestTimePicker extends BaseTest {
 
     private final By hours = By.xpath("//span[contains(@class,'MuiPickersClockNumber-clockNumber')]");
+    private final By hour = By.xpath("//h2[contains (@class, 'MuiPickersToolbarButton')][1]");
+    private final By minute = By.xpath("//h2[contains (@class, 'MuiPickersToolbarButton')][3]");
 
     @Test
     public void test() {
@@ -34,7 +36,11 @@ public class TestTimePicker extends BaseTest {
     driver.findElement(By.xpath("//*[text()='Time picker']/..")).click();
 
     List<WebElement> hoursList = driver.findElements(hours);
-    hoursList.get(2).click();
+    //hoursList.get(2).click();
+
+        for(int i = 0; i < hoursList.size(); i++){
+            System.out.println(hoursList.get(i).getText());
+        }
 
     }
 
