@@ -2,128 +2,97 @@ package com.easyrest.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-
-import java.util.List;
-import java.util.Objects;
-
-import static java.util.Objects.nonNull;
 
 public class WaiterPage extends BasePage {
 
-    private By userMenu = By.xpath("//div[contains(@class,'UserMenu-root')]//button");
-    private By waiterPanel = By.xpath("//ul/a");
+    private final By logo = By.xpath("//a[text()='Easy-rest']");
+    private final By home = By.xpath("//span[contains(.,'Home')]");
+    private final By restaurantList = By.xpath("//span[contains(.,'Restaurants List')]");
+    private final By userMenu = By.xpath("//div[contains(@class,'UserMenu-root')]//button");
 
-    private By allOrdersTab = By.xpath("//span[contains(.,'All')]");
-    private By assignedWaitersTab = By.xpath("//span[contains(.,'Assigned waiter')]");
-    private By inProgressOrdersTab = By.xpath("//span[contains(.,'In progress')]");
-    private By ordersHistoryTab = By.xpath("//span[contains(.,'History')]");
+    private final By waiterPanel = By.xpath("//ul/a[contains(.,'Waiter panel')]");
+    private final By logOut = By.xpath("//ul/li[contains(.,'Log Out')]");
 
-    private By expandOrder = By.xpath("//button[contains(@aria-label,'Show more')]/child::node()");
-    private By startOrder = By.xpath("//span[contains(.,'Start order')]");
-    private By closeOrder = By.xpath("//span[contains(.,'Close order')]");
-    private By ordersElements = By.xpath("//button[contains(@aria-label,'Show more')]");
-    private By orderNumber = By.xpath("//span[contains(.,'№')]");
+    private final By allOrdersTab = By.xpath("//span[contains(.,'All')]");
+    private final By assignedWaitersTab = By.xpath("//span[contains(.,'Assigned waiter')]");
+    private final By inProgressOrdersTab = By.xpath("//span[contains(.,'In progress')]");
+    private final By ordersHistoryTab = By.xpath("//span[contains(.,'History')]");
+
+    private final By expandOrder = By.xpath("//button[contains(@aria-label,'Show more')]/child::node()");
+    private final By startOrder = By.xpath("//span[contains(.,'Start order')]");
+    private final By closeOrder = By.xpath("//span[contains(.,'Close order')]");
 
     public WaiterPage(WebDriver driver) {
         super(driver);
     }
 
-    public void goToAllOrders() {
-        goToWaiterPanel();
-        driver.findElement(allOrdersTab).click();
+    public HomePage clickOnLogo() {
+        driver.findElement(logo).click();
+        return new HomePage(driver);
     }
 
-    public void goToAssignedWaiterOrders() {
-        goToWaiterPanel();
-        driver.findElement(assignedWaitersTab).click();
+    public HomePage clickOnHome() {
+        driver.findElement(home).click();
+        return new HomePage(driver);
     }
 
-    public void goToInProgressOrders() {
-        goToWaiterPanel();
-        driver.findElement(inProgressOrdersTab).click();
+    public RestaurantsList clickOnRestaurantList() {
+        driver.findElement(restaurantList).click();
+        return new RestaurantsList(driver);
     }
 
-    public void goToOrdersHistory() {
-        goToWaiterPanel();
-        driver.findElement(ordersHistoryTab).click();
+    public WaiterPage clickOnUserMenu() {
+        driver.findElement(userMenu).click();
+        return this;
     }
 
-    public Integer startOrder(Integer number) {
-        goToAssignedWaiterOrders();
-        getOrderElement(number);
-        expandOrder(number);
-        driver.findElement(startOrder).click();
-        return number;
-    }
-
-    public Integer closeOrder(Integer number) {
-        goToInProgressOrders();
-        getOrderElement(number);
-        expandOrder(number);
-        driver.findElement(startOrder).click();
-        return number;
-    }
-
-    public Boolean verifyOrderMovedToInProgress(Integer number) {
-        goToInProgressOrders();
-        return verifyOrderExist(number);
-    }
-
-    public Boolean verifyOrderMovedToHistory(Integer number) {
-        goToOrdersHistory();
-        return verifyOrderExist(number);
-    }
-
-    public void expandOrder() {
-        driver.findElement(expandOrder).click();
-    }
-
-    public void expandOrder(Integer number) {
-        WebElement orderElement = null;
-        List<WebElement> orderElements = driver.findElements(ordersElements);
-        for (WebElement ol : orderElements) {
-            if (Objects.equals(number, Integer.getInteger(ol.getText()))) {
-                orderElement.click();
-            }
-        }
-    }
-
-    public Integer getOrderNumber() {
-        return Integer.getInteger(driver.findElement(orderNumber).getText());
-    }
-
-    public WebElement getOrderElement(Integer number) {
-        WebElement orderElement = null;
-        goToAllOrders();
-        List<WebElement> orderElements = driver.findElements(ordersElements);
-        for (WebElement ol : orderElements) {
-            if (Objects.equals(number, Integer.getInteger(ol.getText()))) {
-                orderElement = ol;
-            }
-        }
-        return orderElement;
-    }
-
-    public Integer startRandomOrder() {
-        goToAssignedWaiterOrders();
-        expandOrder();
-        driver.findElement(startOrder).click();
-        return getOrderNumber();
-    }
-
-    public void closeRandomOrder() {
-        goToInProgressOrders();
-        expandOrder();
-        driver.findElement(closeOrder).click();
-    }
-
-    public Boolean verifyOrderExist(Integer number) {
-        return nonNull(getOrderElement(number));
-    }
-
-    public void goToWaiterPanel() {
-        driver.findElement(userMenu);
+    public WaiterPage clickOnWaiterPanel() {
         driver.findElement(waiterPanel).click();
+        return this;
     }
+
+    private SignInPage clickOnLogOut() {
+        driver.findElement(logOut).click();
+        return new SignInPage(driver);
+    }
+
+    public WaiterPage clickOnAllOrders() {
+        driver.findElement(allOrdersTab).click();
+        return this;
+    }
+
+    public WaiterPage clickOnAssignedWaiterOrders() {
+        driver.findElement(assignedWaitersTab).click();
+        return this;
+    }
+
+    public WaiterPage clickOnInProgressOrders() {
+        driver.findElement(inProgressOrdersTab).click();
+        return this;
+    }
+
+    public WaiterPage clickOnOrdersHistory() {
+        driver.findElement(ordersHistoryTab).click();
+        return this;
+    }
+
+    public WaiterPage clickOnStartOrder() {
+        driver.findElement(startOrder).click();
+        return this;
+    }
+
+    public WaiterPage clickOnCloseOrder() {
+        driver.findElement(closeOrder).click();
+        return this;
+    }
+
+    public WaiterPage clickOnExpandOrder() {
+        driver.findElement(expandOrder).click();
+        return this;
+    }
+
+    public SignInPage logOut() {
+        return clickOnUserMenu().clickOnLogOut();
+    }
+
 }
