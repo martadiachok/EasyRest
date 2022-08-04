@@ -10,13 +10,13 @@ public class WaiterPage extends BasePage {
     private final By restaurantList = By.xpath("//span[contains(.,'Restaurants List')]");
     private final By userMenu = By.xpath("//div[contains(@class,'UserMenu-root')]//button");
 
-    private final By waiterPanel = By.xpath("//ul/a[contains(.,'Waiter panel')]");
-    private final By logOut = By.xpath("//ul/li[contains(.,'Log Out')]");
+    private final By waiterPanel = By.xpath("//a[@role='menuitem']");
+    private final By logOut = By.xpath("//li[@role='menuitem']");
 
-    private final By allOrdersTab = By.xpath("//span[contains(.,'All')]");
-    private final By assignedWaitersTab = By.xpath("//span[contains(.,'Assigned waiter')]");
-    private final By inProgressOrdersTab = By.xpath("//span[contains(.,'In progress')]");
-    private final By ordersHistoryTab = By.xpath("//span[contains(.,'History')]");
+    private final By allOrdersTab = By.xpath("//a[@href='/waiter/orders/']");
+    private final By assignedWaitersTab = By.xpath("//a[contains(@href,'Assigned waiter')]");
+    private final By inProgressOrdersTab = By.xpath("//a[contains(@href,'In progress')]");
+    private final By ordersHistoryTab = By.xpath("//a[contains(@href,'History')]");
 
     private final By expandOrder = By.xpath("//button[contains(@aria-label,'Show more')]/child::node()");
     private final By startOrder = By.xpath("//span[contains(.,'Start order')]");
