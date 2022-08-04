@@ -14,24 +14,21 @@ public class Header {
     protected WebDriver driver;
     public Header(WebDriver driver) { this.driver = driver; }
 
-    protected void clickOnUserProfileIcon(){
-        driver.findElement(userProfileIcon)
-                .click();
+    protected UserRoleMenuPanel clickOnUserProfileIcon(){
+        driver.findElement(userProfileIcon).click();
+        return new UserRoleMenuPanel(driver);
     }
 
-    private void clickOnRestaurantList(){
-        driver.findElement(restaurantListButton)
-                .click();
+    public void clickOnRestaurantList(){
+        driver.findElement(restaurantListButton).click();
     }
 
-    private void clickOnHome(){
-        driver.findElement(homeButton)
-                .click();
+    public void clickOnHome(){
+        driver.findElement(homeButton).click();
     }
 
-    private void clickOnLogo(){
-        driver.findElement(logo)
-                .click();
+    public void clickOnLogo(){
+        driver.findElement(logo).click();
     }
 
 }
