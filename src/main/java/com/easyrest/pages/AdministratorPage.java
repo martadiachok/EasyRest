@@ -5,72 +5,102 @@ import org.openqa.selenium.WebDriver;
 
 public class AdministratorPage extends BasePage {
 
-    private By userMenu = By.xpath("//div[contains(@class,'UserMenu-root')]//button");
-    private By administratorPanel = By.xpath("//ul/a");
+    private final By logo = By.xpath("//a[text()='Easy-rest']");
+    private final By home = By.xpath("//span[contains(.,'Home')]");
+    private final By restaurantList = By.xpath("//span[contains(.,'Restaurants List')]");
+    private final By userMenu = By.xpath("//div[contains(@class,'UserMenu-root')]//button");
 
-    private By waitingForConfirmOrdersTab = By.xpath("//span[contains(.,'Waiting for confirm')]");
-    private By acceptedOrdersTab = By.xpath("//span[contains(.,'Accepted')]");
-    private By assignedWaitersTab = By.xpath("//span[contains(.,'Assigned waiter')]");
-    private By waitersTab = By.xpath("//span[contains(.,'Waiters')]");
+    private final By administratorPanel = By.xpath("//a[@role='menuitem']");
+    private final By logOut = By.xpath("//li[@role='menuitem']");
 
-    private By expandOrder = By.xpath("//div[contains(@role,'button')][contains(@tabindex,'-1')]");
-    private By acceptOrder = By.xpath("//span[contains(.,'Accept')]");
-    private By pickWaiter = By.xpath("//input[contains(@name,'waiters')]");
-    private By assignWaiter = By.xpath("//span[contains(.,'Assign')]");
-    private By expandWaiterOrders = By.xpath("//div[contains(@role,'button')][contains(@tabindex,'-1')]");
+    private final By waitingForConfirmOrdersTab = By.xpath("//div[@role='tablist']//button[1]");
+    private final By acceptedOrdersTab = By.xpath("//div[@role='tablist']//button[2]");
+    private final By assignedWaitersTab = By.xpath("//div[@role='tablist']//button[3]");
+    private final By waitersTab = By.xpath("//div[@role='tablist']//button[4]");
+
+    private final By expandOrderDetails = By.xpath("(//div[contains(@class,'AdministratorPanel-root')]/div//button)[1]");
+    private final By acceptOrder = By.xpath("(//div[contains(@class,'AdministratorPanel-root')]/div//button/span[contains(.,'Accept')])[1]");
+    private final By pickWaiter = By.xpath("(//input[contains(@name,'waiters')])[1]");
+    private final By assignWaiter = By.xpath("(//div[contains(@class,'AdministratorPanel-root')]/div//span[contains(.,'Assign')])[1]");
+    private final By expandOrdersThatBelongWaiter = By.xpath("(//div[contains(@class,'AdministratorPanel')]/div//div[@role='button'])[1]");
 
     public AdministratorPage(WebDriver driver) {
         super(driver);
     }
 
-    public void acceptOrder() {
-        getWaitingForConfirmOrders();
-        expandOrder();
-        driver.findElement(acceptOrder).click();
+    public HomePage clickOnLogo() {
+        driver.findElement(logo).click();
+        return new HomePage(driver);
     }
 
-    public void assignWaiter() {
-        getAcceptedOrders();
-        expandOrder();
-        pickWaiter();
-        driver.findElement(assignWaiter).click();
+    public HomePage clickOnHome() {
+        driver.findElement(home).click();
+        return new HomePage(driver);
     }
 
-    public void pickWaiter() {
-        driver.findElement(pickWaiter).click();
+    public RestaurantsList clickOnRestaurantList() {
+        driver.findElement(restaurantList).click();
+        return new RestaurantsList(driver);
     }
 
-    public void expandOrder() {
-        driver.findElement(expandOrder).click();
+    public AdministratorPage clickOnUserMenu() {
+        driver.findElement(userMenu).click();
+        return this;
     }
 
-    public void expandWaiterOrders() {
-        getWaiters();
-        driver.findElement(expandWaiterOrders).click();
-    }
-
-    public void getWaitingForConfirmOrders() {
-        goToAdministratorPanel();
-        driver.findElement(waitingForConfirmOrdersTab).click();
-    }
-
-    public void getAcceptedOrders() {
-        goToAdministratorPanel();
-        driver.findElement(acceptedOrdersTab).click();
-    }
-
-    public void getAssignedWaiters() {
-        goToAdministratorPanel();
-        driver.findElement(assignedWaitersTab).click();
-    }
-
-    public void getWaiters() {
-        goToAdministratorPanel();
-        driver.findElement(waitersTab).click();
-    }
-
-    public void goToAdministratorPanel() {
-        driver.findElement(userMenu);
+    public AdministratorPage clickOnAdministratorPanel() {
         driver.findElement(administratorPanel).click();
+        return this;
     }
+
+    private SignInPage clickOnLogOut() {
+        driver.findElement(logOut).click();
+        return new SignInPage(driver);
+    }
+
+    public AdministratorPage clickOnWaitingForConfirmOrders() {
+        driver.findElement(waitingForConfirmOrdersTab).click();
+        return this;
+    }
+
+    public AdministratorPage clickOnAcceptedOrders() {
+        driver.findElement(acceptedOrdersTab).click();
+        return this;
+    }
+
+    public AdministratorPage clickOnAssignedWaiters() {
+        driver.findElement(assignedWaitersTab).click();
+        return this;
+    }
+
+    public AdministratorPage clickOnWaiters() {
+        driver.findElement(waitersTab).click();
+        return this;
+    }
+
+    public AdministratorPage clickOnAcceptOrder() {
+        driver.findElement(acceptOrder).click();
+        return this;
+    }
+
+    public AdministratorPage clickOnAssignWaiter() {
+        driver.findElement(assignWaiter).click();
+        return this;
+    }
+
+    public AdministratorPage clickOnPickWaiter() {
+        driver.findElement(pickWaiter).click();
+        return this;
+    }
+
+    public AdministratorPage clickOnExpandOrderDetails() {
+        driver.findElement(expandOrderDetails).click();
+        return this;
+    }
+
+    public AdministratorPage clickOnExpandWaiterOrders() {
+        driver.findElement(expandOrdersThatBelongWaiter).click();
+        return this;
+    }
+
 }
