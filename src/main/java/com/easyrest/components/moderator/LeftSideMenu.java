@@ -1,6 +1,9 @@
 package com.easyrest.components.moderator;
 
 
+import com.easyrest.pages.moderatorPanel.Owners;
+import com.easyrest.pages.moderatorPanel.Restaurants;
+import com.easyrest.pages.moderatorPanel.Users;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -15,20 +18,20 @@ public class LeftSideMenu {
         this.driver = driver;
     }
 
-    public LeftSideMenu clickOnMenuButtonRestaurants() {
+    public Restaurants clickOnMenuButtonRestaurants() {
         driver.findElement(restaurantsMenuButton).click();
-        return new LeftSideMenu(driver);
+        return new Restaurants(driver);
     }
 
-    public LeftSideMenu clickOnMenuButtonUsers() {
+    public Users clickOnMenuButtonUsers() {
 
         driver.findElement(usersMenuButton).click();
-        return new LeftSideMenu(driver);
+        return new Users(driver);
     }
 
-    public LeftSideMenu clickOnMenuButtonOwners() {
+    public Owners clickOnMenuButtonOwners() {
 
         driver.findElement(ownersMenuButton).click();
-        return new LeftSideMenu(driver);
+        return new Owners(driver);
     }
 }

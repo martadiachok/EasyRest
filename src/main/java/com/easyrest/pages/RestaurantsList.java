@@ -24,7 +24,7 @@ public class RestaurantsList extends BasePage {
     private final By cuisineJPRlMenuItem = By.xpath("//span [text()='japanese cuisine']");
     private final By greelRlMenuItem = By.xpath("//span [text()='greel']");
     private final By pizzaRlMenuItem = By.xpath("//span [text()='pizza']");
-    private final By rlArrowRlMenuItem = By.xpath("//*[contains(@class ,'MuiSvgIcon-root')]");
+    private final By rlArrowMenuItem = By.xpath("//*[contains(@class ,'MuiSvgIcon-root')]");
     private final By watchMenuButton = By.xpath("//div [contains(@class ,'TagsTab-item' )][1]//span [text() = 'Watch Menu']");
     private final By DetailsButton = By.xpath("//div [contains(@class ,'TagsTab-item' )][1]//span [text() = 'details']");
 
@@ -136,7 +136,7 @@ public class RestaurantsList extends BasePage {
 
     public RestaurantsList clickOnMenuItemRLArrow() {
 
-        driver.findElement(rlArrowRlMenuItem).click();
+        driver.findElement(rlArrowMenuItem).click();
         return new RestaurantsList(driver);
     }
 
