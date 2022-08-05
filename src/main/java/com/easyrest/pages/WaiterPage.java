@@ -18,7 +18,7 @@ public class WaiterPage extends BasePage {
     private final By inProgressOrdersTab = By.xpath("//a[contains(@href,'In progress')]");
     private final By ordersHistoryTab = By.xpath("//a[contains(@href,'History')]");
 
-    private final By expandOrder = By.xpath("//button[contains(@aria-label,'Show more')]/child::node()");
+    private final By expandOrderDetails = By.xpath("(//main//button)[1]");
     private final By startOrder = By.xpath("//span[contains(.,'Start order')]");
     private final By closeOrder = By.xpath("//span[contains(.,'Close order')]");
 
@@ -86,8 +86,8 @@ public class WaiterPage extends BasePage {
         return this;
     }
 
-    public WaiterPage clickOnExpandOrder() {
-        driver.findElement(expandOrder).click();
+    public WaiterPage clickOnExpandOrderDetails() {
+        driver.findElement(expandOrderDetails).click();
         return this;
     }
 
