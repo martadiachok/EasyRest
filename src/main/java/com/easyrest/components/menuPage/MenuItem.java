@@ -7,11 +7,9 @@ import org.openqa.selenium.WebElement;
 import java.util.List;
 
 public class MenuItem {
+    private WebDriver driver;
 
     private final By addProduct = By.xpath("//button[@aria-label = 'Add to cart']");
-
-
-    protected WebDriver driver;
 
     public MenuItem(WebDriver driver) {
         this.driver = driver;
