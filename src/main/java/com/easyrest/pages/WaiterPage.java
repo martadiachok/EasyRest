@@ -51,7 +51,7 @@ public class WaiterPage extends BasePage {
         return this;
     }
 
-    private SignInPage clickOnLogOut() {
+    public SignInPage clickOnLogOut() {
         driver.findElement(logOut).click();
         return new SignInPage(driver);
     }
@@ -89,10 +89,6 @@ public class WaiterPage extends BasePage {
     public WaiterPage clickOnExpandOrderDetails() {
         driver.findElement(expandOrderDetails).click();
         return this;
-    }
-
-    public SignInPage logOut() {
-        return clickOnUserMenu().clickOnLogOut();
     }
 
 }
