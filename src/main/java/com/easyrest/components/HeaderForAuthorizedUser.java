@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 
 public class HeaderForAuthorizedUser {
     private WebDriver driver;
-    
+
     private final By logo = By.xpath("//a[text()='Easy-rest']");
     private final By homeButton = By.xpath("//a[@aria-current='page']");
     private final By restaurantListButton = By.xpath("//header[contains(@class,'MuiAppBar-root')]/div/nav/a[2]");
