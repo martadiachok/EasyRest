@@ -7,8 +7,8 @@ import org.openqa.selenium.WebDriver;
 
 public class Owners extends BasePage {
 
-    LeftSideMenu leftSideMenu = new LeftSideMenu(driver);
-    ActionOnUser actionOnOwner = new ActionOnUser(driver);
+   private LeftSideMenu leftSideMenu = new LeftSideMenu(driver);
+   private ActionOnUser actionOnOwner = new ActionOnUser(driver);
 
     public Owners(WebDriver driver) {
         super(driver);

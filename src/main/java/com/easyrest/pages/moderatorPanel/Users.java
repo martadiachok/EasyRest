@@ -7,8 +7,8 @@ import org.openqa.selenium.WebDriver;
 
 public class Users extends BasePage {
 
-    ActionOnUser actionOnUser = new ActionOnUser(driver);
-    LeftSideMenu leftSideMenu = new LeftSideMenu(driver);
+    private ActionOnUser actionOnUser = new ActionOnUser(driver);
+    private LeftSideMenu leftSideMenu = new LeftSideMenu(driver);
 
     public Users(WebDriver driver) {
         super(driver);

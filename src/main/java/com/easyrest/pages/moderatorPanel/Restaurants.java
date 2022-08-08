@@ -7,8 +7,8 @@ import org.openqa.selenium.WebDriver;
 
 public class Restaurants extends BasePage {
 
-    ActionOnRestaurants actionOnRestaurants = new ActionOnRestaurants(driver);
-    LeftSideMenu leftSideMenu = new LeftSideMenu(driver);
+    private ActionOnRestaurants actionOnRestaurants = new ActionOnRestaurants(driver);
+    private LeftSideMenu leftSideMenu = new LeftSideMenu(driver);
 
     public Restaurants(WebDriver driver) {
         super(driver);
