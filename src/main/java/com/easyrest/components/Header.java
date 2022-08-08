@@ -14,7 +14,7 @@ public class Header {
     protected WebDriver driver;
     public Header(WebDriver driver) { this.driver = driver; }
 
-    protected UserRoleMenuPanel clickOnUserProfileIcon(){
+    public UserRoleMenuPanel clickOnUserProfileIcon(){
         driver.findElement(userProfileIcon).click();
         return new UserRoleMenuPanel(driver);
     }

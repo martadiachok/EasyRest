@@ -10,18 +10,14 @@ public class UserRoleMenuPanel {
     private final By userPanelButton = By.xpath("//ul[@role='menu']//child::a");
     private final By logOutButton = By.xpath("//ul[@role='menu']//child::li");
 
-    Header header = new Header(driver);
-
     public UserRoleMenuPanel(WebDriver driver) { this.driver = driver; }
 
-    public void clickOnUserPanel() {
-        header.clickOnUserProfileIcon();
+    public void clickOnTheFirstMenuItem() {
         driver.findElement(userPanelButton)
                 .click();
     }
 
-    public void clickOnLogOut() {
-        header.clickOnUserProfileIcon();
+    public void clickOnLogOutMenuItem() {
         driver.findElement(logOutButton)
                 .click();
     }
