@@ -8,12 +8,12 @@ import org.openqa.selenium.WebDriver;
 public class AuthorizedHeaderMenuPanelFacade {
     private WebDriver driver;
 
-    private HeaderForAuthorizedUser headerForAuthorizedUserMenu;
+    private HeaderForAuthorizedUser header;
     private UserRoleMenuPanel rolePanel;
 
     public AuthorizedHeaderMenuPanelFacade(WebDriver driver)
     {
-        headerForAuthorizedUserMenu = new HeaderForAuthorizedUser(driver);
+        header = new HeaderForAuthorizedUser(driver);
         rolePanel = new UserRoleMenuPanel(driver);
 
         this.driver = driver;
@@ -21,12 +21,12 @@ public class AuthorizedHeaderMenuPanelFacade {
 
     public void clickOnTheFirstMenuItem()
     {
-        headerForAuthorizedUserMenu.clickOnUserProfileIcon();
+        header.clickOnUserProfileIcon();
         rolePanel.clickOnTheFirstMenuItem();
     }
 
     public SignInPage clickOnLogoutMenuItem() {
-        headerForAuthorizedUserMenu.clickOnUserProfileIcon();
+        header.clickOnUserProfileIcon();
         rolePanel.clickOnLogOutMenuItem();
 
         return new SignInPage(driver);
