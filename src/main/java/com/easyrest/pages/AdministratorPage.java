@@ -5,9 +5,6 @@ import org.openqa.selenium.WebDriver;
 
 public class AdministratorPage extends BasePage {
 
-    private final By logo = By.xpath("//a[text()='Easy-rest']");
-    private final By home = By.xpath("//span[contains(.,'Home')]");
-    private final By restaurantList = By.xpath("//span[contains(.,'Restaurants List')]");
     private final By userMenu = By.xpath("//div[contains(@class,'UserMenu-root')]//button");
 
     private final By administratorPanel = By.xpath("//a[@role='menuitem']");
@@ -26,21 +23,6 @@ public class AdministratorPage extends BasePage {
 
     public AdministratorPage(WebDriver driver) {
         super(driver);
-    }
-
-    public HomePage clickOnLogo() {
-        driver.findElement(logo).click();
-        return new HomePage(driver);
-    }
-
-    public HomePage clickOnHome() {
-        driver.findElement(home).click();
-        return new HomePage(driver);
-    }
-
-    public RestaurantsList clickOnRestaurantList() {
-        driver.findElement(restaurantList).click();
-        return new RestaurantsList(driver);
     }
 
     public AdministratorPage clickOnUserMenu() {
