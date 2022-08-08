@@ -35,7 +35,7 @@ public class AdministratorPage extends BasePage {
         return this;
     }
 
-    private SignInPage clickOnLogOut() {
+    public SignInPage clickOnLogOut() {
         driver.findElement(logOut).click();
         return new SignInPage(driver);
     }
