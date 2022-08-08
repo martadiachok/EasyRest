@@ -8,8 +8,6 @@ import org.openqa.selenium.WebDriver;
 
 public class AssignedWaiter extends BasePage {
 
-    private WaiterHeader waiterHeader;
-
     private final By expandOrderDetails = By.xpath("(//main//button)[1]");
     private final By startOrder = By.xpath("//span[contains(.,'Start order')]");
 
@@ -28,7 +26,7 @@ public class AssignedWaiter extends BasePage {
     }
 
     public WaiterHeader getTabMenu() {
-        return waiterHeader;
+        return new WaiterHeader(driver);
     }
 
 }
