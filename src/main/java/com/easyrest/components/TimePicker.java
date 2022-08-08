@@ -9,7 +9,7 @@ import java.util.List;
 
 public class TimePicker {
 
-    protected WebDriver driver;
+    private WebDriver driver;
 
     private final By amButton = By.xpath("//*[text()='AM']");
     private final By pmButton = By.xpath("//*[text()='PM']");
