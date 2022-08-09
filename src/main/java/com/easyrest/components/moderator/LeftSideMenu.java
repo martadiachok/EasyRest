@@ -8,13 +8,11 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class LeftSideMenu {
-
     private WebDriver driver;
 
     private final By restaurantsMenuButton = By.xpath("// span [contains (text(), 'Restaurants')]/parent::div");
     private final By usersMenuButton = By.xpath("//span [text() = 'Users']");
     private final By ownersMenuButton = By.xpath("//span [text() = 'Owners']");
-
 
     public LeftSideMenu(WebDriver driver) {
         this.driver = driver;

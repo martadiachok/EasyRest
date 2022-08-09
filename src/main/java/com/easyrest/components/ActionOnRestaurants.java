@@ -9,7 +9,6 @@ import org.openqa.selenium.WebElement;
 import java.util.List;
 
 public class ActionOnRestaurants {
-
     private WebDriver driver;
 
     private final By allButton = By.xpath("// span [contains (text(), 'All')]");
@@ -21,7 +20,6 @@ public class ActionOnRestaurants {
     private final By archiveButton = By.xpath("//div[contains (@class, 'MuiGrid-item')][1]//span [text() = 'Delete']");
     private final By restoreButton = By.xpath("//div[contains (@class, 'MuiGrid-item')][1]//span [text() = 'Restore']");
     private final By restaurantsName = By.xpath("//div[contains (@class, 'MuiGrid-item')][1]//span [contains(@class,'MuiCardHeader-title-' )]");
-
 
     public ActionOnRestaurants(WebDriver driver) {
         this.driver = driver;
@@ -43,19 +41,19 @@ public class ActionOnRestaurants {
         driver.findElement(archivedButton).click();
     }
 
-    public void approveRest() {
+    public void approveRestaurant() {
         driver.findElement(approveButton).click();
     }
 
-    public void disapproveRest() {
+    public void disapproveRestaurant() {
         driver.findElement(disapproveButton).click();
     }
 
-    public void archiveRest() {
+    public void archiveRestaurant() {
         driver.findElement(archiveButton).click();
     }
 
-    public void restoreRest() {
+    public void restoreRestaurant() {
         driver.findElement(restoreButton).click();
     }
 
@@ -65,7 +63,7 @@ public class ActionOnRestaurants {
         return firstNameFromList.getText();
     }
 
-    private boolean findRestInListAfterAction(String name) {
+    private boolean findRestaurantInListAfterAction(String name) {
         List<WebElement> restaurantsNames = driver.findElements(restaurantsName);
         for (WebElement item : restaurantsNames) {
             if (item.getText() == name) {
@@ -75,20 +73,19 @@ public class ActionOnRestaurants {
         return false;
     }
 
-    public boolean checkIfRestMovedToApprovedList(String name) {
+    public boolean checkIfRestaurantMovedToApprovedList(String name) {
         clickOnButtonApproved();
-        return findRestInListAfterAction(name);
+        return findRestaurantInListAfterAction(name);
     }
 
 
-    public boolean checkIfRestMovedToUnapprovedList(String name) {
+    public boolean checkIfRestaurantMovedToUnapprovedList(String name) {
         clickOnButtonUnapproved();
-        return findRestInListAfterAction(name);
+        return findRestaurantInListAfterAction(name);
     }
 
-    public boolean checkIfRestMovedToArchiveddList(String name) {
+    public boolean checkIfRestaurantMovedToArchiveddList(String name) {
         clickOnButtonArchived();
-        return findRestInListAfterAction(name);
+        return findRestaurantInListAfterAction(name);
     }
-
 }
