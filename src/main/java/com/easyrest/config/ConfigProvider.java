@@ -12,7 +12,8 @@ public interface ConfigProvider {
 
     String clientEmail = readConfig.getString("usersParams.client.email");
     String clientPassword = readConfig.getString("usersParams.client.password");
-    String loginPageUrlMac = readConfig.getString("url.logInPageUrl.urlLoginMac");
-    String signUpPageUrlMac = readConfig.getString("url.signUpPageUrl.signUpPageUrlMac");
+    String logInPageUrl = readConfig.getString("url.logInPageUrl");
+    String signUpPageUrl = readConfig.getString("url.signUpPageUrl");
+    String adminPageUrl = readConfig().getString("url.adminPageUrl");
 
 }
