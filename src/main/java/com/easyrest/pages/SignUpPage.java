@@ -26,7 +26,7 @@ public class SignUpPage extends BasePage {
      * General methods
      */
     public SignUpPage goToSignUpPage() {
-        openPage(ConfigProvider.signUpPageUrlMac);
+        openPage(ConfigProvider.signUpPageUrl);
         return this;
     }
 
