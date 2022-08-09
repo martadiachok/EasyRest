@@ -14,14 +14,14 @@ public class OrderConfirmation {
         this.driver = driver;
     }
 
-    public OrderConfirmation submitOrderInWindow() {
+    public MenuItem submitOrderInWindow() {
         driver.findElement(submitInWindowButton).click();
-        return new OrderConfirmation(driver);
+        return new MenuItem(driver);
     }
 
-    public OrderConfirmation cancelOrderInWindow() {
+    public MenuItem cancelOrderInWindow() {
         driver.findElement(cancelInWindowButton).click();
-        return new OrderConfirmation(driver);
+        return new MenuItem(driver);
     }
 
     public OrderConfirmation clickOnButtonDeleteFirstDish() {

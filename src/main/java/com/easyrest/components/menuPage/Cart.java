@@ -9,25 +9,19 @@ public class Cart {
 
     private final By submitOrder = By.xpath("//*[text()='Submit order']");
     private final By showCartButton = By.xpath("//button [@aria-label = 'Show cart']");
-    private final By deleteSecondItemButton = By.xpath("//div[contains(@class , 'MuiPaper-root')][2]//div[contains(@style ,'' )]//button [@aria-label ='Remove item']");
+
 
     public Cart(WebDriver driver) {
         this.driver = driver;
     }
 
-    public Cart submitOrder() {
+    public OrderConfirmation submitOrder() {
         driver.findElement(submitOrder).click();
-        return this;
+        return new OrderConfirmation(driver);
     }
 
     public Cart clickOnButtonShowCart() {
         driver.findElement(showCartButton).click();
-        return this;
-    }
-
-    public Cart clickOnButtonDeleteSecondItem() {
-
-        driver.findElement(deleteSecondItemButton).click();
         return this;
     }
 }
