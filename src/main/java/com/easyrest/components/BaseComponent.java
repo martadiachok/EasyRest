@@ -10,7 +10,7 @@ public class BaseComponent {
         this.driver = driver;
     }
 
-    public void enterData(String data, By element, WebDriver driver){
+    protected void enterData(String data, By element, WebDriver driver){
         driver.findElement(element).clear();
         driver.findElement(element).sendKeys(data);
     }
