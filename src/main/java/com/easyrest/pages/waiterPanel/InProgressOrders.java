@@ -1,6 +1,6 @@
 package com.easyrest.pages.waiterPanel;
 
-import com.easyrest.components.waiter.InProgressOrderItem;
+import com.easyrest.components.waiter.Order;
 import com.easyrest.pages.WaiterPage;
 import org.openqa.selenium.WebDriver;
 
@@ -10,7 +10,7 @@ public class InProgressOrders extends WaiterPage {
         super(driver);
     }
 
-    public InProgressOrderItem getInProgressOrderItem() {
-        return new InProgressOrderItem(driver);
+    public Order getOrder() {
+        return new Order(driver);
     }
 }
