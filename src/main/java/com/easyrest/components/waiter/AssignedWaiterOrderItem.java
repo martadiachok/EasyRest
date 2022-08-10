@@ -7,7 +7,7 @@ import org.openqa.selenium.WebDriver;
 public class AssignedWaiterOrderItem {
     private final WebDriver driver;
     private final By expandOrderDetails = By.xpath("(//main//button)[1]");
-    private final By startOrder = By.xpath("//span[contains(.,'Start order')]");
+    private final By startOrder = By.xpath("(//span[contains(.,'Start order')])[1]");
 
     public AssignedWaiterOrderItem(WebDriver driver) {
         this.driver = driver;

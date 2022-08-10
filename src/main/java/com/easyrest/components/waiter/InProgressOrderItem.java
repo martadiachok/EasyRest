@@ -7,7 +7,7 @@ import org.openqa.selenium.WebDriver;
 public class InProgressOrderItem {
     private final WebDriver driver;
     private final By expandOrderDetails = By.xpath("(//main//button)[1]");
-    private final By closeOrder = By.xpath("//span[contains(.,'Close order')]");
+    private final By closeOrder = By.xpath("(//span[contains(.,'Close order')])[1]");
 
     public InProgressOrderItem(WebDriver driver) {
         this.driver = driver;
