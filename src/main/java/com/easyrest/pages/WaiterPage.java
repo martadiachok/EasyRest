@@ -1,6 +1,7 @@
 package com.easyrest.pages;
 
 import com.easyrest.components.HeaderForAuthorizedUser;
+import com.easyrest.components.waiter.Order;
 import com.easyrest.components.waiter.WaiterMenu;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -22,6 +23,10 @@ public class WaiterPage extends BasePage {
 
     public WaiterMenu getWaiterTabMenu() {
         return new WaiterMenu(driver);
+    }
+
+    public Order getOrder() {
+        return new Order(driver);
     }
 
     public Integer getOrdersCount() {
