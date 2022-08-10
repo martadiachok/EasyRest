@@ -48,14 +48,14 @@ public class ActionOnRestaurantFacade {
         clickUnapprovedRestaurant();
         String restaurantName = actionOnRestaurants.getFirstNameFromRestaurant();
         actionOnRestaurants.disapproveRestaurant();
-        return actionOnRestaurants.checkIfRestaurantMovedToArchiveddList(restaurantName);
+        return actionOnRestaurants.checkIfRestaurantMovedToArchivedList(restaurantName);
     }
 
     public boolean archiveRestaurant() {
         clickApprovedRestaurant();
         String restaurantName = actionOnRestaurants.getFirstNameFromRestaurant();
         actionOnRestaurants.archiveRestaurant();
-        return actionOnRestaurants.checkIfRestaurantMovedToArchiveddList(restaurantName);
+        return actionOnRestaurants.checkIfRestaurantMovedToArchivedList(restaurantName);
     }
 
     public boolean restoreRestaurant() {

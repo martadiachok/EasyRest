@@ -33,9 +33,7 @@ public class ActionOnRestaurants {
         driver.findElement(unapprovedButton).click();
     }
 
-    public void clickOnButtonApproved() {
-        driver.findElement(approvedButton).click();
-    }
+    public void clickOnButtonApproved() {driver.findElement(approvedButton).click();}
 
     public void clickOnButtonArchived() {
         driver.findElement(archivedButton).click();
@@ -84,7 +82,7 @@ public class ActionOnRestaurants {
         return findRestaurantInListAfterAction(name);
     }
 
-    public boolean checkIfRestaurantMovedToArchiveddList(String name) {
+    public boolean checkIfRestaurantMovedToArchivedList(String name) {
         clickOnButtonArchived();
         return findRestaurantInListAfterAction(name);
     }
