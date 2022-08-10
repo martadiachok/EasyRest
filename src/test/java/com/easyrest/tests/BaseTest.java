@@ -43,10 +43,10 @@ abstract public class BaseTest {
         extent.attachReporter(spark);
     }
 
-    public void getScreenShotPath(String testCaseName) throws IOException {
+    public void getScreenShotPath(String testCaseName, WebDriver driver) throws IOException {
         TakesScreenshot takeScreenshots = (TakesScreenshot) driver;
         File source = takeScreenshots.getScreenshotAs(OutputType.FILE);
-        String destinationFile = "user.dir" + ("\\reports" + testCaseName + ".png");
+        String destinationFile = System.getProperty("user.dir") + "\\reports\\" + testCaseName + ".png";
         FileUtils.copyFile(source, new File(destinationFile));
     }
 

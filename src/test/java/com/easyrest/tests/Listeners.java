@@ -1,5 +1,6 @@
 package com.easyrest.tests;
 
+import org.openqa.selenium.WebDriver;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 import org.testng.ITestContext;
@@ -14,11 +15,16 @@ public class Listeners extends BaseTest implements ITestListener {
     }
 
     public void onTestFailure(ITestResult result) {
-        //System.out.println("Test failed: " + result.getName();
-        String testMethodName = result.getMethod().getMethodName();
-       // result.getTestClass().getRealClass().getDeclaredField("driver").get(result.getInstance());
+       WebDriver driver = null;
+       String testMethodName = result.getMethod().getMethodName();
         try {
-            getScreenShotPath(testMethodName);
+            driver = (WebDriver)result.getTestClass().getRealClass().getDeclaredField("driver").get(result.getInstance());
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+
+        try {
+            getScreenShotPath(testMethodName, driver);
         } catch (IOException e) {
             e.printStackTrace();
         }
