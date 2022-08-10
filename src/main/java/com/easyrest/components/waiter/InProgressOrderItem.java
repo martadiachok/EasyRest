@@ -1,6 +1,6 @@
 package com.easyrest.components.waiter;
 
-import com.easyrest.pages.waiterPanel.InProgress;
+import com.easyrest.pages.waiterPanel.InProgressOrders;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -18,8 +18,8 @@ public class InProgressOrderItem {
         return new InProgressOrderItem(driver);
     }
 
-    public InProgress clickOnCloseOrder() {
+    public InProgressOrders clickOnCloseOrder() {
         driver.findElement(closeOrder).click();
-        return new InProgress(driver);
+        return new InProgressOrders(driver);
     }
 }

@@ -1,6 +1,6 @@
 package com.easyrest.components.waiter;
 
-import com.easyrest.pages.waiterPanel.AssignedWaiter;
+import com.easyrest.pages.waiterPanel.AssignedWaiterOrders;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -18,8 +18,8 @@ public class AssignedWaiterOrderItem {
         return new AssignedWaiterOrderItem(driver);
     }
 
-    public AssignedWaiter clickOnStartOrder() {
+    public AssignedWaiterOrders clickOnStartOrder() {
         driver.findElement(startOrder).click();
-        return new AssignedWaiter(driver);
+        return new AssignedWaiterOrders(driver);
     }
 }

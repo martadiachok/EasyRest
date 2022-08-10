@@ -1,12 +1,12 @@
 package com.easyrest.pages.waiterPanel;
 
 import com.easyrest.components.waiter.InProgressOrderItem;
-import com.easyrest.pages.BasePage;
+import com.easyrest.pages.WaiterPage;
 import org.openqa.selenium.WebDriver;
 
-public class InProgress extends BasePage {
+public class InProgressOrders extends WaiterPage {
 
-    public InProgress(WebDriver driver) {
+    public InProgressOrders(WebDriver driver) {
         super(driver);
     }
 

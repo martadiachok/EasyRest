@@ -1,12 +1,12 @@
 package com.easyrest.pages.waiterPanel;
 
 import com.easyrest.components.waiter.AssignedWaiterOrderItem;
-import com.easyrest.pages.BasePage;
+import com.easyrest.pages.WaiterPage;
 import org.openqa.selenium.WebDriver;
 
-public class AssignedWaiter extends BasePage {
+public class AssignedWaiterOrders extends WaiterPage {
 
-    public AssignedWaiter(WebDriver driver) {
+    public AssignedWaiterOrders(WebDriver driver) {
         super(driver);
     }
 

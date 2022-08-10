@@ -1,7 +1,7 @@
 package com.easyrest.components.waiter;
 
-import com.easyrest.pages.waiterPanel.AssignedWaiter;
-import com.easyrest.pages.waiterPanel.InProgress;
+import com.easyrest.pages.waiterPanel.AssignedWaiterOrders;
+import com.easyrest.pages.waiterPanel.InProgressOrders;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -15,14 +15,14 @@ public class WaiterMenu {
         this.driver = driver;
     }
 
-    public AssignedWaiter clickOnAssignedWaiterOrders() {
+    public AssignedWaiterOrders clickOnAssignedWaiterOrders() {
         driver.findElement(assignedWaitersTab).click();
-        return new AssignedWaiter(driver);
+        return new AssignedWaiterOrders(driver);
     }
 
-    public InProgress clickOnInProgressOrders() {
+    public InProgressOrders clickOnInProgressOrders() {
         driver.findElement(inProgressOrdersTab).click();
-        return new InProgress(driver);
+        return new InProgressOrders(driver);
     }
 
 }
