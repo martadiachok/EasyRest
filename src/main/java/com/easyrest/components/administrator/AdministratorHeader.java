@@ -1,6 +1,7 @@
 package com.easyrest.components.administrator;
 
-import com.easyrest.pages.AdministratorPage;
+import com.easyrest.pages.administratorPanel.AcceptedOrders;
+import com.easyrest.pages.administratorPanel.WaitingForConfirmOrders;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -13,14 +14,14 @@ public class AdministratorHeader {
         this.driver = driver;
     }
 
-    public AdministratorPage clickOnWaitingForConfirmOrders() {
+    public WaitingForConfirmOrders clickOnWaitingForConfirmOrders() {
         driver.findElement(waitingForConfirmOrdersTab).click();
-        return new AdministratorPage(driver);
+        return new WaitingForConfirmOrders(driver);
     }
 
-    public AdministratorPage clickOnAcceptedOrders() {
+    public AcceptedOrders clickOnAcceptedOrders() {
         driver.findElement(acceptedOrdersTab).click();
-        return new AdministratorPage(driver);
+        return new AcceptedOrders(driver);
     }
 
 }
