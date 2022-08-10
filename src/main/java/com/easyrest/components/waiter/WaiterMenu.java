@@ -5,13 +5,13 @@ import com.easyrest.pages.waiterPanel.InProgress;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class WaiterHeader {
+public class WaiterMenu {
 
     private final WebDriver driver;
     private final By assignedWaitersTab = By.xpath("//a[contains(@href,'Assigned waiter')]");
     private final By inProgressOrdersTab = By.xpath("//a[contains(@href,'In progress')]");
 
-    public WaiterHeader(WebDriver driver) {
+    public WaiterMenu(WebDriver driver) {
         this.driver = driver;
     }
 

@@ -1,7 +1,7 @@
 package com.easyrest.pages.waiterPanel;
 
 import com.easyrest.components.waiter.AssignedWaiterOrderItem;
-import com.easyrest.components.waiter.WaiterHeader;
+import com.easyrest.components.waiter.WaiterMenu;
 import com.easyrest.pages.BasePage;
 import org.openqa.selenium.WebDriver;
 
@@ -11,8 +11,8 @@ public class AssignedWaiter extends BasePage {
         super(driver);
     }
 
-    public WaiterHeader getTabMenu() {
-        return new WaiterHeader(driver);
+    public WaiterMenu getTabMenu() {
+        return new WaiterMenu(driver);
     }
 
     public AssignedWaiterOrderItem getAssignedWaiterOrderItem() {
