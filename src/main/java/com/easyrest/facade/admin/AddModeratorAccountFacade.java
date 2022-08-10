@@ -29,8 +29,8 @@ public class AddModeratorAccountFacade {
         return new CreateModeratorAccountForm(driver);
     }
 
-    public Moderators_AdminPanel submitAddModeratorForm(String name, String email, String phone, String password, String date, String month, String year)
-    {
+    public Moderators_AdminPanel submitAddModeratorForm(String name, String email, String phone, String password,
+                                                        String date, String month, String year) {
         clickAddModerator();
         createModeratorAccountForm.inputName(name);
         createModeratorAccountForm.inputEmail(email);
