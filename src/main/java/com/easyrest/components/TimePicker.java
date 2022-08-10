@@ -17,7 +17,7 @@ public class TimePicker {
     private final By minute = By.xpath("//h2[contains (@class, 'MuiPickersToolbarButton')][3]");
     private final By hoursInClock = By.xpath("//span[contains(@class,'MuiPickersClockNumber-clockNumber')]");
     private final By minutesInClock = By.xpath("//span[contains(@class,'MuiPickersClockNumber-clockNumber')]");
-    private WebElement clockPointer = driver.findElement(By.xpath("//div[contains(@class,'MuiPickersClockPointer-thumb')]"));
+    private final WebElement clockPointer = driver.findElement(By.xpath("//div[contains(@class,'MuiPickersClockPointer-thumb')]"));
     private final By okButton = By.xpath("//*[text()='OK']");
     private final By cancelButton = By.xpath("//*[text()='Cancel']");
     private Actions actions = new Actions(driver);
