@@ -52,13 +52,6 @@ public class AdministratorOperationsFacade {
                 .clickOnAssignWaiter();
     }
 
-    public void logOut() {
-        administratorPage
-                .getToolbarMenu()
-                .clickOnUserProfileIcon()
-                .clickOnLogOutMenuItem();
-    }
-
     public Integer seeWaitingForConfirmOrdersCount() {
         return seeWaitingForConfirmOrders()
                 .getOrdersCount();
