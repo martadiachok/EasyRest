@@ -60,13 +60,6 @@ public class WaiterOperationsFacade {
         orderAction.clickOnOrderAction();
     }
 
-    public void logOut() {
-        waiterPage
-                .getToolbarMenu()
-                .clickOnUserProfileIcon()
-                .clickOnLogOutMenuItem();
-    }
-
     private WaiterMenu goToTabMenu() {
         return waiterPage
                 .getWaiterTabMenu();
