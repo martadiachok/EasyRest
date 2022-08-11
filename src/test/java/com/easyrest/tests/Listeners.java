@@ -4,7 +4,6 @@ import org.openqa.selenium.WebDriver;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 import org.testng.ITestContext;
-
 import java.io.IOException;
 
 public class Listeners extends BaseTest implements ITestListener {
@@ -15,12 +14,12 @@ public class Listeners extends BaseTest implements ITestListener {
     }
 
     public void onTestFailure(ITestResult result) {
-       WebDriver driver = null;
        String testMethodName = result.getMethod().getMethodName();
         try {
-            driver = (WebDriver)result.getTestClass().getRealClass().getDeclaredField("driver").get(result.getInstance());
+            BaseTest instance = (BaseTest)result.getInstance();
+            driver = instance.getDriver();
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            System.out.println(e);
         }
 
         try {
