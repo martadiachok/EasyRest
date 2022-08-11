@@ -1,5 +1,6 @@
 package com.easyrest.facade;
 
+import com.easyrest.components.waiter.OrderAction;
 import com.easyrest.pages.WaiterPage;
 import com.easyrest.pages.waiterPanel.AssignedWaiterOrders;
 import com.easyrest.pages.waiterPanel.InProgressOrders;
@@ -8,10 +9,12 @@ import org.openqa.selenium.WebDriver;
 public class WaiterOperationsFacade {
     WebDriver driver;
     WaiterPage waiterPage;
+    OrderAction orderAction;
 
     public WaiterOperationsFacade(WebDriver driver) {
         this.driver = driver;
         this.waiterPage = new WaiterPage(driver);
+        this.orderAction = new OrderAction(driver);
     }
 
     public void seeAllOrders() {
@@ -51,15 +54,15 @@ public class WaiterOperationsFacade {
     public void startOrder() {
         seeAssignedWaiterOrders()
                 .getOrder()
-                .clickOnExpandOrderDetails()
-                .clickOnOrderAction();
+                .clickOnExpandOrderDetails();
+        orderAction.clickOnOrderAction();
     }
 
     public void closeOrder() {
         seeInProgressOrders()
                 .getOrder()
-                .clickOnExpandOrderDetails()
-                .clickOnOrderAction();
+                .clickOnExpandOrderDetails();
+        orderAction.clickOnOrderAction();
     }
 
 }

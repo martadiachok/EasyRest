@@ -11,8 +11,7 @@ public class Order {
         this.driver = driver;
     }
 
-    public OrderAction clickOnExpandOrderDetails() {
+    public void clickOnExpandOrderDetails() {
         driver.findElement(expandOrderDetails).click();
-        return new OrderAction(driver);
     }
 }
