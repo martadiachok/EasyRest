@@ -59,7 +59,7 @@ public class ActionOnRestaurants {
         return firstNameFromList.getText();
     }
 
-    private boolean findRestaurantInListAfterAction(String name) {
+    public boolean findRestaurantInListAfterAction(String name) {
         List<WebElement> restaurantsNames = driver.findElements(restaurantsName);
         for (WebElement item : restaurantsNames) {
             if (item.getText() == name) {
@@ -67,21 +67,5 @@ public class ActionOnRestaurants {
             }
         }
         return false;
-    }
-
-    public boolean checkIfRestaurantMovedToApprovedList(String name) {
-        clickOnButtonApproved();
-        return findRestaurantInListAfterAction(name);
-    }
-
-
-    public boolean checkIfRestaurantMovedToUnapprovedList(String name) {
-        clickOnButtonUnapproved();
-        return findRestaurantInListAfterAction(name);
-    }
-
-    public boolean checkIfRestaurantMovedToArchivedList(String name) {
-        clickOnButtonArchived();
-        return findRestaurantInListAfterAction(name);
     }
 }

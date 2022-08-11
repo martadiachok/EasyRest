@@ -37,31 +37,46 @@ public class ActionOnRestaurantFacade {
         actionOnRestaurants.clickOnButtonArchived();
     }
 
+    private boolean checkIfRestaurantMovedToApprovedList(String name) {
+        actionOnRestaurants.clickOnButtonApproved();
+        return actionOnRestaurants.findRestaurantInListAfterAction(name);
+    }
+
+    private boolean checkIfRestaurantMovedToUnapprovedList(String name) {
+        actionOnRestaurants.clickOnButtonUnapproved();
+        return actionOnRestaurants.findRestaurantInListAfterAction(name);
+    }
+
+    private boolean checkIfRestaurantMovedToArchivedList(String name) {
+        actionOnRestaurants.clickOnButtonArchived();
+        return actionOnRestaurants.findRestaurantInListAfterAction(name);
+    }
+
     public boolean approveRestaurant() {
         clickUnapprovedRestaurant();
         String restaurantName = actionOnRestaurants.getFirstNameFromRestaurant();
         actionOnRestaurants.approveRestaurant();
-        return actionOnRestaurants.checkIfRestaurantMovedToApprovedList(restaurantName);
+        return checkIfRestaurantMovedToApprovedList(restaurantName);
     }
 
     public boolean disapproveRestaurant() {
         clickUnapprovedRestaurant();
         String restaurantName = actionOnRestaurants.getFirstNameFromRestaurant();
         actionOnRestaurants.disapproveRestaurant();
-        return actionOnRestaurants.checkIfRestaurantMovedToArchivedList(restaurantName);
+        return checkIfRestaurantMovedToArchivedList(restaurantName);
     }
 
     public boolean archiveRestaurant() {
         clickApprovedRestaurant();
         String restaurantName = actionOnRestaurants.getFirstNameFromRestaurant();
         actionOnRestaurants.archiveRestaurant();
-        return actionOnRestaurants.checkIfRestaurantMovedToArchivedList(restaurantName);
+        return checkIfRestaurantMovedToArchivedList(restaurantName);
     }
 
     public boolean restoreRestaurant() {
         clickArchivedRestaurant();
         String restaurantName = actionOnRestaurants.getFirstNameFromRestaurant();
         actionOnRestaurants.restoreRestaurant();
-        return actionOnRestaurants.checkIfRestaurantMovedToApprovedList(restaurantName);
+        return checkIfRestaurantMovedToApprovedList(restaurantName);
     }
 }
