@@ -8,12 +8,10 @@ import com.easyrest.pages.administratorPanel.WaitingForConfirmOrders;
 import org.openqa.selenium.WebDriver;
 
 public class AdministratorOperationsFacade {
-    WebDriver driver;
-    AdministratorPage administratorPage;
-    OrderAction orderAction;
+    private final AdministratorPage administratorPage;
+    private final OrderAction orderAction;
 
     public AdministratorOperationsFacade(WebDriver driver) {
-        this.driver = driver;
         this.administratorPage = new AdministratorPage(driver);
         this.orderAction = new OrderAction(driver);
     }
@@ -71,7 +69,7 @@ public class AdministratorOperationsFacade {
                 .getOrdersCount();
     }
 
-    public AdministratorMenu goToTabMenu() {
+    private AdministratorMenu goToTabMenu() {
         return administratorPage
                 .getAdministratorTabMenu();
     }
