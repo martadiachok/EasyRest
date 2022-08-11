@@ -5,7 +5,6 @@ import com.easyrest.components.admin.LeftSideMenu;
 import org.openqa.selenium.WebDriver;
 
 public class ActionOnUserFacade {
-    private WebDriver driver;
 
     private LeftSideMenu leftSideMenu;
     private ActionOnUser actionOnUser;
@@ -13,8 +12,6 @@ public class ActionOnUserFacade {
     public ActionOnUserFacade(WebDriver driver) {
         leftSideMenu = new LeftSideMenu(driver);
         actionOnUser = new ActionOnUser(driver);
-
-        this.driver = driver;
     }
 
     private void clickActiveUsers() {

@@ -6,7 +6,6 @@ import com.easyrest.pages.adminPanel.Moderators_AdminPanel;
 import org.openqa.selenium.WebDriver;
 
 public class ActionOnModeratorFacade {
-    private WebDriver driver;
 
     private LeftSideMenu leftSideMenu;
     private ActionOnUser actionOnModerator;
@@ -15,8 +14,6 @@ public class ActionOnModeratorFacade {
     public ActionOnModeratorFacade(WebDriver driver) {
         leftSideMenu = new LeftSideMenu(driver);
         actionOnModerator = new ActionOnUser(driver);
-
-        this.driver = driver;
     }
 
     private void clickActiveModerators() {
