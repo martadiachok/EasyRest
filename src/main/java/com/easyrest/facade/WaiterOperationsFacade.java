@@ -19,19 +19,23 @@ public class WaiterOperationsFacade {
     }
 
     public void seeAllOrders() {
-        goToTabMenu().clickOnAllOrders();
+        goToTabMenu()
+                .clickOnAllOrders();
     }
 
     public AssignedWaiterOrders seeAssignedWaiterOrders() {
-        return goToTabMenu().clickOnAssignedWaiterOrders();
+        return goToTabMenu()
+                .clickOnAssignedWaiterOrders();
     }
 
     public InProgressOrders seeInProgressOrders() {
-        return goToTabMenu().clickOnInProgressOrders();
+        return goToTabMenu()
+                .clickOnInProgressOrders();
     }
 
     public void seeOrdersHistory() {
-        goToTabMenu().clickOnOrdersHistory();
+        goToTabMenu()
+                .clickOnOrdersHistory();
     }
 
     public Integer seeAssignedWaiterOrdersCount() {
