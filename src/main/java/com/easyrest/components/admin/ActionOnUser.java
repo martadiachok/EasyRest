@@ -12,13 +12,14 @@ import java.util.List;
  */
 
 public class ActionOnUser {
+    private WebDriver driver;
+
     private final By allButton = By.xpath("//span[contains(text(),'All')]");
     private final By activeButton = By.xpath("//span[contains(text(),'Active')]");
     private final By bannedButton = By.xpath("//span[contains(text(),'Banned')]");
     private final By actionButton = By.cssSelector("td:nth-child(6)");
     private final By usersName = By.cssSelector("th:nth-child(1)");
 
-    protected WebDriver driver;
     public ActionOnUser(WebDriver driver) {
         this.driver = driver;
     }
