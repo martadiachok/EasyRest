@@ -22,17 +22,17 @@ public class ActionOnRestaurantFacade {
         leftSideMenu.clickOnMenuButtonRestaurants();
     }
 
-    public void clickUnapprovedRestaurant() {
+    private void clickUnapprovedRestaurant() {
         leftSideMenu.clickOnMenuButtonRestaurants();
         actionOnRestaurants.clickOnButtonUnapproved();
     }
 
-    public void clickApprovedRestaurant() {
+    private void clickApprovedRestaurant() {
         leftSideMenu.clickOnMenuButtonRestaurants();
         actionOnRestaurants.clickOnButtonApproved();
     }
 
-    public void clickArchivedRestaurant() {
+    private void clickArchivedRestaurant() {
         leftSideMenu.clickOnMenuButtonRestaurants();
         actionOnRestaurants.clickOnButtonArchived();
     }
