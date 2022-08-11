@@ -5,13 +5,13 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class LeftSideMenu {
+    private WebDriver driver;
 
     private final By usersButton = By.xpath("//span[text()='Users']");
     private final By ownersButton = By.xpath("//a[@href = '/admin/owners']");
     private final By moderatorsButton = By.xpath("//a[@href = '/admin/moderators']");
     private final By restaurantsButton = By.xpath("//a[@href = '/admin/restaurants']");
 
-    protected WebDriver driver;
     public LeftSideMenu(WebDriver driver) {
         this.driver = driver;
     }
