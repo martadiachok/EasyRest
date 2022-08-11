@@ -8,12 +8,10 @@ import com.easyrest.pages.waiterPanel.InProgressOrders;
 import org.openqa.selenium.WebDriver;
 
 public class WaiterOperationsFacade {
-    WebDriver driver;
-    WaiterPage waiterPage;
-    OrderAction orderAction;
+    private final WaiterPage waiterPage;
+    private final OrderAction orderAction;
 
     public WaiterOperationsFacade(WebDriver driver) {
-        this.driver = driver;
         this.waiterPage = new WaiterPage(driver);
         this.orderAction = new OrderAction(driver);
     }
@@ -69,7 +67,7 @@ public class WaiterOperationsFacade {
                 .clickOnLogOutMenuItem();
     }
 
-    public WaiterMenu goToTabMenu() {
+    private WaiterMenu goToTabMenu() {
         return waiterPage
                 .getWaiterTabMenu();
     }
