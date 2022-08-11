@@ -1,6 +1,7 @@
 package com.easyrest.facade;
 
 import com.easyrest.components.waiter.OrderAction;
+import com.easyrest.components.waiter.WaiterMenu;
 import com.easyrest.pages.WaiterPage;
 import com.easyrest.pages.waiterPanel.AssignedWaiterOrders;
 import com.easyrest.pages.waiterPanel.InProgressOrders;
@@ -18,27 +19,19 @@ public class WaiterOperationsFacade {
     }
 
     public void seeAllOrders() {
-        waiterPage
-                .getWaiterTabMenu()
-                .clickOnAllOrders();
+        goToTabMenu().clickOnAllOrders();
     }
 
     public AssignedWaiterOrders seeAssignedWaiterOrders() {
-        return waiterPage
-                .getWaiterTabMenu()
-                .clickOnAssignedWaiterOrders();
+        return goToTabMenu().clickOnAssignedWaiterOrders();
     }
 
     public InProgressOrders seeInProgressOrders() {
-        return waiterPage
-                .getWaiterTabMenu()
-                .clickOnInProgressOrders();
+        return goToTabMenu().clickOnInProgressOrders();
     }
 
     public void seeOrdersHistory() {
-        waiterPage
-                .getWaiterTabMenu()
-                .clickOnOrdersHistory();
+        goToTabMenu().clickOnOrdersHistory();
     }
 
     public Integer seeAssignedWaiterOrdersCount() {
@@ -63,6 +56,11 @@ public class WaiterOperationsFacade {
                 .getOrder()
                 .clickOnExpandOrderDetails();
         orderAction.clickOnOrderAction();
+    }
+
+    public WaiterMenu goToTabMenu() {
+        return waiterPage
+                .getWaiterTabMenu();
     }
 
 }
