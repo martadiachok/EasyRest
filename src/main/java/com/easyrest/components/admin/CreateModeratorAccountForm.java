@@ -5,6 +5,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class CreateModeratorAccountForm {
+    private WebDriver driver;
+
     private final By nameField = By.xpath("//input[@name='name']");
     private final By emailField = By.xpath("//input[@name='email']");
     private final By phoneNumberField = By.xpath("//input[@name='phoneNumber']");
@@ -14,7 +16,6 @@ public class CreateModeratorAccountForm {
     private final By createAccountButton = By.xpath("//span[text()='Create account']");
     private final By cancelButton = By.xpath("//span[text()='Cancel']");
 
-    protected WebDriver driver;
     public CreateModeratorAccountForm(WebDriver driver) {
         this.driver = driver;
     }
