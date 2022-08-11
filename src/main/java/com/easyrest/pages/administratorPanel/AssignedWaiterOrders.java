@@ -3,10 +3,9 @@ package com.easyrest.pages.administratorPanel;
 import com.easyrest.pages.AdministratorPage;
 import org.openqa.selenium.WebDriver;
 
-public class AcceptedOrders extends AdministratorPage {
+public class AssignedWaiterOrders extends AdministratorPage {
 
-    public AcceptedOrders(WebDriver driver) {
+    public AssignedWaiterOrders(WebDriver driver) {
         super(driver);
     }
-
 }
