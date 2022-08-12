@@ -25,55 +25,68 @@ public class TagsMenu {
         this.driver = driver;
     }
 
-    public void clickOnTagBeer() {
+    public TagsMenu clickOnTagBeer() {
         driver.findElement(beerTag).click();
+        return this;
     }
 
-    public void clickOnTagKebab() {
+    public TagsMenu clickOnTagKebab() {
         driver.findElement(kebabTag).click();
+        return this;
     }
 
-    public void clickOnTagPizza() {
+    public TagsMenu clickOnTagPizza() {
         driver.findElement(pizzaTag).click();
+        return this;
     }
 
-    public void clickOnTagCuisineTurkish() {
+    public TagsMenu clickOnTagCuisineTurkish() {
         driver.findElement(cuisineTurkishTag).click();
+        return this;
     }
 
-    public void clickOnTagVegetarian() {
+    public TagsMenu clickOnTagVegetarian() {
         driver.findElement(vegetarianTag).click();
+        return this;
     }
 
-    public void clickOnTagSushi() {
+    public TagsMenu clickOnTagSushi() {
         driver.findElement(sushiTag).click();
+        return this;
     }
 
-    public void clickOnTagFastFood() {
+    public TagsMenu clickOnTagFastFood() {
         driver.findElement(fastFoodTag).click();
+        return this;
     }
 
-    public void clickOnTagPub() {
+    public TagsMenu clickOnTagPub() {
         driver.findElement(pubTag).click();
+        return this;
     }
 
-    public void clickOnTagCuisineUkrainian() {
+    public TagsMenu clickOnTagCuisineUkrainian() {
         driver.findElement(cuisineUkrainianTag).click();
+        return this;
     }
 
-    public void clickOnTagBurgers() {
+    public TagsMenu clickOnTagBurgers() {
         driver.findElement(burgersTag).click();
+        return this;
     }
 
-    public void clickOnTagCuisineJapanese() {
+    public TagsMenu clickOnTagCuisineJapanese() {
         driver.findElement(cuisineJapaneseTag).click();
+        return this;
     }
 
-    public void clickOnTagGreel() {
+    public TagsMenu clickOnTagGreel() {
         driver.findElement(greelTag).click();
+        return this;
     }
 
-    public void clickOnTagCoffeTea() {
+    public TagsMenu clickOnTagCoffeTea() {
         driver.findElement(coffeTeaTag).click();
+        return this;
     }
 }
