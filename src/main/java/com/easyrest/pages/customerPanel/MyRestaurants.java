@@ -8,6 +8,7 @@ import org.openqa.selenium.WebDriver;
 public class MyRestaurants extends BasePage {
 
     private final By addRestaurantPlusButton = By.xpath("//*[@title = 'Add restaurant']");
+
     public MyRestaurants(WebDriver driver) {
         super(driver);
     }
