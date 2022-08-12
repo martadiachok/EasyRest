@@ -20,22 +20,22 @@ public class CreateNewEmployee extends BaseComponent {
 
     public CreateNewEmployee sendToFieldName(String name) {
         clearWithKeysAndFillInput(nameField, name);
-        return new CreateNewEmployee(driver);
+        return this;
     }
 
     public CreateNewEmployee sendToFieldMail(String email) {
         clearWithKeysAndFillInput(mailField, email);
-        return new CreateNewEmployee(driver);
+        return this;
     }
 
     public CreateNewEmployee sendToFieldPassword(String password) {
         clearWithKeysAndFillInput(passwordField, password);
-        return new CreateNewEmployee(driver);
+        return this;
     }
 
     public CreateNewEmployee sendToFieldPhone(String phone) {
         clearWithKeysAndFillInput(phoneField, phone);
-        return new CreateNewEmployee(driver);
+        return this;
     }
 
     public void clickOnButtonAdd() {
