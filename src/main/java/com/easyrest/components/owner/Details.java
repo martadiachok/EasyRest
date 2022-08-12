@@ -10,6 +10,8 @@ public class Details {
     private final By updateButton = By.xpath("//span [text() = 'Update']");
     private final By cancelButton = By.xpath("//span [text() = 'Cancel']");
 
+    public Details (WebDriver driver) {this.driver = driver;}
+
     public void clickOnButtonEditInformation() {
         driver.findElement(editInformationButton).click();
     }

@@ -15,23 +15,27 @@ public class CreateNewEmployee extends BaseComponent {
 
     public CreateNewEmployee(WebDriver driver) {
         super(driver);
-        this.driver=driver;
+        this.driver = driver;
     }
 
-    public void sendToFieldName(String name) {
+    public CreateNewEmployee sendToFieldName(String name) {
         clearWithKeysAndFillInput(nameField, name);
+        return new CreateNewEmployee(driver);
     }
 
-    public void sendToFieldMail(String mail) {
-        clearWithKeysAndFillInput(mailField, mail);
+    public CreateNewEmployee sendToFieldMail(String email) {
+        clearWithKeysAndFillInput(mailField, email);
+        return new CreateNewEmployee(driver);
     }
 
-    public void sendToFieldPassword(String password) {
+    public CreateNewEmployee sendToFieldPassword(String password) {
         clearWithKeysAndFillInput(passwordField, password);
+        return new CreateNewEmployee(driver);
     }
 
-    public void sendToFieldPhone(String phone) {
+    public CreateNewEmployee sendToFieldPhone(String phone) {
         clearWithKeysAndFillInput(phoneField, phone);
+        return new CreateNewEmployee(driver);
     }
 
     public void clickOnButtonAdd() {

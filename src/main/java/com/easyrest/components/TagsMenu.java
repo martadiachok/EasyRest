@@ -24,43 +24,56 @@ public class TagsMenu {
     public TagsMenu(WebDriver driver) {
         this.driver = driver;
     }
-    public void clickOnTagBeer(){
+
+    public void clickOnTagBeer() {
         driver.findElement(beerTag).click();
     }
-    public void clickOnTagKebab(){
+
+    public void clickOnTagKebab() {
         driver.findElement(kebabTag).click();
     }
-    public void clickOnTagPizza(){
+
+    public void clickOnTagPizza() {
         driver.findElement(pizzaTag).click();
     }
-    public void clickOnTagCuisineTurkish(){
+
+    public void clickOnTagCuisineTurkish() {
         driver.findElement(cuisineTurkishTag).click();
     }
-    public void clickOnTagVegetarian(){
+
+    public void clickOnTagVegetarian() {
         driver.findElement(vegetarianTag).click();
     }
-    public void clickOnTagSushi(){
+
+    public void clickOnTagSushi() {
         driver.findElement(sushiTag).click();
     }
-    public void clickOnTagFastFood(){
+
+    public void clickOnTagFastFood() {
         driver.findElement(fastFoodTag).click();
     }
-    public void clickOnTagPub(){
+
+    public void clickOnTagPub() {
         driver.findElement(pubTag).click();
     }
-    public void clickOnTagCuisineUkrainian(){
+
+    public void clickOnTagCuisineUkrainian() {
         driver.findElement(cuisineUkrainianTag).click();
     }
-    public void clickOnTagBurgers(){
+
+    public void clickOnTagBurgers() {
         driver.findElement(burgersTag).click();
     }
-    public void clickOnTagCuisineJapanese(){
+
+    public void clickOnTagCuisineJapanese() {
         driver.findElement(cuisineJapaneseTag).click();
     }
-    public void clickOnTagGreel(){
+
+    public void clickOnTagGreel() {
         driver.findElement(greelTag).click();
     }
-    public void clickOnTagCoffeTea(){
+
+    public void clickOnTagCoffeTea() {
         driver.findElement(coffeTeaTag).click();
     }
 }

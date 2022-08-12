@@ -1,7 +1,5 @@
 package com.easyrest.components.owner;
 
-import com.easyrest.pages.ownerPanel.Administrators;
-import com.easyrest.pages.ownerPanel.Details;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -15,18 +13,19 @@ public class LeftSideMenu {
         this.driver = driver;
     }
 
-   public Details clickOnMenuButtonDetails (){
+    public Details clickOnMenuButtonDetails() {
         driver.findElement(detailsMenuButton).click();
         return new Details(driver);
-   }
+    }
 
-   public Waiters clickOnMenuButtonWaiters (){
+    public Waiters clickOnMenuButtonWaiters() {
         driver.findElement(waitersMenuButton).click();
         return new Waiters(driver);
-   }
+    }
 
-   public Administrators clickOnMenuButtonAdministrators(){
+    public Administrators clickOnMenuButtonAdministrators() {
         driver.findElement(administratorsMenuButton).click();
         return new Administrators(driver);
-   }
+
+    }
 }

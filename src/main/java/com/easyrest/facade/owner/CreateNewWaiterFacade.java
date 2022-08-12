@@ -1,4 +1,4 @@
-package com.easyrest.facade;
+package com.easyrest.facade.owner;
 
 import com.easyrest.components.HeaderForAuthorizedUser;
 import com.easyrest.components.UserRoleMenuPanel;
@@ -12,29 +12,25 @@ import org.openqa.selenium.WebDriver;
 
 public class CreateNewWaiterFacade {
     private HeaderForAuthorizedUser headerForAuthorizedUser;
-    private UserRoleMenuPanel userRoleMenuPanel;
     private Right_sideMenu right_sideMenu;
     private ManageMenu manageMenu;
     private LeftSideMenu leftSideMenu;
     private CreateNewEmployee createNewEmployee;
-    private Waiters waiters;
 
-    public CreateNewWaiterFacade(WebDriver driver){
+    public CreateNewWaiterFacade(WebDriver driver) {
         headerForAuthorizedUser = new HeaderForAuthorizedUser(driver);
-        userRoleMenuPanel = new UserRoleMenuPanel(driver);
         right_sideMenu = new Right_sideMenu(driver);
         manageMenu = new ManageMenu(driver);
         leftSideMenu = new LeftSideMenu(driver);
         createNewEmployee = new CreateNewEmployee(driver);
-        waiters = new Waiters(driver);
     }
-     public void createNewWaiter (){
+
+    public void createNewWaiter(String name, String email, String phone, String password) {
         headerForAuthorizedUser.clickOnUserProfileIcon().clickOnTheFirstMenuItem();
         right_sideMenu.seeMyRestaurants();
         manageMenu.clickOnButtonRestaurantOption().clickOnMenuItemManage();
-        leftSideMenu.clickOnMenuButtonWaiters().clickOnButtonAddWaiter().sendToFieldName("Alex");
-        createNewEmployee.sendToFieldName();
-        createNewEmployee.sendToFieldMail();
-     }
+        leftSideMenu.clickOnMenuButtonWaiters().clickOnButtonAddWaiter();
+        createNewEmployee.sendToFieldName(name).sendToFieldMail(email).sendToFieldPhone(phone).sendToFieldPassword(password).clickOnButtonAdd();
+    }
 
 }
