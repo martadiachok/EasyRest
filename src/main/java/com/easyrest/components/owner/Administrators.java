@@ -12,8 +12,9 @@ public class Administrators {
         this.driver = driver;
     }
 
-    public void clickOnButtonAddAdministrator(){
+    public CreateNewEmployee clickOnButtonAddAdministrator(){
         driver.findElement(addAdministratorButton).click();
+        return new CreateNewEmployee(driver);
     }
 
     public void clickOnButtonDeleteAdministrator(){

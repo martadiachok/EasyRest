@@ -17,7 +17,8 @@ public class Waiters {
         driver.findElement(deleteWaiterButton).click();
     }
 
-    public void clickOnButtonAddWaiter() {
+    public CreateNewEmployee clickOnButtonAddWaiter() {
         driver.findElement(addWaiterButton).click();
+        return new CreateNewEmployee(driver);
     }
 }
