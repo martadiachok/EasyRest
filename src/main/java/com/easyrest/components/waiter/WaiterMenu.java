@@ -10,7 +10,6 @@ import org.openqa.selenium.WebDriver;
 public class WaiterMenu {
 
     private final WebDriver driver;
-
     private final By allOrdersTab = By.xpath("//a[@href='/waiter/orders/']");
     private final By assignedWaitersTab = By.xpath("//a[contains(@href,'Assigned waiter')]");
     private final By inProgressOrdersTab = By.xpath("//a[contains(@href,'In progress')]");

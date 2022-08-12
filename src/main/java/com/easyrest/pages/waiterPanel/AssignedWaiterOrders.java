@@ -1,12 +1,28 @@
 package com.easyrest.pages.waiterPanel;
 
-import com.easyrest.pages.WaiterPage;
+import com.easyrest.components.waiter.Order;
+import com.easyrest.pages.BasePage;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
-public class AssignedWaiterOrders extends WaiterPage {
+import java.util.List;
+
+public class AssignedWaiterOrders extends BasePage {
+
+    private final By order = By.xpath("//div[contains(@class,'Order-card')]");
 
     public AssignedWaiterOrders(WebDriver driver) {
         super(driver);
+    }
+
+    public Order getOrder() {
+        return new Order(driver);
+    }
+
+    public Integer getOrdersCount() {
+        List<WebElement> orders = driver.findElements(order);
+        return orders.size();
     }
 
 }
