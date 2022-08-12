@@ -8,14 +8,12 @@ import com.easyrest.pages.moderatorPanel.Restaurants;
 import org.openqa.selenium.WebDriver;
 
 public class ActionOnRestaurantFacade {
-    private WebDriver driver;
     private ActionOnRestaurants actionOnRestaurants;
     private LeftSideMenu leftSideMenu;
 
     public ActionOnRestaurantFacade(WebDriver driver) {
         actionOnRestaurants = new ActionOnRestaurants(driver);
         leftSideMenu = new LeftSideMenu(driver);
-        this.driver = driver;
     }
 
     public void seeAllRestaurants() {

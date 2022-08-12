@@ -5,14 +5,12 @@ import com.easyrest.components.moderator.LeftSideMenu;
 import org.openqa.selenium.WebDriver;
 
 public class BanUnbanUsersFacade {
-    private WebDriver driver;
     private LeftSideMenu leftSideMenu;
     private ActionOnUser actionOnUser;
 
     public BanUnbanUsersFacade(WebDriver driver) {
         leftSideMenu = new LeftSideMenu(driver);
         actionOnUser = new ActionOnUser(driver);
-        this.driver = driver;
     }
 
     public void clickActiveUsers() {

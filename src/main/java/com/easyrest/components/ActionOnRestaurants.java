@@ -29,9 +29,13 @@ public class ActionOnRestaurants {
         driver.findElement(allButton).click();
     }
 
-    public void clickOnButtonUnapproved() {driver.findElement(unapprovedButton).click();}
+    public void clickOnButtonUnapproved() {
+        driver.findElement(unapprovedButton).click();
+    }
 
-    public void clickOnButtonApproved() {driver.findElement(approvedButton).click();}
+    public void clickOnButtonApproved() {
+        driver.findElement(approvedButton).click();
+    }
 
     public void clickOnButtonArchived() {
         driver.findElement(archivedButton).click();
