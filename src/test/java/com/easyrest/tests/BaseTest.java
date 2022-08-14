@@ -23,9 +23,9 @@ abstract public class BaseTest {
     protected ExtentReports extent;
     protected ExtentTest test;
     protected ExtentSparkReporter spark;
-    protected DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy.MM.dd HH:mm:ss");
+    protected DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy.MM.dd HH:mm:ss");
     protected LocalDateTime now = LocalDateTime.now();
-    protected String currentDate = dtf.format(now);
+    protected String currentDate = dateTimeFormatter.format(now);
 
     public WebDriver getDriver(){
         return driver;
