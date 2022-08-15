@@ -6,12 +6,12 @@ import org.openqa.selenium.WebElement;
 import java.util.List;
 
 /**
- * This class is component of Admin Panel that contains table with information about client and contains method
- * to get first name from client list and make action on client - ban client or make him active.
+ * This class is page component of Admin Panel that contains table with information about client and contains method
+ * to make action on client - ban client or make him active.
  * Client - any type of user role (owner or administrator or admin or waiter or moderator or user).
  */
 
-public class ActionOnClient {
+public class ActionOnUser {
     private WebDriver driver;
 
     private final By allButton = By.xpath("//span[contains(text(),'All')]");
@@ -20,23 +20,20 @@ public class ActionOnClient {
     private final By actionButton = By.cssSelector("td:nth-child(6)");
     private final By usersName = By.cssSelector("th:nth-child(1)");
 
-    public ActionOnClient(WebDriver driver) {
+    public ActionOnUser(WebDriver driver) {
         this.driver = driver;
     }
+
 
     public void clickAllButton(){
         driver.findElement(allButton).click();
     }
 
-    public ActionOnClient clickActiveButton(){
+    public void clickActiveButton(){
         driver.findElement(activeButton).click();
-        return this;
     }
 
-    public ActionOnClient clickBannedButton() {
-        driver.findElement(bannedButton).click();
-        return this;
-    }
+    public void clickBannedButton(){ driver.findElement(bannedButton).click(); }
 
     public String getFirstNameFromClient() {
         List<WebElement> clientList = driver.findElements(usersName);
@@ -44,7 +41,7 @@ public class ActionOnClient {
         return firstNameFromList.getText();
     }
 
-    public void makeActionOnFirstClient() {
+    private void makeActionOnFirstClient() {
         List<WebElement> userList = driver.findElements(actionButton);
         if(userList.size() != 0) {
             userList.get(0).click();
@@ -53,7 +50,19 @@ public class ActionOnClient {
         }
     }
 
-    public boolean findClientInListAfterAction(String name){
+    public ActionOnUser clickToMakeFirstClientActive(){
+        clickBannedButton();
+        makeActionOnFirstClient();
+        return this;
+    }
+
+    public ActionOnUser clickToBanFirstClient(){
+        clickActiveButton();
+        makeActionOnFirstClient();
+        return this;
+    }
+
+    private boolean findUserInListAfterAction(String name){
         List<WebElement> usersNames = driver.findElements(usersName);
         for (WebElement item : usersNames) {
             if(item.getText() == name){
@@ -61,6 +70,16 @@ public class ActionOnClient {
             }
         }
         return false;
+    }
+
+    public boolean checkIfClientMovedToBannedList(String name) {
+        clickBannedButton();
+        return findUserInListAfterAction(name);
+    }
+
+    public boolean checkIfClientMovedToActiveList(String name) {
+        clickActiveButton();
+        return findUserInListAfterAction(name);
     }
 
 }

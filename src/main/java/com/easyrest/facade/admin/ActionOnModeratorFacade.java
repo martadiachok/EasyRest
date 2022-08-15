@@ -1,20 +1,19 @@
 package com.easyrest.facade.admin;
 
-import com.easyrest.components.admin.ActionOnClient;
+import com.easyrest.components.admin.ActionOnUser;
 import com.easyrest.components.admin.LeftSideMenu;
 import com.easyrest.pages.adminPanel.Moderators_AdminPanel;
 import org.openqa.selenium.WebDriver;
 
-public class ActionOnModeratorFacade extends ActionOnClientFacade {
+public class ActionOnModeratorFacade {
 
     private LeftSideMenu leftSideMenu;
-    private ActionOnClient actionOnModerator;
+    private ActionOnUser actionOnModerator;
     private Moderators_AdminPanel moderatorsPage_adminPanel;
 
     public ActionOnModeratorFacade(WebDriver driver) {
-        super(driver);
         leftSideMenu = new LeftSideMenu(driver);
-        actionOnModerator = new ActionOnClient(driver);
+        actionOnModerator = new ActionOnUser(driver);
     }
 
     private void clickActiveModerators() {
@@ -30,16 +29,16 @@ public class ActionOnModeratorFacade extends ActionOnClientFacade {
     public boolean banModerator() {
         clickActiveModerators();
         String userName = actionOnModerator.getFirstNameFromClient();
-        clickToBanFirstClient();
-        boolean isBanned = checkIfClientMovedToBannedList(userName);
+        actionOnModerator.clickToBanFirstClient();
+        boolean isBanned = actionOnModerator.checkIfClientMovedToBannedList(userName);
         return isBanned;
     }
 
     public boolean makeModeratorActive() {
         clickBannedModerators();
         String userName = actionOnModerator.getFirstNameFromClient();
-        clickToMakeFirstClientActive();
-        boolean isActive = checkIfClientMovedToActiveList(userName);
+        actionOnModerator.clickToMakeFirstClientActive();
+        boolean isActive = actionOnModerator.checkIfClientMovedToActiveList(userName);
         return isActive;
     }
 
