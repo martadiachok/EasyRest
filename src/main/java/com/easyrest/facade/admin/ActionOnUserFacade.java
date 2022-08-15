@@ -1,17 +1,18 @@
 package com.easyrest.facade.admin;
 
-import com.easyrest.components.admin.ActionOnUser;
+import com.easyrest.components.admin.ActionOnClient;
 import com.easyrest.components.admin.LeftSideMenu;
 import org.openqa.selenium.WebDriver;
 
-public class ActionOnUserFacade {
+public class ActionOnUserFacade extends ActionOnClientFacade {
 
     private LeftSideMenu leftSideMenu;
-    private ActionOnUser actionOnUser;
+    private ActionOnClient actionOnUser;
 
     public ActionOnUserFacade(WebDriver driver) {
+        super(driver);
         leftSideMenu = new LeftSideMenu(driver);
-        actionOnUser = new ActionOnUser(driver);
+        actionOnUser = new ActionOnClient(driver);
     }
 
     private void clickActiveUsers() {
@@ -27,16 +28,16 @@ public class ActionOnUserFacade {
     public boolean banUser() {
         clickActiveUsers();
         String userName = actionOnUser.getFirstNameFromClient();
-        actionOnUser.clickToBanFirstClient();
-        boolean isBanned = actionOnUser.checkIfClientMovedToBannedList(userName);
+        clickToBanFirstClient();
+        boolean isBanned = checkIfClientMovedToBannedList(userName);
         return isBanned;
     }
 
     public boolean makeUserActive() {
         clickBannedUsers();
         String userName = actionOnUser.getFirstNameFromClient();
-        actionOnUser.clickToMakeFirstClientActive();
-        boolean isActive = actionOnUser.checkIfClientMovedToActiveList(userName);
+        clickToMakeFirstClientActive();
+        boolean isActive = checkIfClientMovedToActiveList(userName);
         return isActive;
     }
 
