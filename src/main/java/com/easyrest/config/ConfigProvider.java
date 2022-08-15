@@ -16,4 +16,16 @@ public interface ConfigProvider {
     String signUpPageUrl = readConfig.getString("url.signUpPageUrl");
     String adminPageUrl = readConfig().getString("url.adminPageUrl");
 
+    /**
+     * Read TestData
+     */
+
+    String testEmail = readConfig.getString("testData.email");
+    String testName = readConfig.getString("testData.name");
+    String testPhoneNumber = readConfig.getString("testData.phoneNumber");
+    String testBirthDate = readConfig.getString("testData.birthDate");
+    String testBirthMonth = readConfig.getString("testData.birthMonth");
+    String testBirthYear = readConfig.getString("testData.birthYear");
+    String testPassword = readConfig.getString("testData.password");
+
 }
