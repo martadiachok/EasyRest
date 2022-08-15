@@ -21,21 +21,25 @@ public class CreateNewEmployee {
 
     //We know that we have code duplication
     public CreateNewEmployee sendToFieldName(String name) {
+        driver.findElement(nameField).clear();
         driver.findElement(nameField).sendKeys(name);
         return this;
     }
 
     public CreateNewEmployee sendToFieldEmail(String email) {
+        driver.findElement(emailField).clear();
         driver.findElement(emailField).sendKeys(email);
         return this;
     }
 
     public CreateNewEmployee sendToFieldPassword(String password) {
+        driver.findElement(passwordField).clear();
         driver.findElement(passwordField).sendKeys(password);
         return this;
     }
 
     public CreateNewEmployee sendToFieldPhone(String phone) {
+        driver.findElement(phoneField).clear();
         driver.findElement(phoneField).sendKeys(phone);
         return this;
     }
