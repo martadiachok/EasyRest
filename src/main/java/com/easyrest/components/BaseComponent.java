@@ -16,8 +16,4 @@ public class BaseComponent {
         driver.findElement(element).clear();
         driver.findElement(element).sendKeys(data);
     }
-    protected void clearWithKeysAndFillInput(By element, String inputText){
-        WebElement webElement = this.driver.findElement(element);
-        webElement.sendKeys(new CharSequence[]{Keys.chord(new CharSequence[]{Keys.CONTROL,"a"}),inputText});
-    }
 }

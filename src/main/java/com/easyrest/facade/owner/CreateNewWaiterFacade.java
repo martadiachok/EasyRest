@@ -30,7 +30,7 @@ public class CreateNewWaiterFacade {
         right_sideMenu.seeMyRestaurants();
         manageMenu.clickOnButtonRestaurantOption().clickOnMenuItemManage();
         leftSideMenu.clickOnMenuButtonWaiters().clickOnButtonAddWaiter();
-        createNewEmployee.sendToFieldName(name).sendToFieldMail(email).sendToFieldPhone(phone).sendToFieldPassword(password).clickOnButtonAdd();
+        createNewEmployee.sendToFieldName(name).sendToFieldEmail(email).sendToFieldPhone(phone).sendToFieldPassword(password).clickOnButtonAdd();
     }
 
 }

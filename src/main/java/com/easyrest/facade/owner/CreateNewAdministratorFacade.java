@@ -14,6 +14,7 @@ public class CreateNewAdministratorFacade {
     private LeftSideMenu leftSideMenu;
     private CreateNewEmployee createNewEmployee;
 
+
     public CreateNewAdministratorFacade(WebDriver driver) {
         headerForAuthorizedUser = new HeaderForAuthorizedUser(driver);
         right_sideMenu = new Right_sideMenu(driver);
@@ -27,6 +28,6 @@ public class CreateNewAdministratorFacade {
         right_sideMenu.seeMyRestaurants();
         manageMenu.clickOnButtonRestaurantOption().clickOnMenuItemManage();
         leftSideMenu.clickOnMenuButtonAdministrators().clickOnButtonAddAdministrator();
-        createNewEmployee.sendToFieldName(name).sendToFieldMail(email).sendToFieldPhone(phone).sendToFieldPassword(password).clickOnButtonAdd();
+        createNewEmployee.sendToFieldName(name).sendToFieldEmail(email).sendToFieldPhone(phone).sendToFieldPassword(password).clickOnButtonAdd();
     }
 }
