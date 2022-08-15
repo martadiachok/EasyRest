@@ -1,5 +1,6 @@
 package com.easyrest.components.menuPage;
 
+import com.easyrest.pages.MenuPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -20,8 +21,8 @@ public class Cart {
         return new OrderConfirmation(driver);
     }
 
-    public Cart clickOnButtonShowCart() {
+    public MenuPage clickOnButtonShowCart() {
         driver.findElement(showCartButton).click();
-        return this;
+        return new MenuPage(driver);
     }
 }
