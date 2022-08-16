@@ -23,7 +23,7 @@ public class Listeners extends BaseTest implements ITestListener {
         }
 
         try {
-            getScreenShotPath(testMethodName, driver);
+            getScreenShotPath(testMethodName);
         } catch (IOException e) {
             e.printStackTrace();
         }
