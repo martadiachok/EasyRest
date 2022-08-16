@@ -18,19 +18,12 @@ public class SignInPage extends BasePage {
     public SignInPage(WebDriver driver) {
         super(driver);
     }
-
-    /**
-     * General methods
-     */
     public SignInPage goToSignInPage() {
         // TODO: pass url as a parameter from test
         openPage(ConfigProvider.logInPageUrl);
         return this;
     }
 
-    /**
-     * Methods to find one element and fill one field
-     */
     public SignInPage inputEmail (String userEmail) {
         driver.findElement(emailField).sendKeys(userEmail);
         return this;
@@ -41,19 +34,6 @@ public class SignInPage extends BasePage {
         return this;
     }
 
-    /**
-     * Methods to find all fields, fill them with data and click 'signInButton'
-     */
-    public SignInPage loginValidUser(String userName, String password) {
-        inputEmail(userName);
-        inputPassword(password);
-        clickSignIn();
-        return new SignInPage(driver);
-    }
-
-    /**
-     * Methods to click on element
-     */
     public void clickCreateAccount() {
         driver.findElement(createAccountButton).click();
     }
