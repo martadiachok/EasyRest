@@ -5,7 +5,7 @@ import com.easyrest.pages.customerPanel.MyRestaurants;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class AddRestaurant extends BaseComponent{
+public class AddRestaurant{
 
     private WebDriver driver;
     private final By restaurantNameField = By.xpath("//input[@name='name']");
@@ -14,19 +14,20 @@ public class AddRestaurant extends BaseComponent{
     private final By cancel = By.xpath("//*[text() = 'Cancel']");
 
     public AddRestaurant(WebDriver driver){
-        super(driver);
         this.driver=driver;
     }
 
 
     public AddRestaurant enterRestaurantName(String name) {
 
-        enterData(name,restaurantNameField,driver);
+        driver.findElement(restaurantNameField).clear();
+        driver.findElement(restaurantNameField).sendKeys(name);
         return this;
     }
 
     public AddRestaurant enterRestaurantAddress(String address) {
-        enterData(address,restaurantAddressField,driver);
+        driver.findElement(restaurantAddressField).clear();
+        driver.findElement(restaurantAddressField).sendKeys(address);
         return this;
     }
 
