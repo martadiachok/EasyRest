@@ -14,28 +14,21 @@ import org.openqa.selenium.WebDriver;
 public class OwnerPanel extends BasePage {
 
     private Right_sideMenu right_sideMenu;
-    private MyRestaurants myRestaurants;
-    private AddRestaurant addRestaurant;
     private HeaderForAuthorizedUser headerForAuthorizedUser;
     private UserRoleMenuPanel userRoleMenuPanel;
     private ManageMenu manageMenu;
     private LeftSideMenu leftSideMenu;
-    private CreateNewEmployee createNewEmployee;
     private Administrators administrators;
     private Waiters waiters;
 
     public OwnerPanel(WebDriver driver) {
         super(driver);
-        addRestaurant = new AddRestaurant(driver);
         right_sideMenu = new Right_sideMenu(driver);
-        myRestaurants = new MyRestaurants(driver);
         headerForAuthorizedUser = new HeaderForAuthorizedUser(driver);
         userRoleMenuPanel = new UserRoleMenuPanel(driver);
         manageMenu = new ManageMenu(driver);
         leftSideMenu = new LeftSideMenu(driver);
-        createNewEmployee = new CreateNewEmployee(driver);
         administrators = new Administrators(driver);
         waiters = new Waiters(driver);
-
     }
 }

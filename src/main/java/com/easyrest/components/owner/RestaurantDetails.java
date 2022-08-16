@@ -3,14 +3,16 @@ package com.easyrest.components.owner;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class Details {
+public class RestaurantDetails {
     private WebDriver driver;
 
     private final By editInformationButton = By.xpath("//button [@title = 'Edit Information']");
     private final By updateButton = By.xpath("//span [text() = 'Update']");
     private final By cancelButton = By.xpath("//span [text() = 'Cancel']");
 
-    public Details (WebDriver driver) {this.driver = driver;}
+    public RestaurantDetails(WebDriver driver) {
+        this.driver = driver;
+    }
 
     public void clickOnButtonEditInformation() {
         driver.findElement(editInformationButton).click();

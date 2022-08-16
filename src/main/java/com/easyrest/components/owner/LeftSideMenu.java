@@ -13,14 +13,14 @@ public class LeftSideMenu {
         this.driver = driver;
     }
 
-    public Details clickOnMenuButtonDetails() {
+    public RestaurantDetails clickOnMenuButtonDetails() {
         driver.findElement(detailsMenuButton).click();
-        return new Details(driver);
+        return new RestaurantDetails(driver);
     }
 
     public Waiters clickOnMenuButtonWaiters() {
         driver.findElement(waitersMenuButton).click();
-        return new Waiters (driver);
+        return new Waiters(driver);
     }
 
     public Administrators clickOnMenuButtonAdministrators() {
