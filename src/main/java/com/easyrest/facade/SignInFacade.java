@@ -15,12 +15,10 @@ public class SignInFacade {
     }
 
 
-    public SignInPage signIn (String userName, String password) {
+    public void signIn (String userName, String password) {
         signInPage.inputEmail(userName)
                   .inputPassword(password)
                   .clickSignIn();
-
-        return new SignInPage(driver);
     }
 
 }
