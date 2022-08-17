@@ -1,10 +1,11 @@
 package com.easyrest.tests;
 
+import com.aventstack.extentreports.ExtentReports;
 import com.easyrest.config.ConfigProvider;
+import com.easyrest.facade.SignInFacade;
 import com.easyrest.pages.SignInPage;
 import com.easyrest.pages.SignUpPage;
 import org.testng.Assert;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 public class SignUpTest extends BaseTest {
@@ -19,32 +20,36 @@ public class SignUpTest extends BaseTest {
 
     private SignUpPage signUpPage;
     private SignInPage signInPage;
+    private SignInFacade signInFacade;
 
-    @Test
-    public SignInPage signUpPositiveTest(){
+    @Test (priority = 1)
+    public void signUpPositiveTest() throws InterruptedException {
+        signUpPage = new SignUpPage(driver);
+        extent = new ExtentReports();
+        test = extent.createTest("signUpPositiveTest");
+
         signUpPage.goToSignUpPage();
-
         signUpPage.inputName(name);
         signUpPage.inputEmail(email);
         signUpPage.inputPhone(phoneNumber);
-        signUpPage.inputName(name);
         signUpPage.clickOnBirthdayField().inputDate(birthYear, birthMonth, birthDate);
         signUpPage.inputPassword(password);
-
         signUpPage.clickCreateAccount();
-        return new SignInPage(driver);
-//change to SignInPage
-        //Assert.assertEquals("http://localhost:3000/log-in","http://localhost:3000/log-in","Sign in page was not reached");
+
+        Assert.assertEquals(ConfigProvider.signInPageUrl, "Sign in page was not reached");
     }
 
-    @Test
-    public void secondCheckSignUp() {
-        signInPage.inputEmail(email);
-        signInPage.inputPassword(password);
-        signInPage.clickSignIn();
+    @Test (priority = 2)
+    public void secondCheckSignUp_tryToSignIn() throws InterruptedException {
+        signInPage = new SignInPage(driver);
+        signInFacade = new SignInFacade(driver);
+        extent = new ExtentReports();
+        test = extent.createTest("secondCheckSignUp");
 
-        Assert.assertEquals("http://localhost:3000/restaurants", "http://localhost:3000/restaurants",
-                "Sign in was not successful, Restaurant page was not reached");
+        signInPage.goToSignInPage();
+        signInFacade.signIn(email, password);
+
+        Assert.assertEquals(ConfigProvider.restaurantsPageUrl, ConfigProvider.restaurantsPageUrl, "Sign in was not successful, Restaurant page was not reached");
     }
 
 }
