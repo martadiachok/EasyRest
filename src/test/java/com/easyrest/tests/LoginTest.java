@@ -1,7 +1,11 @@
 package com.easyrest.tests;
 
 import com.aventstack.extentreports.ExtentReports;
+import com.easyrest.config.ConfigProvider;
 import com.easyrest.pages.SignUpPage;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 
@@ -14,7 +18,7 @@ public class LoginTest extends BaseTest {
         //ExtentSparkReporter spark = new ExtentSparkReporter("src/test/Reports/loginTest_28.06.2022");
         //extent.attachReporter(spark);
 
-        SignUpPage page = new SignUpPage(driver);
+       /* SignUpPage page = new SignUpPage(driver);
 
         page.goToSignUpPage();
 
@@ -22,11 +26,12 @@ public class LoginTest extends BaseTest {
 
         Thread.sleep(3000);
 
+        Assert.assertEquals(driver.getCurrentUrl(), ConfigProvider.logInPageUrl); */
 
-/*        String clientEmail = ConfigProvider.clientEmail;
+        String clientEmail = ConfigProvider.clientEmail;
         String clientPassword = ConfigProvider.clientPassword;
 
-        driver.get(ConfigProvider.urlLoginMac);
+        driver.get(ConfigProvider.logInPageUrl);
 
         WebElement inputEmail = driver.findElement(By.xpath("/html/body/div/main/div/div[2]/form/div/div[1]/div/div/input"));
         inputEmail.clear();
@@ -44,7 +49,6 @@ public class LoginTest extends BaseTest {
         test.info("SignIn button has been clicked.");
         Thread.sleep(5000);
 
-        Assert.assertEquals(driver.getCurrentUrl(), ConfigProvider.urlRestaurantsMac);
-        test.info("Page " + ConfigProvider.urlRestaurantsMac + " has been reached");  */
+        Assert.assertEquals(driver.getCurrentUrl(), ConfigProvider.signUpPageUrl);
     }
 }
