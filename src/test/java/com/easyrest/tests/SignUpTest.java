@@ -36,7 +36,8 @@ public class SignUpTest extends BaseTest {
         signUpPage.inputPassword(password);
         signUpPage.clickCreateAccount();
 
-        Assert.assertEquals(ConfigProvider.signInPageUrl, "Sign in page was not reached");
+        String currentUrl = driver.driver.getCurrentUrl();
+        Assert.assertEquals(currentUrl, ConfigProvider.signInPageUrl, "Sign up failed. Sign in page was not reached.");
     }
 
     @Test (priority = 2)
@@ -49,7 +50,8 @@ public class SignUpTest extends BaseTest {
         signInPage.goToSignInPage();
         signInFacade.signIn(email, password);
 
-        Assert.assertEquals(ConfigProvider.restaurantsPageUrl, ConfigProvider.restaurantsPageUrl, "Sign in was not successful, Restaurant page was not reached");
+        String currentUrl = driver.driver.getCurrentUrl();
+        Assert.assertEquals(currentUrl, ConfigProvider.restaurantsPageUrl, "Sign in of new user was not successful. Restaurant page was not reached.");
     }
 
 }
