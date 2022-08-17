@@ -18,8 +18,8 @@ public class MenuItem {
     public MenuItem addProduct() {
         List<WebElement> elements = driver.findElements(addProduct);
         if (elements.size() > 0) {
-            WebElement addition = elements.get(0);
-            addition.click();
+            WebElement addedproduct = elements.get(0);
+            addedproduct.click();
         }
         return new MenuItem(driver);
     }
