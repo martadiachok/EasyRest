@@ -15,12 +15,21 @@ import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import java.io.File;
+import java.time.format.DateTimeFormatter;
+import java.time.LocalDateTime;
 
 abstract public class BaseTest {
     protected WebDriver driver;
     protected ExtentReports extent;
     protected ExtentTest test;
     protected ExtentSparkReporter spark;
+    protected DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy.MM.dd HH:mm:ss");
+    protected LocalDateTime now = LocalDateTime.now();
+    protected String currentDate = dateTimeFormatter.format(now);
+
+    public WebDriver getDriver(){
+        return driver;
+    }
 
     /**
      * Initialization of webdriver and assigning the settings for the webdriver
@@ -33,7 +42,7 @@ abstract public class BaseTest {
         driver.manage().window().maximize();
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(20));
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(Constants.TimeoutVariable.IMPLICIT_WAIT));
-        String reportPath = System.getProperty("user.dir") + "\\reports\\index.html";
+        String reportPath = System.getProperty("user.dir") + "/reports/index.html";
         // Create object of ExtentSparkReporter class and set up address for report saving
         spark = new ExtentSparkReporter(reportPath);
         spark.config().setDocumentTitle("EasyRest Test Results");
@@ -43,10 +52,12 @@ abstract public class BaseTest {
         extent.attachReporter(spark);
     }
 
-    public void getScreenShotPath(String testCaseName) throws IOException {
+   public void getScreenShotPath(String testCaseName) throws IOException {
         TakesScreenshot takeScreenshots = (TakesScreenshot) driver;
         File source = takeScreenshots.getScreenshotAs(OutputType.FILE);
-        String destinationFile = "user.dir" + ("\\reports" + testCaseName + ".png");
+        String destinationFile = System.getProperty("user.dir") + "/screenshots/" + testCaseName + "_" + currentDate + ".png";
+        // Address for Windows below
+        //String destinationFile = System.getProperty("user.dir") + "\\screenshots\\" + testCaseName + "_" + currentDate + ".png";
         FileUtils.copyFile(source, new File(destinationFile));
     }
 
@@ -61,4 +72,5 @@ abstract public class BaseTest {
         //indicates that test is done and will not be monitored anymore
         extent.flush();
     }
+
 }

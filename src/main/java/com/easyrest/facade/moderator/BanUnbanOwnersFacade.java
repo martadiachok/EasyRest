@@ -1,16 +1,19 @@
 package com.easyrest.facade.moderator;
 
-import com.easyrest.components.admin.ActionOnUser;
+import com.easyrest.components.admin.ActionOnClient;
 import com.easyrest.components.moderator.LeftSideMenu;
+import com.easyrest.facade.admin.ActionOnClientFacade;
 import org.openqa.selenium.WebDriver;
 
 public class BanUnbanOwnersFacade {
     private LeftSideMenu leftSideMenu;
-    private ActionOnUser actionOnOwner;
+    private ActionOnClient actionOnOwner;
+    private ActionOnClientFacade actionOnOwnerFacade;
 
     public BanUnbanOwnersFacade(WebDriver driver) {
         leftSideMenu = new LeftSideMenu(driver);
-        actionOnOwner = new ActionOnUser(driver);
+        actionOnOwner = new ActionOnClient(driver);
+        actionOnOwnerFacade = new ActionOnClientFacade(driver);
     }
 
     public void clickActiveOwners() {
@@ -26,15 +29,15 @@ public class BanUnbanOwnersFacade {
     public boolean banOwners() {
         clickActiveOwners();
         String userName = actionOnOwner.getFirstNameFromClient();
-        actionOnOwner.clickToBanFirstClient();
-        return actionOnOwner.checkIfClientMovedToBannedList(userName);
+        actionOnOwnerFacade.clickToBanFirstClient();
+        return actionOnOwnerFacade.checkIfClientMovedToBannedList(userName);
     }
 
     public boolean makeOwnersActive() {
         clickBannedOwners();
         String userName = actionOnOwner.getFirstNameFromClient();
-        actionOnOwner.clickToMakeFirstClientActive();
-        return actionOnOwner.checkIfClientMovedToActiveList(userName);
+        actionOnOwnerFacade.clickToMakeFirstClientActive();
+        return actionOnOwnerFacade.checkIfClientMovedToActiveList(userName);
 
     }
 }
