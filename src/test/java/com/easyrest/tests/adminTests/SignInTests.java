@@ -24,10 +24,6 @@ public class SignInTests extends BaseTest {
     private SignInFacade signInFacade;
     private WebDriverWait wait;
 
-    private void waitForPageToBePresent(){
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(Constants.TimeoutVariable.IMPLICIT_WAIT));
-    }
-
     @BeforeMethod
     public SignInPage goToSignInPage() {
         signInPage = new SignInPage(driver);
@@ -49,7 +45,6 @@ public class SignInTests extends BaseTest {
     @Test
     public void signInTest_InvalidEmail() {
         signInFacade.signIn(fakeEmail, adminPassword);
-        waitForPageToBePresent();
 
         Assert.assertEquals(driver.getCurrentUrl(), ConfigProvider.signInPageUrl);
     }
@@ -57,7 +52,6 @@ public class SignInTests extends BaseTest {
     @Test
     public void signInTest_InvalidPassword() {
         signInFacade.signIn(adminEmail, fakePassword);
-        waitForPageToBePresent();
 
         Assert.assertEquals(driver.getCurrentUrl(), ConfigProvider.signInPageUrl);
     }
@@ -65,7 +59,6 @@ public class SignInTests extends BaseTest {
     @Test
     public void signInTest_InvalidData() {
         signInFacade.signIn(fakeEmail, fakePassword);
-        waitForPageToBePresent();
 
         Assert.assertEquals(driver.getCurrentUrl(), ConfigProvider.signInPageUrl);
     }
