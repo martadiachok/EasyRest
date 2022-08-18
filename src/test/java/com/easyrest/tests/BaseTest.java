@@ -54,12 +54,6 @@ abstract public class BaseTest {
         extent.attachReporter(spark);
     }
 
-    @BeforeMethod
-    private void setUpExtentTest(ITestResult result) {
-        String methodName = result.getMethod().getMethodName();
-        test = extent.createTest(methodName);
-    }
-
    public void getScreenShotPath(String testCaseName) throws IOException {
         TakesScreenshot takeScreenshots = (TakesScreenshot) driver;
         File source = takeScreenshots.getScreenshotAs(OutputType.FILE);

@@ -8,12 +8,17 @@ import java.io.IOException;
 
 public class Listeners extends BaseTest implements ITestListener {
 
+    public void onTestStart(ITestResult result) {
+        test = extent.createTest(result.getTestClass().getName() + " : " +
+                result.getMethod().getMethodName());
+    }
+
    public void onTestSuccess(ITestResult result) {
-// TODO Auto-generated method stub
-        System.out.println("Success of test cases and its details are : "+result.getName());
+       System.out.println("Test passed: " + result.getMethod().getMethodName());
     }
 
     public void onTestFailure(ITestResult result) {
+       System.out.println("Test was failed: " + result.getMethod().getMethodName());
        String testMethodName = result.getMethod().getMethodName();
         try {
             BaseTest instance = (BaseTest)result.getInstance();
@@ -30,21 +35,7 @@ public class Listeners extends BaseTest implements ITestListener {
     }
 
     public void onTestSkipped(ITestResult result) {
-// TODO Auto-generated method stub
-        System.out.println("Skip of test cases and its details are : "+result.getName());
-    }
-
-    public void onTestFailedButWithinSuccessPercentage(ITestResult result) {
-// TODO Auto-generated method stub
-        System.out.println("Failure of test cases and its details are : "+result.getName());
-    }
-
-    public void onStart(ITestContext context) {
-// TODO Auto-generated method stub
-    }
-
-    public void onFinish(ITestContext context) {
-// TODO Auto-generated method stub
+        System.out.println("Test was skipped: " + result.getMethod().getMethodName());
     }
 
 }
