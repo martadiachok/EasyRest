@@ -1,18 +1,13 @@
 package com.easyrest.tests;
 
-import com.aventstack.extentreports.ExtentReports;
 import com.easyrest.config.ConfigProvider;
-import com.easyrest.constants.Constants;
 import com.easyrest.facade.SignInFacade;
 import com.easyrest.pages.SignInPage;
 import com.easyrest.pages.SignUpPage;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import org.testng.ITestResult;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-
 import java.time.Duration;
 
 public class SignUpTest extends BaseTest {
