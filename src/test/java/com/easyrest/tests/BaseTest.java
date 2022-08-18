@@ -7,7 +7,9 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.ITestResult;
 import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 import java.io.IOException;
 import java.time.Duration;
@@ -50,6 +52,12 @@ abstract public class BaseTest {
         extent = new ExtentReports();
         // give knowledge about report from ExtentSparkReporter class to main class ExtentReports
         extent.attachReporter(spark);
+    }
+
+    @BeforeMethod
+    private void setUpExtentTest(ITestResult result) {
+        String methodName = result.getMethod().getMethodName();
+        test = extent.createTest(methodName);
     }
 
    public void getScreenShotPath(String testCaseName) throws IOException {
