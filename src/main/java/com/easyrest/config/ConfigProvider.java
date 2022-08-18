@@ -13,7 +13,6 @@ public interface ConfigProvider {
     /**
      * Read UsersParam
      */
-
     String clientEmail = readConfig.getString("usersParams.client.email");
     String clientPassword = readConfig.getString("usersParams.client.password");
 
@@ -35,7 +34,6 @@ public interface ConfigProvider {
     /**
      * Read URL
      */
-
     String logInPageUrl = readConfig.getString("url.logInPageUrl");
     String signUpPageUrl = readConfig.getString("url.generalUrl.signUpPageUrl");
     String signInPageUrl = readConfig.getString("url.generalUrl.logInPageUrl");
