@@ -30,14 +30,7 @@ public class SignUpTest extends BaseTest {
     private SignInFacade signInFacade;
     private WebDriverWait wait;
 
-    @BeforeMethod
-    private void setUp(ITestResult result) {
-        extent = new ExtentReports();
-        String methodName = result.getMethod().getMethodName();
-        test = extent.createTest(methodName);
-    }
-
-    public void waitForUrlPresence(String pageUrl) {
+    private void waitForUrlPresence(String pageUrl) {
         wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         wait.until(ExpectedConditions.urlToBe(pageUrl));
     }
