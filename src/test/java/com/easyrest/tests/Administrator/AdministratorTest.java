@@ -32,4 +32,24 @@ public class AdministratorTest extends BaseTest {
         Assert.assertEquals(ordersCountAfterAccepting, ordersCountBeforeAccepting - 1, "Order was not accepted");
     }
 
+    @Test
+    public void assignWaiterForAcceptedOrder() {
+        SignInPage signInPage = new SignInPage(driver);
+        signInPage
+                .goToSignInPage()
+                .inputEmail(email)
+                .inputPassword(password)
+                .clickSignIn();
+
+        AdministratorOperationsFacade administrator = new AdministratorOperationsFacade(driver);
+        Integer ordersCountBeforeAssigning = administrator.seeAcceptedOrdersCount();
+        administrator.assignWaiter();
+        Integer ordersCountAfterAssigning = administrator.seeAcceptedOrdersCount();
+
+        AuthorizedHeaderMenuPanelFacade menu = new AuthorizedHeaderMenuPanelFacade(driver);
+        menu.clickOnLogoutMenuItem();
+
+        Assert.assertEquals(ordersCountAfterAssigning, ordersCountBeforeAssigning - 1, "Order was not accepted");
+    }
+
 }
