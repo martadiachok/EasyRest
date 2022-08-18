@@ -6,7 +6,11 @@ import com.easyrest.constants.Constants;
 import com.easyrest.facade.SignInFacade;
 import com.easyrest.pages.SignInPage;
 import com.easyrest.pages.SignUpPage;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import org.testng.ITestResult;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
@@ -24,12 +28,23 @@ public class SignUpTest extends BaseTest {
     private SignUpPage signUpPage;
     private SignInPage signInPage;
     private SignInFacade signInFacade;
+    private WebDriverWait wait;
+
+    @BeforeMethod
+    private void setUp(ITestResult result) {
+        extent = new ExtentReports();
+        String methodName = result.getMethod().getMethodName();
+        test = extent.createTest(methodName);
+    }
+
+    public void waitForUrlPresence(String pageUrl) {
+        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        wait.until(ExpectedConditions.urlToBe(pageUrl));
+    }
 
     @Test (priority = 1)
     public void signUpPositiveTest() {
         signUpPage = new SignUpPage(driver);
-        extent = new ExtentReports();
-        test = extent.createTest("signUpPositiveTest");
 
         signUpPage.goToSignUpPage();
         signUpPage.inputName(name);
@@ -38,25 +53,21 @@ public class SignUpTest extends BaseTest {
         signUpPage.clickOnBirthdayField().inputDate(birthYear, birthMonth, birthDate);
         signUpPage.inputPassword(password);
         signUpPage.clickCreateAccount();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        
-        String currentUrl = driver.getCurrentUrl();
-        Assert.assertEquals(currentUrl, ConfigProvider.signInPageUrl, "Sign up failed. Sign in page was not reached.");
+        waitForUrlPresence(ConfigProvider.signInPageUrl);
+
+        Assert.assertEquals(driver.getCurrentUrl(), ConfigProvider.signInPageUrl, "Sign up failed. Sign in page was not reached.");
     }
 
     @Test (priority = 2)
     public void secondCheckSignUp_tryToSignIn() {
         signInPage = new SignInPage(driver);
         signInFacade = new SignInFacade(driver);
-        extent = new ExtentReports();
-        test = extent.createTest("secondCheckSignUp");
 
         signInPage.goToSignInPage();
         signInFacade.signIn(email, password);
+        waitForUrlPresence(ConfigProvider.restaurantsPageUrl);
 
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(Constants.TimeoutVariable.IMPLICIT_WAIT));
-        String currentUrl = driver.getCurrentUrl();
-        Assert.assertEquals(currentUrl, ConfigProvider.restaurantsPageUrl, "Sign in of new user was not successful. Restaurant page was not reached.");
+        Assert.assertEquals(driver.getCurrentUrl(), ConfigProvider.restaurantsPageUrl, "Sign in of new user was not successful. Restaurant page was not reached.");
     }
 
 }
