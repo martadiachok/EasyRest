@@ -13,13 +13,13 @@ import org.openqa.selenium.WebDriver;
 
 public class OwnerPanel extends BasePage {
 
-    private Right_sideMenu right_sideMenu;
-    private HeaderForAuthorizedUser headerForAuthorizedUser;
-    private UserRoleMenuPanel userRoleMenuPanel;
-    private ManageMenu manageMenu;
-    private LeftSideMenu leftSideMenu;
-    private Administrators administrators;
-    private Waiters waiters;
+    public Right_sideMenu right_sideMenu;
+    public HeaderForAuthorizedUser headerForAuthorizedUser;
+    public UserRoleMenuPanel userRoleMenuPanel;
+    public ManageMenu manageMenu;
+    public LeftSideMenu leftSideMenu;
+    public Administrators administrators;
+    public Waiters waiters;
 
     public OwnerPanel(WebDriver driver) {
         super(driver);
