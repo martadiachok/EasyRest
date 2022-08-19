@@ -10,7 +10,7 @@ import java.util.List;
 
 public class WaitingForConfirmOrders extends BasePage {
 
-    private final By orders = By.xpath("//*[name()='svg']");
+    private final By orders = By.xpath("//div[contains(@class,'ExpandItem')]/div[contains(@role,'button')]");
 
     public WaitingForConfirmOrders(WebDriver driver) {
         super(driver);

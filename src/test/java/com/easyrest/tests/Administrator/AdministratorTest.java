@@ -5,6 +5,8 @@ import com.easyrest.facade.AuthorizedHeaderMenuPanelFacade;
 import com.easyrest.pages.SignInPage;
 import com.easyrest.tests.BaseTest;
 import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class AdministratorTest extends BaseTest {
@@ -12,44 +14,40 @@ public class AdministratorTest extends BaseTest {
     private final String email = "seanchoi@test.com";
     private final String password = "1";
 
-    @Test
-    public void acceptWaitingForConfirmOrder() {
+    @BeforeMethod
+    public void signIn() {
         SignInPage signInPage = new SignInPage(driver);
         signInPage
                 .goToSignInPage()
                 .inputEmail(email)
                 .inputPassword(password)
                 .clickSignIn();
+    }
 
+    @Test
+    public void acceptWaitingForConfirmOrder() {
         AdministratorOperationsFacade administrator = new AdministratorOperationsFacade(driver);
         Integer ordersCountBeforeAccepting = administrator.seeWaitingForConfirmOrdersCount();
         administrator.acceptOrder();
         Integer ordersCountAfterAccepting = administrator.seeWaitingForConfirmOrdersCount();
-
-        AuthorizedHeaderMenuPanelFacade menu = new AuthorizedHeaderMenuPanelFacade(driver);
-        menu.clickOnLogoutMenuItem();
 
         Assert.assertEquals(ordersCountAfterAccepting, ordersCountBeforeAccepting - 1, "Order was not accepted");
     }
 
     @Test
     public void assignWaiterForAcceptedOrder() {
-        SignInPage signInPage = new SignInPage(driver);
-        signInPage
-                .goToSignInPage()
-                .inputEmail(email)
-                .inputPassword(password)
-                .clickSignIn();
-
         AdministratorOperationsFacade administrator = new AdministratorOperationsFacade(driver);
         Integer ordersCountBeforeAssigning = administrator.seeAcceptedOrdersCount();
         administrator.assignWaiter();
         Integer ordersCountAfterAssigning = administrator.seeAcceptedOrdersCount();
 
+        Assert.assertEquals(ordersCountAfterAssigning, ordersCountBeforeAssigning - 1, "Waiter was not assigned");
+    }
+
+    @AfterMethod
+    public void logOut() {
         AuthorizedHeaderMenuPanelFacade menu = new AuthorizedHeaderMenuPanelFacade(driver);
         menu.clickOnLogoutMenuItem();
-
-        Assert.assertEquals(ordersCountAfterAssigning, ordersCountBeforeAssigning - 1, "Order was not accepted");
     }
 
 }
