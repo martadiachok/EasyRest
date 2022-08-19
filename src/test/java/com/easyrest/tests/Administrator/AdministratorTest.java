@@ -1,5 +1,6 @@
 package com.easyrest.tests.Administrator;
 
+import com.easyrest.config.ConfigProvider;
 import com.easyrest.facade.AdministratorOperationsFacade;
 import com.easyrest.facade.AuthorizedHeaderMenuPanelFacade;
 import com.easyrest.pages.SignInPage;
@@ -11,8 +12,8 @@ import org.testng.annotations.Test;
 
 public class AdministratorTest extends BaseTest {
 
-    private final String email = "seanchoi@test.com";
-    private final String password = "1";
+    private final String email = ConfigProvider.administratorEmail;
+    private final String password = ConfigProvider.administratorPassword;
 
     @BeforeMethod
     public void signIn() {
