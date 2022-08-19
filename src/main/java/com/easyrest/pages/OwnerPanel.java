@@ -38,6 +38,6 @@ public class OwnerPanel extends BasePage {
 
     public void waitForPagePresence() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(4));
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[text() = 'My Restaurants']")));
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//span[text() = 'My Restaurants']")));
     }
 }
