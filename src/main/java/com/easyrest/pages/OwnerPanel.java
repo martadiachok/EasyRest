@@ -25,8 +25,7 @@ public class OwnerPanel extends BasePage {
     public Administrators administrators;
     public Waiters waiters;
 
-
-    public OwnerPanel(WebDriver driver)  {
+    public OwnerPanel(WebDriver driver) {
         super(driver);
         right_sideMenu = new Right_sideMenu(driver);
         headerForAuthorizedUser = new HeaderForAuthorizedUser(driver);
@@ -37,7 +36,7 @@ public class OwnerPanel extends BasePage {
         waiters = new Waiters(driver);
     }
 
-    public void waitForPagePresence () {
+    public void waitForPagePresence() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(4));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[text() = 'My Restaurants']")));
     }
