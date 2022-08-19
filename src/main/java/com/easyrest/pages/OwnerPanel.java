@@ -10,6 +10,10 @@ import com.easyrest.pages.customerPanel.MyRestaurants;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class OwnerPanel extends BasePage {
 
@@ -21,7 +25,8 @@ public class OwnerPanel extends BasePage {
     public Administrators administrators;
     public Waiters waiters;
 
-    public OwnerPanel(WebDriver driver) {
+
+    public OwnerPanel(WebDriver driver)  {
         super(driver);
         right_sideMenu = new Right_sideMenu(driver);
         headerForAuthorizedUser = new HeaderForAuthorizedUser(driver);
@@ -30,5 +35,10 @@ public class OwnerPanel extends BasePage {
         leftSideMenu = new LeftSideMenu(driver);
         administrators = new Administrators(driver);
         waiters = new Waiters(driver);
+    }
+
+    public void waitForPagePresence () {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(4));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[text() = 'My Restaurants']")));
     }
 }
