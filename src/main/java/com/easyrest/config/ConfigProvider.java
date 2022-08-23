@@ -25,8 +25,8 @@ public interface ConfigProvider {
     String moderatorEmail = readConfig.getString("usersParams.moderator.email");
     String moderatorPassword = readConfig.getString("usersParams.moderator.password");
 
-    String administratorEmail = readConfig.getString("usersParams.administrator.email");
-    String administratorPassword = readConfig.getString("usersParams.administrator.password");
+    String administratorEmail = readConfig().getString("usersParams.administrator.email");
+    String administratorPassword = readConfig().getString("usersParams.administrator.password");
 
     String waiterEmail = readConfig.getString("usersParams.waiter.email");
     String waiterPassword = readConfig.getString("usersParams.waiter.password");
@@ -49,6 +49,6 @@ public interface ConfigProvider {
     String adminPanelRestaurantUrl = readConfig().getString("url.adminUrl.adminPanelRestaurantUrl");
 
     String administratorPanelUrl = readConfig().getString("url.administratorUrl.administratorPanelUrl");
-    String alertMessage = readConfig().getString("loginAlert.message");
+    String expectedAlertMessage = readConfig().getString("loginAlert.message");
 
 }
