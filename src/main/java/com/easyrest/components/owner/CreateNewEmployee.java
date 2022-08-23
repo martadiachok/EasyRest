@@ -1,6 +1,5 @@
 package com.easyrest.components.owner;
 
-import com.easyrest.components.BaseComponent;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
