@@ -5,6 +5,7 @@ import com.easyrest.components.HeaderForAuthorizedUser;
 import com.easyrest.components.UserRoleMenuPanel;
 import com.easyrest.components.customer.Right_sideMenu;
 import com.easyrest.components.owner.*;
+import com.easyrest.constants.Constants;
 import com.easyrest.pages.customerPanel.CurrentOrders;
 import com.easyrest.pages.customerPanel.MyRestaurants;
 import org.openqa.selenium.By;
@@ -38,7 +39,7 @@ public class OwnerPanel extends BasePage {
     }
 
     public void waitForPagePresence() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(4));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(Constants.TimeoutVariable.IMPLICIT_WAIT));
         wait.until(ExpectedConditions.presenceOfElementLocated(myRestaurants));
     }
 }
