@@ -18,7 +18,6 @@ public class AdministratorSignInTest extends BaseTest {
     private final String password = ConfigProvider.administratorPassword;
     private SignInFacade signInFacade;
 
-
     @BeforeMethod
     public void goToSignInPage() {
         SignInPage signInPage = new SignInPage(driver);
