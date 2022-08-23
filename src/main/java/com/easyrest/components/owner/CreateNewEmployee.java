@@ -1,6 +1,5 @@
 package com.easyrest.components.owner;
 
-import com.easyrest.components.BaseComponent;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -50,5 +49,12 @@ public class CreateNewEmployee {
 
     public void clickOnButtonCancel() {
         driver.findElement(cancelButton).click();
+    }
+
+    private boolean isDisplayed(By element) {
+        return this.driver.findElements(element).size() > 0;
+    }
+    public boolean isEmployeeDisplayed(String name) {
+        return isDisplayed(By.xpath("*//div//span[normalize-space()='"+name+"']"));
     }
 }
