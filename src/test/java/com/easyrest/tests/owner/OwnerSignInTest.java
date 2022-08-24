@@ -5,14 +5,10 @@ import com.easyrest.facade.SignInFacade;
 import com.easyrest.pages.OwnerPanel;
 import com.easyrest.pages.SignInPage;
 import com.easyrest.tests.BaseTest;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import java.time.Duration;
-
-public class OwnerSignIn extends BaseTest {
+public class OwnerSignInTest extends BaseTest {
 
     private final String ownerEmail = ConfigProvider.ownerEmail;
     private final String ownerPassword = ConfigProvider.ownerPassword;
