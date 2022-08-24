@@ -34,13 +34,4 @@ public class CreateNewWaiterFacade {
         leftSideMenu.clickOnMenuButtonWaiters();
         waiters.clickOnButtonAddWaiter().sendToFieldName(name).sendToFieldEmail(email).sendToFieldPhone(phone).sendToFieldPassword(password).clickOnButtonAdd();
     }
-    public Integer deleteWaiter() {
-      manageMenu.clickOnButtonRestaurantOption().clickOnMenuItemManage();
-      leftSideMenu.clickOnMenuButtonWaiters();
-        Integer waitersCountBefore = waiters.getWaitersCount();
-        waiters.clickOnButtonDeleteWaiter();
-        Integer waitersCountAfter = waiters.getWaitersCount();
-        return waitersCountBefore;
-    }
-
 }
