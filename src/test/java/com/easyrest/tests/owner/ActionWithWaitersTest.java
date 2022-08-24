@@ -13,7 +13,7 @@ import com.github.javafaker.Faker;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class ActionWithWaiters extends BaseTest {
+public class ActionWithWaitersTest extends BaseTest {
 
     private final String ownerEmail = ConfigProvider.ownerEmail;
     private final String ownerPassword = ConfigProvider.ownerPassword;
