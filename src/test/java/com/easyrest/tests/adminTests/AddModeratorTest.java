@@ -17,7 +17,9 @@ import org.testng.annotations.Test;
 
 import java.time.Duration;
 
-public class AddModerator extends BaseTest {
+import static com.easyrest.constants.Constants.TimeoutVariable.EXPLICIT_WAIT;
+
+public class AddModeratorTest extends BaseTest {
 
     private final String adminEmail = ConfigProvider.adminEmail;
     private final String adminPassword = ConfigProvider.adminPassword;
@@ -40,7 +42,7 @@ public class AddModerator extends BaseTest {
     private WebDriverWait wait;
 
     private void waitForUrlPresence(String pageUrl) {
-        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        wait = new WebDriverWait(driver, Duration.ofSeconds(EXPLICIT_WAIT));
         wait.until(ExpectedConditions.urlToBe(pageUrl));
     }
 
