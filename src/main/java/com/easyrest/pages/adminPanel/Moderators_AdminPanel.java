@@ -11,13 +11,13 @@ public class Moderators_AdminPanel extends BasePage {
 
     public Moderators_AdminPanel(WebDriver driver) { super(driver); }
 
-    public void clickOnCreateModerator(){
-        driver.findElement(addModeratorButton).click();
-    }
-
     public Moderators_AdminPanel goToAdminPanel_ModeratorPage(){
         openPage(ConfigProvider.adminPanelModeratorsUrl);
         return this;
+    }
+
+    public void clickOnCreateModerator(){
+        driver.findElement(addModeratorButton).click();
     }
 
 }

@@ -17,6 +17,8 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import java.time.Duration;
 
+import static com.easyrest.constants.Constants.TimeoutVariable.EXPLICIT_WAIT;
+
 public class ActionOnClientTests extends BaseTest {
 
     private final String adminEmail = ConfigProvider.adminEmail;
@@ -33,7 +35,7 @@ public class ActionOnClientTests extends BaseTest {
     private boolean isActionDone = true;
 
     private void waitForUrlPresence(String pageUrl) {
-        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        wait = new WebDriverWait(driver, Duration.ofSeconds(EXPLICIT_WAIT));
         wait.until(ExpectedConditions.urlToBe(pageUrl));
     }
 

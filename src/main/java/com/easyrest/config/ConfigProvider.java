@@ -1,6 +1,6 @@
 package com.easyrest.config;
 
-import com.typesafe.config.Config; // бібліотека typesafe дозволяє через точку спускатися вниз по конфігурації
+import com.typesafe.config.Config;
 import com.typesafe.config.ConfigFactory;
 
 public interface ConfigProvider {
@@ -50,7 +50,18 @@ public interface ConfigProvider {
     String ownerPageUrl = readConfig().getString("url.ownerUrl.ownerPanelUrl");
 
     /**
-     * Read TestData
+     * Read fakeDataForModeratorForm
+     */
+    String emailModerator = readConfig().getString("fakeDataForModeratorForm.email");
+    String passwordModerator = readConfig().getString("fakeDataForModeratorForm.password");
+    String phoneModerator = readConfig().getString("fakeDataForModeratorForm.phone");
+    String birthDateModerator = readConfig().getString("fakeDataForModeratorForm.birthDate");
+    String birthMonthModerator = readConfig().getString("fakeDataForModeratorForm.birthMonth");
+    String birthYearModerator = readConfig().getString("fakeDataForModeratorForm.birthYear");
+    String nameModerator = readConfig().getString("fakeDataForModeratorForm.name");
+
+    /**
+     * Read data for sign up
      */
 
     String testEmail = readConfig.getString("testData.email");
