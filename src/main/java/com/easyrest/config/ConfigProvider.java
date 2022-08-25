@@ -31,6 +31,9 @@ public interface ConfigProvider {
     String waiterEmail = readConfig.getString("usersParams.waiter.email");
     String waiterPassword = readConfig.getString("usersParams.waiter.password");
 
+    String fakeEmail = readConfig().getString("fakeData.email");
+    String fakePassword = readConfig().getString("fakeData.email");
+
     /**
      * Read URL
      */
