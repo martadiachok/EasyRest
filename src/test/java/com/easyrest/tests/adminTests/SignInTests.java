@@ -25,13 +25,11 @@ public class SignInTests extends BaseTest {
     private WebDriverWait wait;
 
     @BeforeMethod
-    public SignInPage goToSignInPage() {
+    public void goToSignInPage() {
         signInPage = new SignInPage(driver);
         signInFacade = new SignInFacade(driver);
         wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         signInPage.goToSignInPage();
-
-        return new SignInPage(driver);
     }
 
     @Test
