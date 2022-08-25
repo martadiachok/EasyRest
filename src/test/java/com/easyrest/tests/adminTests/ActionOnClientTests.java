@@ -47,7 +47,7 @@ public class ActionOnClientTests extends BaseTest {
         waitForUrlPresence(ConfigProvider.adminPageUrl);
     }
 
-    @Test
+    @Test (priority = 1)
     public void banUser() {
         actionOnUserFacade = new ActionOnUserFacade(driver);
         adminPanel_UsersPage = new Users_AdminPanel(driver);
@@ -58,7 +58,7 @@ public class ActionOnClientTests extends BaseTest {
         Assert.assertEquals(actualBoolean, isActionDone, "User is not banned.");
     }
 
-    @Test
+    @Test (priority = 2)
     public void makeUserActive() {
         actionOnUserFacade = new ActionOnUserFacade(driver);
         adminPanel_UsersPage = new Users_AdminPanel(driver);
@@ -69,7 +69,7 @@ public class ActionOnClientTests extends BaseTest {
         Assert.assertEquals(actualBoolean, isActionDone, "User was not moved to active.");
     }
 
-    @Test
+    @Test (priority = 3)
     public void banOwner() {
         actionOnOwnerFacade = new ActionOnOwnerFacade(driver);
         adminPanel_OwnersPage = new Owners_AdminPanel(driver);
@@ -80,7 +80,7 @@ public class ActionOnClientTests extends BaseTest {
         Assert.assertEquals(actualBoolean, isActionDone, "Owner is not banned.");
     }
 
-    @Test
+    @Test (priority = 4)
     public void makeOwnerActive() {
         actionOnOwnerFacade = new ActionOnOwnerFacade(driver);
         adminPanel_OwnersPage = new Owners_AdminPanel(driver);
@@ -91,7 +91,7 @@ public class ActionOnClientTests extends BaseTest {
         Assert.assertEquals(actualBoolean, isActionDone, "Owner was not moved to active.");
     }
 
-    @Test
+    @Test (priority = 5)
     public void banModerator() {
         actionOnModeratorFacade = new ActionOnModeratorFacade(driver);
         adminPanel_ModeratorsPage = new Moderators_AdminPanel(driver);
@@ -102,7 +102,7 @@ public class ActionOnClientTests extends BaseTest {
         Assert.assertEquals(actualBoolean, isActionDone, "Moderator is not banned.");
     }
 
-    @Test
+    @Test (priority = 6)
     public void makeModeratorActive() {
         actionOnModeratorFacade = new ActionOnModeratorFacade(driver);
         adminPanel_ModeratorsPage = new Moderators_AdminPanel(driver);
