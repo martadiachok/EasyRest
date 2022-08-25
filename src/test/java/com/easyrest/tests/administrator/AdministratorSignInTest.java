@@ -30,9 +30,9 @@ public class AdministratorSignInTest extends BaseTest {
         AdministratorPage administratorPage = new AdministratorPage(driver);
         signInFacade.signIn(email, password);
         administratorPage.waitForPagePresence();
-        String currentUrl = driver.getCurrentUrl();
+        String actualUrl = driver.getCurrentUrl();
 
-        Assert.assertEquals(currentUrl, administratorPanelUrl, "The current url doesn't match the expected one.");
+        Assert.assertEquals(actualUrl, administratorPanelUrl, "The current url doesn't match the expected one.");
     }
 
     @DataProvider(name = "fake")
