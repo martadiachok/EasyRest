@@ -1,4 +1,4 @@
-package com.easyrest.tests;
+package com.easyrest.tests.adminTests;
 
 import com.easyrest.components.Calendar;
 import com.easyrest.components.admin.ActionOnClient;
@@ -8,6 +8,7 @@ import com.easyrest.facade.SignInFacade;
 import com.easyrest.facade.admin.ActionOnClientFacade;
 import com.easyrest.pages.SignInPage;
 import com.easyrest.pages.adminPanel.Moderators_AdminPanel;
+import com.easyrest.tests.BaseTest;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
