@@ -51,10 +51,10 @@ public class CreateNewEmployee {
         driver.findElement(cancelButton).click();
     }
 
-    private boolean isDisplayed(By element) {
+    private boolean numberOfEmployee(By element) {
         return this.driver.findElements(element).size() > 0;
     }
     public boolean isEmployeeDisplayed(String name) {
-        return isDisplayed(By.xpath("*//div//span[normalize-space()='"+name+"']"));
+        return numberOfEmployee(By.xpath("*//div//span[normalize-space()='"+name+"']"));
     }
 }
