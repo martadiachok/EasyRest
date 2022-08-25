@@ -3,6 +3,8 @@ package com.easyrest.components.admin;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -40,7 +42,8 @@ public class ActionOnClient {
 
     public String getFirstNameFromClient() {
         List<WebElement> clientList = driver.findElements(usersName);
-        WebElement firstNameFromList = clientList.get(0);
+        WebElement firstNameFromList = clientList.get(1);
+
         return firstNameFromList.getText();
     }
 
@@ -55,8 +58,8 @@ public class ActionOnClient {
 
     public boolean findClientInListAfterAction(String name){
         List<WebElement> usersNames = driver.findElements(usersName);
-        for (WebElement item : usersNames) {
-            if(item.getText() == name){
+         for (WebElement item : usersNames) {
+            if(name.equals(item.getText())){
                 return true;
             }
         }
