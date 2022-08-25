@@ -1,5 +1,6 @@
 package com.easyrest.tests.administrator;
 
+import com.easyrest.config.ConfigProvider;
 import com.easyrest.facade.AdministratorOperationsFacade;
 import com.easyrest.facade.AuthorizedHeaderMenuPanelFacade;
 import com.easyrest.facade.SignInFacade;
@@ -10,11 +11,12 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import static com.easyrest.config.ConfigProvider.administratorEmail;
-import static com.easyrest.config.ConfigProvider.administratorPassword;
 import static com.easyrest.constants.Constants.AdministratorTabMenu.*;
 
 public class AdministratorTest extends BaseTest {
+
+    private final String email = ConfigProvider.administratorEmail;
+    private final String password = ConfigProvider.administratorPassword;
     private AdministratorOperationsFacade administrator;
 
     @BeforeMethod
@@ -22,7 +24,7 @@ public class AdministratorTest extends BaseTest {
         SignInPage signInPage = new SignInPage(driver);
         signInPage.goToSignInPage();
         SignInFacade signInFacade = new SignInFacade(driver);
-        signInFacade.signIn(administratorEmail, administratorPassword);
+        signInFacade.signIn(email, password);
         administrator = new AdministratorOperationsFacade(driver);
     }
 
