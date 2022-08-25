@@ -62,9 +62,9 @@ public class AdministratorOperationsFacade {
                 .getOrdersCount();
     }
 
-    public String seeWhichTabIsOpen() {
+    public String getSelectedTabName() {
         return goToTabMenu()
-                .seeWhichTabIsOpen();
+                .getSelectedTabName();
     }
 
     private AdministratorMenu goToTabMenu() {

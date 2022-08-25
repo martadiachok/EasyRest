@@ -35,7 +35,7 @@ public class AdministratorMenu {
         driver.findElement(waitersOrdersTab).click();
     }
 
-    public String seeWhichTabIsOpen() {
+    public String getSelectedTabName() {
         return driver.findElement(selectedTab).getText();
     }
 

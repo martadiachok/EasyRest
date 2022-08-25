@@ -47,7 +47,7 @@ public class AdministratorTest extends BaseTest {
     @Test
     public void seeWaitingForConfirmOrders() {
         administrator.seeWaitingForConfirmOrders();
-        String actualTab = administrator.seeWhichTabIsOpen();
+        String actualTab = administrator.getSelectedTabName();
 
         Assert.assertEquals(actualTab, WAITING_FOR_CONFIRM_TAB, "The wrong tab is open");
     }
@@ -55,7 +55,7 @@ public class AdministratorTest extends BaseTest {
     @Test
     public void seeAcceptedOrders() {
         administrator.seeAcceptedOrders();
-        String actualTab = administrator.seeWhichTabIsOpen();
+        String actualTab = administrator.getSelectedTabName();
 
         Assert.assertEquals(actualTab, ACCEPTED_TAB, "The wrong tab is open");
     }
@@ -63,7 +63,7 @@ public class AdministratorTest extends BaseTest {
     @Test
     public void seeAssignedWaiterOrders() {
         administrator.seeAssignedWaitersOrders();
-        String actualTab = administrator.seeWhichTabIsOpen();
+        String actualTab = administrator.getSelectedTabName();
 
         Assert.assertEquals(actualTab, ASSIGNED_WAITER_TAB, "The wrong tab is open");
     }
@@ -71,7 +71,7 @@ public class AdministratorTest extends BaseTest {
     @Test
     public void seeWaiters() {
         administrator.seeWaiters();
-        String actualTab = administrator.seeWhichTabIsOpen();
+        String actualTab = administrator.getSelectedTabName();
 
         Assert.assertEquals(actualTab, WAITERS_TAB, "The wrong tab is open");
     }
