@@ -34,5 +34,4 @@ public class CreateNewWaiterFacade {
         leftSideMenu.clickOnMenuButtonWaiters();
         waiters.clickOnButtonAddWaiter().sendToFieldName(name).sendToFieldEmail(email).sendToFieldPhone(phone).sendToFieldPassword(password).clickOnButtonAdd();
     }
-
 }
