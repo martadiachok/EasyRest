@@ -62,6 +62,11 @@ public class AdministratorOperationsFacade {
                 .getOrdersCount();
     }
 
+    public String seeWhichTabIsOpen() {
+        return goToTabMenu()
+                .seeWhichTabIsOpen();
+    }
+
     private AdministratorMenu goToTabMenu() {
         return administratorPage
                 .getAdministratorTabMenu();
