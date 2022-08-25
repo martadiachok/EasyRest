@@ -9,12 +9,12 @@ public class Moderators_AdminPanel extends BasePage {
 
     private final By addModeratorButton = By.xpath("//span[text()='Add moderator']");
 
+    public Moderators_AdminPanel(WebDriver driver) { super(driver); }
+
     public Moderators_AdminPanel goToAdminPanel_ModeratorPage(){
         openPage(ConfigProvider.adminPanelModeratorsUrl);
         return this;
     }
-
-    public Moderators_AdminPanel(WebDriver driver) { super(driver); }
 
     public void clickOnCreateModerator(){
         driver.findElement(addModeratorButton).click();
