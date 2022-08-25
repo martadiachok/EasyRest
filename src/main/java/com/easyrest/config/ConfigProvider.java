@@ -45,4 +45,14 @@ public interface ConfigProvider {
     String adminPanelRestaurantUrl = readConfig().getString("url.adminUrl.adminPanelRestaurantUrl");
     String ownerPageUrl = readConfig().getString("url.ownerUrl.ownerPanelUrl");
 
+    /**
+     * Read fakeDataForModeratorForm
+     */
+    String emailModerator = readConfig().getString("fakeDataForModeratorForm.email");
+    String passwordModerator = readConfig().getString("fakeDataForModeratorForm.password");
+    String phoneModerator = readConfig().getString("fakeDataForModeratorForm.phone");
+    String birthDateModerator = readConfig().getString("fakeDataForModeratorForm.birthDate");
+    String birthMonthModerator = readConfig().getString("fakeDataForModeratorForm.birthMonth");
+    String birthYearModerator = readConfig().getString("fakeDataForModeratorForm.birthYear");
+    String nameModerator = readConfig().getString("fakeDataForModeratorForm.name");
 }

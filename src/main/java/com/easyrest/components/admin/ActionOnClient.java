@@ -56,7 +56,7 @@ public class ActionOnClient {
     public boolean findClientInListAfterAction(String name){
         List<WebElement> usersNames = driver.findElements(usersName);
         for (WebElement item : usersNames) {
-            if(item.getText() == name){
+            if(name.equals(item.getText())){
                 return true;
             }
         }
