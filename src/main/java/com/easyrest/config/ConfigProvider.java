@@ -31,12 +31,16 @@ public interface ConfigProvider {
     String waiterEmail = readConfig.getString("usersParams.waiter.email");
     String waiterPassword = readConfig.getString("usersParams.waiter.password");
 
+    String fakeEmail = readConfig().getString("fakeData.email");
+    String fakePassword = readConfig().getString("fakeData.email");
+
     /**
      * Read URL
      */
     String logInPageUrl = readConfig.getString("url.generalUrl.logInPageUrl");
     String signUpPageUrl = readConfig.getString("url.generalUrl.signUpPageUrl");
     String signInPageUrl = readConfig.getString("url.generalUrl.logInPageUrl");
+    String restaurantsPageUrl = readConfig().getString("url.generalUrl.restaurantsPageUrl");
 
     String adminPageUrl = readConfig().getString("url.adminUrl.adminPanelUrl");
     String adminPanelOwnersUrl = readConfig().getString("url.adminUrl.adminPanelOwnersUrl");
@@ -44,5 +48,17 @@ public interface ConfigProvider {
     String adminPanelUsersUrl = readConfig().getString("url.adminUrl.adminPanelUsersUrl");
     String adminPanelRestaurantUrl = readConfig().getString("url.adminUrl.adminPanelRestaurantUrl");
     String ownerPageUrl = readConfig().getString("url.ownerUrl.ownerPanelUrl");
+
+    /**
+     * Read TestData
+     */
+
+    String testEmail = readConfig.getString("testData.email");
+    String testName = readConfig.getString("testData.name");
+    String testPhoneNumber = readConfig.getString("testData.phoneNumber");
+    String testBirthDate = readConfig.getString("testData.birthDate");
+    String testBirthMonth = readConfig.getString("testData.birthMonth");
+    String testBirthYear = readConfig.getString("testData.birthYear");
+    String testPassword = readConfig.getString("testData.password");
 
 }

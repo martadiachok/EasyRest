@@ -7,8 +7,7 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
+import org.testng.annotations.*;
 import java.io.IOException;
 import java.time.Duration;
 import com.aventstack.extentreports.ExtentReports;
@@ -34,7 +33,7 @@ abstract public class BaseTest {
     /**
      * Initialization of webdriver and assigning the settings for the webdriver
      */
-    @BeforeTest
+    @BeforeSuite
     public void setUp() {
         // method setup() - download webdriver and show path to it
         WebDriverManager.chromedriver().setup();
@@ -61,7 +60,7 @@ abstract public class BaseTest {
         FileUtils.copyFile(source, new File(destinationFile));
     }
 
-    @AfterTest
+    @AfterSuite
     public void tearDown() {
         // закриває хром драйвер, драйвер відповідає за процес взаємодії з браузером
         driver.close();
