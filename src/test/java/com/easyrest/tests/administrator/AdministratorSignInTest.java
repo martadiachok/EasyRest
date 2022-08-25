@@ -11,11 +11,13 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import static com.easyrest.config.ConfigProvider.*;
-
 public class AdministratorSignInTest extends BaseTest {
     private final String email = ConfigProvider.administratorEmail;
     private final String password = ConfigProvider.administratorPassword;
+    private final String fakeEmail = ConfigProvider.fakeEmail;
+    private final String fakePassword = ConfigProvider.fakePassword;
+    private final String administratorPageUrl = ConfigProvider.administratorPanelUrl;
+    private final String expectedAlertMessage = ConfigProvider.expectedAlertMessage;
     private SignInFacade signInFacade;
 
     @BeforeMethod
@@ -32,7 +34,7 @@ public class AdministratorSignInTest extends BaseTest {
         administratorPage.waitForPagePresence();
         String actualUrl = driver.getCurrentUrl();
 
-        Assert.assertEquals(actualUrl, administratorPanelUrl, "The current url doesn't match the expected one.");
+        Assert.assertEquals(actualUrl, administratorPageUrl, "The current url doesn't match the expected one.");
     }
 
     @DataProvider(name = "fake")
