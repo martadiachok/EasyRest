@@ -24,7 +24,7 @@ public class Listeners extends BaseTest implements ITestListener {
             BaseTest instance = (BaseTest)result.getInstance();
             driver = instance.getDriver();
          } catch (Exception e) {
-            System.out.println(e);
+           test.info(e);
          }
 
         try {
