@@ -9,11 +9,11 @@ import java.time.Duration;
 
 import static com.easyrest.constants.Constants.TimeoutVariable.EXPLICIT_WAIT;
 
-public class SingInAlert {
+public class SignInAlert {
     private final WebDriver driver;
     private final By alert = By.xpath("//*[@id = 'client-snackbar']");
 
-    public SingInAlert(WebDriver driver) {
+    public SignInAlert(WebDriver driver) {
         this.driver = driver;
     }
 

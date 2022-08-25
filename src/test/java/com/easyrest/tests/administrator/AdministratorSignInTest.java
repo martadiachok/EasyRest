@@ -1,6 +1,6 @@
 package com.easyrest.tests.administrator;
 
-import com.easyrest.components.SingInAlert;
+import com.easyrest.components.SignInAlert;
 import com.easyrest.config.ConfigProvider;
 import com.easyrest.facade.SignInFacade;
 import com.easyrest.pages.AdministratorPage;
@@ -46,7 +46,7 @@ public class AdministratorSignInTest extends BaseTest {
 
     @Test(dataProvider = "fake")
     public void fakeSignIn(String email, String password) {
-        SingInAlert alert = new SingInAlert(driver);
+        SignInAlert alert = new SignInAlert(driver);
         signInFacade.signIn(email, password);
         String actualAlertMessage = alert.showMessage();
 
