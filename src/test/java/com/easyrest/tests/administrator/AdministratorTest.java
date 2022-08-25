@@ -1,4 +1,4 @@
-package com.easyrest.tests.Administrator;
+package com.easyrest.tests.administrator;
 
 import com.easyrest.facade.AdministratorOperationsFacade;
 import com.easyrest.facade.AuthorizedHeaderMenuPanelFacade;
