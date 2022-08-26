@@ -4,7 +4,7 @@ import com.typesafe.config.Config;
 import com.typesafe.config.ConfigFactory;
 
 public interface ConfigProvider {
-    Config readConfig  = readConfig();
+    Config readConfig = readConfig();
 
     static Config readConfig() {
         return ConfigFactory.load("properties.conf");
@@ -25,8 +25,8 @@ public interface ConfigProvider {
     String moderatorEmail = readConfig.getString("usersParams.moderator.email");
     String moderatorPassword = readConfig.getString("usersParams.moderator.password");
 
-    String administratorEmail = readConfig.getString("usersParams.administrator.email");
-    String administratorPassword = readConfig.getString("usersParams.administrator.password");
+    String administratorEmail = readConfig().getString("usersParams.administrator.email");
+    String administratorPassword = readConfig().getString("usersParams.administrator.password");
 
     String waiterEmail = readConfig.getString("usersParams.waiter.email");
     String waiterPassword = readConfig.getString("usersParams.waiter.password");
@@ -71,5 +71,8 @@ public interface ConfigProvider {
     String testBirthMonth = readConfig.getString("testData.birthMonth");
     String testBirthYear = readConfig.getString("testData.birthYear");
     String testPassword = readConfig.getString("testData.password");
+
+    String administratorPanelUrl = readConfig().getString("url.administratorUrl.administratorPanelUrl");
+    String expectedAlertMessage = readConfig().getString("loginAlert.message");
 
 }
