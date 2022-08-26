@@ -11,6 +11,7 @@ public class AdministratorMenu {
     private final By acceptedOrdersTab = By.xpath("//div[@role='tablist']//button[2]");
     private final By assignedWaitersOrdersTab = By.xpath("//div[@role='tablist']//button[3]");
     private final By waitersOrdersTab = By.xpath("//div[@role='tablist']//button[4]");
+    private final By selectedTab = By.xpath("//button[@aria-selected='true']");
 
     public AdministratorMenu(WebDriver driver) {
         this.driver = driver;
@@ -32,6 +33,10 @@ public class AdministratorMenu {
 
     public void clickOnWaiters() {
         driver.findElement(waitersOrdersTab).click();
+    }
+
+    public String getSelectedTabName() {
+        return driver.findElement(selectedTab).getText();
     }
 
 }

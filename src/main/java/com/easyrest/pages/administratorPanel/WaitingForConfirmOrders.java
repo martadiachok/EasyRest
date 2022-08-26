@@ -10,7 +10,7 @@ import java.util.List;
 
 public class WaitingForConfirmOrders extends BasePage {
 
-    private final By order = By.xpath("//div[contains(@class,'ExpandItem')]/div[contains(@role,'button')]");
+    private final By orders = By.xpath("//div[contains(@class,'ExpandItem')]/div[contains(@role,'button')]");
 
     public WaitingForConfirmOrders(WebDriver driver) {
         super(driver);
@@ -21,7 +21,7 @@ public class WaitingForConfirmOrders extends BasePage {
     }
 
     public Integer getOrdersCount() {
-        List<WebElement> orders = driver.findElements(order);
-        return orders.size();
+        List<WebElement> ordersList = driver.findElements(orders);
+        return ordersList.size();
     }
 }

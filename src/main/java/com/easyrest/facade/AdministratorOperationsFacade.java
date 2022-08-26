@@ -62,6 +62,11 @@ public class AdministratorOperationsFacade {
                 .getOrdersCount();
     }
 
+    public String getSelectedTabName() {
+        return goToTabMenu()
+                .getSelectedTabName();
+    }
+
     private AdministratorMenu goToTabMenu() {
         return administratorPage
                 .getAdministratorTabMenu();
