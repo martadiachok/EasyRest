@@ -1,15 +1,11 @@
 package com.easyrest.pages;
 
-import com.easyrest.components.AddRestaurant;
 import com.easyrest.components.HeaderForAuthorizedUser;
 import com.easyrest.components.UserRoleMenuPanel;
 import com.easyrest.components.customer.Right_sideMenu;
 import com.easyrest.components.owner.*;
 import com.easyrest.constants.Constants;
-import com.easyrest.pages.customerPanel.CurrentOrders;
-import com.easyrest.pages.customerPanel.MyRestaurants;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -36,6 +32,18 @@ public class OwnerPanel extends BasePage {
         leftSideMenu = new LeftSideMenu(driver);
         administrators = new Administrators(driver);
         waiters = new Waiters(driver);
+    }
+
+    private boolean isDisplayedElement(By element) {
+        return this.driver.findElement(element).isDisplayed();
+    }
+
+    public boolean isEmployeeDisplayed(String name) {
+        return isDisplayedElement(By.xpath("*//div//span[normalize-space()='" + name + "']"));
+    }
+
+    public boolean isRestaurantsDisplayed(String name) {
+        return isDisplayedElement(By.xpath("*//div//h2[text()='" + name + "']"));
     }
 
     public void waitForPagePresence() {

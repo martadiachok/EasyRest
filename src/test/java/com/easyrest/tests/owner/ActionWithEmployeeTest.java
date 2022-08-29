@@ -5,6 +5,7 @@ import com.easyrest.config.ConfigProvider;
 import com.easyrest.facade.SignInFacade;
 import com.easyrest.facade.owner.CreateNewAdministratorFacade;
 import com.easyrest.facade.owner.CreateNewWaiterFacade;
+import com.easyrest.pages.OwnerPanel;
 import com.easyrest.pages.SignInPage;
 import com.easyrest.tests.BaseTest;
 import com.easyrest.userData.FakeData;
@@ -23,6 +24,7 @@ public class ActionWithEmployeeTest extends BaseTest {
     private Waiters waiters;
     private Administrators administrators;
     private CreateNewEmployee createNewEmployee;
+    private OwnerPanel ownerPanel;
 
     @BeforeMethod
     public void goToSignInOwner() {
@@ -37,12 +39,13 @@ public class ActionWithEmployeeTest extends BaseTest {
     public void addWaiterTest() {
         createNewWaiterFacade = new CreateNewWaiterFacade(driver);
         createNewEmployee = new CreateNewEmployee(driver);
+        ownerPanel = new OwnerPanel(driver);
         String name = FakeData.getFullName();
         String email = FakeData.getEmail();
         String phone = FakeData.getPhone();
         String password = FakeData.getPassword();
         createNewWaiterFacade.createNewWaiter(name, email, phone, password);
-        Assert.assertTrue(createNewEmployee.isEmployeeDisplayed(name), "The waiter has not been added");
+        Assert.assertTrue(ownerPanel.isEmployeeDisplayed(name), "The waiter has not been added");
     }
 
     @Test
@@ -66,12 +69,13 @@ public class ActionWithEmployeeTest extends BaseTest {
     public void addAdministratorTest() {
         createNewAdministratorFacade = new CreateNewAdministratorFacade(driver);
         createNewEmployee = new CreateNewEmployee(driver);
+        ownerPanel = new OwnerPanel(driver);
         String name = FakeData.getFullName();
         String email = FakeData.getEmail();
         String phone = FakeData.getPhone();
         String password = FakeData.getPassword();
         createNewAdministratorFacade.createNewAdministrator(name, email, phone, password);
-        Assert.assertTrue(createNewEmployee.isEmployeeDisplayed(name), "The administrator has not been added");
+        Assert.assertTrue(ownerPanel.isEmployeeDisplayed(name), "The administrator has not been added");
     }
 
     @Test
