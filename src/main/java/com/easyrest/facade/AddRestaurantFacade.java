@@ -7,9 +7,9 @@ import org.openqa.selenium.WebDriver;
 
 public class AddRestaurantFacade {
     private WebDriver driver;
-    AddRestaurant addRestaurant;
-    Right_sideMenu right_sideMenu;
-    MyRestaurants myRestaurants;
+    private AddRestaurant addRestaurant;
+    private Right_sideMenu right_sideMenu;
+    private MyRestaurants myRestaurants;
 
     public AddRestaurantFacade(WebDriver driver) {
         this.driver = driver;
