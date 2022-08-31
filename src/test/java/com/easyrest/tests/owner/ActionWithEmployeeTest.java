@@ -23,7 +23,6 @@ public class ActionWithEmployeeTest extends BaseTest {
     private CreateNewAdministratorFacade createNewAdministratorFacade;
     private Waiters waiters;
     private Administrators administrators;
-    private CreateNewEmployee createNewEmployee;
     private OwnerPanel ownerPanel;
 
     @BeforeMethod
@@ -38,7 +37,6 @@ public class ActionWithEmployeeTest extends BaseTest {
     @Test
     public void addWaiterTest() {
         createNewWaiterFacade = new CreateNewWaiterFacade(driver);
-        createNewEmployee = new CreateNewEmployee(driver);
         ownerPanel = new OwnerPanel(driver);
         String name = FakeData.getFullName();
         String email = FakeData.getEmail();
@@ -68,7 +66,6 @@ public class ActionWithEmployeeTest extends BaseTest {
     @Test
     public void addAdministratorTest() {
         createNewAdministratorFacade = new CreateNewAdministratorFacade(driver);
-        createNewEmployee = new CreateNewEmployee(driver);
         ownerPanel = new OwnerPanel(driver);
         String name = FakeData.getFullName();
         String email = FakeData.getEmail();
