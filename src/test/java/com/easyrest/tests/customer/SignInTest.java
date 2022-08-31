@@ -16,9 +16,6 @@ import java.time.Duration;
 
 
 public class SignInTest extends BaseTest {
-
-    private SignInFacade signInFacade;
-    private SignInPage signInPage;
     private final String clientEmail = ConfigProvider.clientEmail;
     private final String clientPassword = ConfigProvider.clientPassword;
     private final String fakePassword =ConfigProvider.fakePassword;
@@ -26,6 +23,8 @@ public class SignInTest extends BaseTest {
     private final String expectedUrl = ConfigProvider.customerPanel;
     private final String signInPageUrl = ConfigProvider.signInPageUrl;
     private WebDriverWait wait;
+    private SignInFacade signInFacade;
+    private SignInPage signInPage;
 
     @BeforeMethod
     public void goToSignInPage() {
@@ -39,28 +38,24 @@ public class SignInTest extends BaseTest {
     public void logInWithValidData() {
         signInFacade.signIn(clientEmail, clientPassword);
         wait.until(ExpectedConditions.urlToBe(expectedUrl));
-
         Assert.assertEquals(driver.getCurrentUrl(), expectedUrl);
     }
 
    @Test
    public void logInWithInvalidPassword() {
         signInFacade.signIn(clientEmail, fakePassword);
-
         Assert.assertEquals(driver.getCurrentUrl(), signInPageUrl);
     }
 
     @Test
     public void logInWithInvalidEmail() {
         signInFacade.signIn(fakeEmail, clientPassword);
-
         Assert.assertEquals(driver.getCurrentUrl(), signInPageUrl);
     }
 
     @Test
     public void logInWithInvalidData() {
         signInFacade.signIn(fakeEmail, fakePassword);
-
         Assert.assertEquals(driver.getCurrentUrl(), signInPageUrl);
     }
 }
