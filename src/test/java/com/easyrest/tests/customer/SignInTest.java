@@ -1,6 +1,7 @@
 package com.easyrest.tests.customer;
 
 import com.easyrest.config.ConfigProvider;
+import com.easyrest.constants.Constants;
 import com.easyrest.facade.SignInFacade;
 import com.easyrest.pages.SignInPage;
 import com.easyrest.tests.BaseTest;
@@ -30,7 +31,7 @@ public class SignInTest extends BaseTest {
     public void goToSignInPage() {
         signInPage = new SignInPage(driver);
         signInFacade = new SignInFacade(driver);
-        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        wait = new WebDriverWait(driver, Duration.ofSeconds(Constants.TimeoutVariable.IMPLICIT_WAIT));
         signInPage.goToSignInPage();
     }
 
