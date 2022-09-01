@@ -75,4 +75,11 @@ public interface ConfigProvider {
     String administratorPanelUrl = readConfig().getString("url.administratorUrl.administratorPanelUrl");
     String expectedAlertMessage = readConfig().getString("loginAlert.message");
 
+    /**
+     * Read data for db
+     */
+    String host = readConfig().getString("postgres.host");
+    String user = readConfig().getString("postgres.user");
+    String password = readConfig().getString("postgres.password");
+
 }

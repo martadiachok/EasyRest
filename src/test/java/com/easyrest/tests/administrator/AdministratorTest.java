@@ -1,6 +1,7 @@
 package com.easyrest.tests.administrator;
 
 import com.easyrest.config.ConfigProvider;
+import com.easyrest.dao.OrderDao;
 import com.easyrest.facade.AdministratorOperationsFacade;
 import com.easyrest.facade.AuthorizedHeaderMenuPanelFacade;
 import com.easyrest.facade.SignInFacade;
@@ -30,18 +31,24 @@ public class AdministratorTest extends BaseTest {
 
     @Test
     public void acceptWaitingForConfirmOrder() {
+        OrderDao orderDao = new OrderDao();
+        int insertedOrderId = orderDao.saveWaitingForConfirmOrder(email);
         Integer ordersCountBeforeAccepting = administrator.seeWaitingForConfirmOrdersCount();
         administrator.acceptOrder();
         Integer ordersCountAfterAccepting = administrator.seeWaitingForConfirmOrdersCount();
+        orderDao.deleteOrder(insertedOrderId);
 
         Assert.assertEquals(ordersCountAfterAccepting, ordersCountBeforeAccepting - 1, "Order is not accepted");
     }
 
     @Test
     public void assignWaiterForAcceptedOrder() {
+        OrderDao orderDao = new OrderDao();
+        int insertedOrderId = orderDao.saveAcceptedOrder(email);
         Integer ordersCountBeforeAssigning = administrator.seeAcceptedOrdersCount();
         administrator.assignWaiter();
         Integer ordersCountAfterAssigning = administrator.seeAcceptedOrdersCount();
+        orderDao.deleteOrder(insertedOrderId);
 
         Assert.assertEquals(ordersCountAfterAssigning, ordersCountBeforeAssigning - 1, "Waiter is not assigned");
     }
