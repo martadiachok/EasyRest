@@ -11,4 +11,5 @@ public class FakeData {
     public static String getPhone() { return faker.phoneNumber().phoneNumber(); }
     public static String getNameRestaurants(){ return faker.company().name(); }
     public static String getAddress() { return faker.address().fullAddress();}
+
 }
