@@ -16,7 +16,7 @@ public class AddRestaurantFacade {
         myRestaurants = new MyRestaurants(driver);
     }
 
-    public void addRestaurant(String name, String address){
+    public void addRestaurant(String name, String address) {
         right_sideMenu.seeMyRestaurants()
                 .clickAddRestaurantPlusButton()
                 .enterRestaurantName(name).enterRestaurantAddress(address)
