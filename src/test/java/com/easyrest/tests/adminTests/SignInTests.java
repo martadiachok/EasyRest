@@ -43,7 +43,6 @@ public class SignInTests extends BaseTest {
     @Test
     public void signInTest_InvalidEmail() {
         signInFacade.signIn(fakeEmail, adminPassword);
-
         Assert.assertEquals(driver.getCurrentUrl(), ConfigProvider.signInPageUrl);
     }
 
@@ -57,8 +56,7 @@ public class SignInTests extends BaseTest {
     @Test
     public void signInTest_InvalidData() {
         signInFacade.signIn(fakeEmail, fakePassword);
-
         Assert.assertEquals(driver.getCurrentUrl(), ConfigProvider.signInPageUrl);
     }
-    
+
 }
