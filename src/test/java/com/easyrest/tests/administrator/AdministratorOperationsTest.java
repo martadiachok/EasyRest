@@ -1,6 +1,7 @@
 package com.easyrest.tests.administrator;
 
 import com.easyrest.config.ConfigProvider;
+import com.easyrest.dao.OrderDao;
 import com.easyrest.facade.AdministratorOperationsFacade;
 import com.easyrest.facade.AuthorizedHeaderMenuPanelFacade;
 import com.easyrest.facade.SignInFacade;
@@ -11,13 +12,13 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import static com.easyrest.constants.Constants.AdministratorTabMenu.*;
-
-public class AdministratorTest extends BaseTest {
+public class AdministratorOperationsTest extends BaseTest {
 
     private final String email = ConfigProvider.administratorEmail;
     private final String password = ConfigProvider.administratorPassword;
     private AdministratorOperationsFacade administrator;
+    private OrderDao orderDao;
+    private int insertedOrderId;
 
     @BeforeMethod
     public void init() {
@@ -26,42 +27,32 @@ public class AdministratorTest extends BaseTest {
         SignInFacade signInFacade = new SignInFacade(driver);
         signInFacade.signIn(email, password);
         administrator = new AdministratorOperationsFacade(driver);
+        orderDao = new OrderDao();
     }
 
     @Test
-    public void seeWaitingForConfirmOrders() {
-        administrator.seeWaitingForConfirmOrders();
-        String actualTab = administrator.getSelectedTabName();
+    public void acceptWaitingForConfirmOrder() {
+        insertedOrderId = orderDao.saveWaitingForConfirmOrder(email);
+        Integer ordersCountBeforeAccepting = administrator.seeWaitingForConfirmOrdersCount();
+        administrator.acceptOrder();
+        Integer ordersCountAfterAccepting = administrator.seeWaitingForConfirmOrdersCount();
 
-        Assert.assertEquals(actualTab, WAITING_FOR_CONFIRM_TAB, "The wrong tab is open");
+        Assert.assertEquals(ordersCountAfterAccepting, ordersCountBeforeAccepting - 1, "Order is not accepted");
     }
 
     @Test
-    public void seeAcceptedOrders() {
-        administrator.seeAcceptedOrders();
-        String actualTab = administrator.getSelectedTabName();
+    public void assignWaiterForAcceptedOrder() {
+        insertedOrderId = orderDao.saveAcceptedOrder(email);
+        Integer ordersCountBeforeAssigning = administrator.seeAcceptedOrdersCount();
+        administrator.assignWaiter();
+        Integer ordersCountAfterAssigning = administrator.seeAcceptedOrdersCount();
 
-        Assert.assertEquals(actualTab, ACCEPTED_TAB, "The wrong tab is open");
-    }
-
-    @Test
-    public void seeAssignedWaiterOrders() {
-        administrator.seeAssignedWaitersOrders();
-        String actualTab = administrator.getSelectedTabName();
-
-        Assert.assertEquals(actualTab, ASSIGNED_WAITER_TAB, "The wrong tab is open");
-    }
-
-    @Test
-    public void seeWaiters() {
-        administrator.seeWaiters();
-        String actualTab = administrator.getSelectedTabName();
-
-        Assert.assertEquals(actualTab, WAITERS_TAB, "The wrong tab is open");
+        Assert.assertEquals(ordersCountAfterAssigning, ordersCountBeforeAssigning - 1, "Waiter is not assigned");
     }
 
     @AfterMethod
     public void cleanup() {
+        orderDao.deleteOrder(insertedOrderId);
         AuthorizedHeaderMenuPanelFacade menu = new AuthorizedHeaderMenuPanelFacade(driver);
         menu.clickOnLogoutMenuItem();
     }
