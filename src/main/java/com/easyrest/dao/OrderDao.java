@@ -25,24 +25,9 @@ public class OrderDao {
             "WHERE id=?";
 
     public int saveWaitingForConfirmOrder(String email) {
-        int administratorId = 0;
-        int restaurantId = 0;
         int insertedOrderId = 0;
         try (Connection connection = DBManager.openConnection()) {
-            try (PreparedStatement administratorIdStatement = connection.prepareStatement(USER_ID_BY_EMAIL_QUERY)) {
-                administratorIdStatement.setString(1, email);
-                ResultSet administratorResultSet = administratorIdStatement.executeQuery();
-                while (administratorResultSet.next()) {
-                    administratorId = administratorResultSet.getInt("id");
-                }
-            }
-            try (PreparedStatement restaurantIdStatement = connection.prepareStatement(RESTAURANT_ID_BY_ADMINISTRATOR_ID_QUERY)) {
-                restaurantIdStatement.setInt(1, administratorId);
-                ResultSet restaurantResultSet = restaurantIdStatement.executeQuery();
-                while (restaurantResultSet.next()) {
-                    restaurantId = restaurantResultSet.getInt("id");
-                }
-            }
+            int restaurantId = getRestaurantId(connection, email);
             try (PreparedStatement addOrderStatement = connection.prepareStatement(INSERT_WAITING_FOR_CONFIRM_ORDER_QUERY)) {
                 addOrderStatement.setInt(1, restaurantId);
                 ResultSet addOrderResultSet = addOrderStatement.executeQuery();
@@ -57,24 +42,9 @@ public class OrderDao {
     }
 
     public int saveAcceptedOrder(String email) {
-        int administratorId = 0;
-        int restaurantId = 0;
         int insertedOrderId = 0;
         try (Connection connection = DBManager.openConnection()) {
-            try (PreparedStatement administratorIdStatement = connection.prepareStatement(USER_ID_BY_EMAIL_QUERY)) {
-                administratorIdStatement.setString(1, email);
-                ResultSet administratorResultSet = administratorIdStatement.executeQuery();
-                while (administratorResultSet.next()) {
-                    administratorId = administratorResultSet.getInt("id");
-                }
-            }
-            try (PreparedStatement restaurantIdStatement = connection.prepareStatement(RESTAURANT_ID_BY_ADMINISTRATOR_ID_QUERY)) {
-                restaurantIdStatement.setInt(1, administratorId);
-                ResultSet restaurantResultSet = restaurantIdStatement.executeQuery();
-                while (restaurantResultSet.next()) {
-                    restaurantId = restaurantResultSet.getInt("id");
-                }
-            }
+            int restaurantId = getRestaurantId(connection, email);
             try (PreparedStatement addOrderStatement = connection.prepareStatement(INSERT_ACCEPTED_ORDER_QUERY)) {
                 addOrderStatement.setInt(1, restaurantId);
                 ResultSet addOrderResultSet = addOrderStatement.executeQuery();
@@ -96,5 +66,29 @@ public class OrderDao {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    private int getRestaurantId(Connection connection, String email) {
+        int administratorId = 0;
+        int restaurantId = 0;
+        try (PreparedStatement administratorIdStatement = connection.prepareStatement(USER_ID_BY_EMAIL_QUERY)) {
+            administratorIdStatement.setString(1, email);
+            ResultSet administratorResultSet = administratorIdStatement.executeQuery();
+            while (administratorResultSet.next()) {
+                administratorId = administratorResultSet.getInt("id");
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        try (PreparedStatement restaurantIdStatement = connection.prepareStatement(RESTAURANT_ID_BY_ADMINISTRATOR_ID_QUERY)) {
+            restaurantIdStatement.setInt(1, administratorId);
+            ResultSet restaurantResultSet = restaurantIdStatement.executeQuery();
+            while (restaurantResultSet.next()) {
+                restaurantId = restaurantResultSet.getInt("id");
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return restaurantId;
     }
 }
