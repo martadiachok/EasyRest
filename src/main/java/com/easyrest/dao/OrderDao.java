@@ -13,11 +13,11 @@ public class OrderDao {
             "FROM restaurants " +
             "WHERE administrator_id=?";
     public static final String INSERT_WAITING_FOR_CONFIRM_ORDER_QUERY = "INSERT " +
-            "INTO orders(status, user_id,rest_id) " +
+            "INTO orders(status,user_id,rest_id) " +
             "VALUES ('Waiting for confirm','27',?) " +
             "RETURNING id";
     public static final String INSERT_ACCEPTED_ORDER_QUERY = "INSERT " +
-            "INTO orders(status, user_id,rest_id) " +
+            "INTO orders(status,user_id,rest_id) " +
             "VALUES ('Accepted','27',?) " +
             "RETURNING id";
     public static final String DELETE_ORDER_QUERY = "DELETE " +
@@ -90,9 +90,9 @@ public class OrderDao {
 
     public void deleteOrder(int id) {
         try (Connection connection = DBManager.openConnection();
-             PreparedStatement deleteOrder = connection.prepareStatement(DELETE_ORDER_QUERY)) {
-            deleteOrder.setInt(1, id);
-            deleteOrder.executeUpdate();
+             PreparedStatement deleteOrderStatement = connection.prepareStatement(DELETE_ORDER_QUERY)) {
+            deleteOrderStatement.setInt(1, id);
+            deleteOrderStatement.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
