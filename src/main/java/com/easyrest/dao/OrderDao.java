@@ -25,31 +25,30 @@ public class OrderDao {
             "WHERE id=?";
 
     public int saveWaitingForConfirmOrder(String email) {
+        int administratorId = 0;
+        int restaurantId = 0;
         int insertedOrderId = 0;
-        try {
-            Connection connection = DBManager.openConnection();
-
-            PreparedStatement administratorIdStatement = connection.prepareStatement(USER_ID_BY_EMAIL_QUERY);
-            administratorIdStatement.setString(1, email);
-            ResultSet administratorResultSet = administratorIdStatement.executeQuery();
-            int administratorId = 0;
-            while (administratorResultSet.next()) {
-                administratorId = administratorResultSet.getInt("id");
+        try (Connection connection = DBManager.openConnection()) {
+            try (PreparedStatement administratorIdStatement = connection.prepareStatement(USER_ID_BY_EMAIL_QUERY)) {
+                administratorIdStatement.setString(1, email);
+                ResultSet administratorResultSet = administratorIdStatement.executeQuery();
+                while (administratorResultSet.next()) {
+                    administratorId = administratorResultSet.getInt("id");
+                }
             }
-
-            PreparedStatement restaurantIdStatement = connection.prepareStatement(RESTAURANT_ID_BY_ADMINISTRATOR_ID_QUERY);
-            restaurantIdStatement.setInt(1, administratorId);
-            ResultSet restaurantResultSet = restaurantIdStatement.executeQuery();
-            int restaurantId = 0;
-            while (restaurantResultSet.next()) {
-                restaurantId = restaurantResultSet.getInt("id");
+            try (PreparedStatement restaurantIdStatement = connection.prepareStatement(RESTAURANT_ID_BY_ADMINISTRATOR_ID_QUERY)) {
+                restaurantIdStatement.setInt(1, administratorId);
+                ResultSet restaurantResultSet = restaurantIdStatement.executeQuery();
+                while (restaurantResultSet.next()) {
+                    restaurantId = restaurantResultSet.getInt("id");
+                }
             }
-
-            PreparedStatement addOrderStatement = connection.prepareStatement(INSERT_WAITING_FOR_CONFIRM_ORDER_QUERY);
-            addOrderStatement.setInt(1, restaurantId);
-            ResultSet addOrderResultSet = addOrderStatement.executeQuery();
-            while (addOrderResultSet.next()) {
-                insertedOrderId = addOrderResultSet.getInt(1);
+            try (PreparedStatement addOrderStatement = connection.prepareStatement(INSERT_WAITING_FOR_CONFIRM_ORDER_QUERY)) {
+                addOrderStatement.setInt(1, restaurantId);
+                ResultSet addOrderResultSet = addOrderStatement.executeQuery();
+                while (addOrderResultSet.next()) {
+                    insertedOrderId = addOrderResultSet.getInt(1);
+                }
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -58,31 +57,30 @@ public class OrderDao {
     }
 
     public int saveAcceptedOrder(String email) {
+        int administratorId = 0;
+        int restaurantId = 0;
         int insertedOrderId = 0;
-        try {
-            Connection connection = DBManager.openConnection();
-
-            PreparedStatement administratorIdStatement = connection.prepareStatement(USER_ID_BY_EMAIL_QUERY);
-            administratorIdStatement.setString(1, email);
-            ResultSet administratorResultSet = administratorIdStatement.executeQuery();
-            int administratorId = 0;
-            while (administratorResultSet.next()) {
-                administratorId = administratorResultSet.getInt("id");
+        try (Connection connection = DBManager.openConnection()) {
+            try (PreparedStatement administratorIdStatement = connection.prepareStatement(USER_ID_BY_EMAIL_QUERY)) {
+                administratorIdStatement.setString(1, email);
+                ResultSet administratorResultSet = administratorIdStatement.executeQuery();
+                while (administratorResultSet.next()) {
+                    administratorId = administratorResultSet.getInt("id");
+                }
             }
-
-            PreparedStatement restaurantIdStatement = connection.prepareStatement(RESTAURANT_ID_BY_ADMINISTRATOR_ID_QUERY);
-            restaurantIdStatement.setInt(1, administratorId);
-            ResultSet restaurantResultSet = restaurantIdStatement.executeQuery();
-            int restaurantId = 0;
-            while (restaurantResultSet.next()) {
-                restaurantId = restaurantResultSet.getInt("id");
+            try (PreparedStatement restaurantIdStatement = connection.prepareStatement(RESTAURANT_ID_BY_ADMINISTRATOR_ID_QUERY)) {
+                restaurantIdStatement.setInt(1, administratorId);
+                ResultSet restaurantResultSet = restaurantIdStatement.executeQuery();
+                while (restaurantResultSet.next()) {
+                    restaurantId = restaurantResultSet.getInt("id");
+                }
             }
-
-            PreparedStatement addOrderStatement = connection.prepareStatement(INSERT_ACCEPTED_ORDER_QUERY);
-            addOrderStatement.setInt(1, restaurantId);
-            ResultSet addOrderResultSet = addOrderStatement.executeQuery();
-            while (addOrderResultSet.next()) {
-                insertedOrderId = addOrderResultSet.getInt(1);
+            try (PreparedStatement addOrderStatement = connection.prepareStatement(INSERT_ACCEPTED_ORDER_QUERY)) {
+                addOrderStatement.setInt(1, restaurantId);
+                ResultSet addOrderResultSet = addOrderStatement.executeQuery();
+                while (addOrderResultSet.next()) {
+                    insertedOrderId = addOrderResultSet.getInt(1);
+                }
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -91,9 +89,8 @@ public class OrderDao {
     }
 
     public void deleteOrder(int id) {
-        try {
-            Connection connection = DBManager.openConnection();
-            PreparedStatement deleteOrder = connection.prepareStatement(DELETE_ORDER_QUERY);
+        try (Connection connection = DBManager.openConnection();
+             PreparedStatement deleteOrder = connection.prepareStatement(DELETE_ORDER_QUERY)) {
             deleteOrder.setInt(1, id);
             deleteOrder.executeUpdate();
         } catch (SQLException e) {
