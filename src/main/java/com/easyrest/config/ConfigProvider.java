@@ -51,6 +51,11 @@ public interface ConfigProvider {
 
     String customerPanel = readConfig().getString("url.clientUrl.clientPanelUrl");
 
+    String customerAllOrders = readConfig.getString("url.clientUrl.clientAllOrdersUrl");
+    String customerWaitingForConfirmOrders = readConfig.getString("url.clientUrl.clientWaitingForConfirmOrdersUrl");
+    String customerAcceptedOrders = readConfig().getString("url.clientUrl.clientAcceptedOrdersUrl");
+    String customerInProgressOrders = readConfig().getString("url.clientUrl.clientInProgressOrdersUrl");
+
     /**
      * Read fakeDataForModeratorForm
      */
