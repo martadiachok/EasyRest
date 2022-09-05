@@ -21,7 +21,7 @@ public class AdministratorOperationsTest extends BaseTest {
     private int insertedOrderId;
 
     @BeforeMethod
-    public void init() {
+    public void beforeMethod() {
         SignInPage signInPage = new SignInPage(driver);
         signInPage.goToSignInPage();
         SignInFacade signInFacade = new SignInFacade(driver);
@@ -51,7 +51,7 @@ public class AdministratorOperationsTest extends BaseTest {
     }
 
     @AfterMethod
-    public void cleanup() {
+    public void afterMethod() {
         orderDao.deleteOrder(insertedOrderId);
         AuthorizedHeaderMenuPanelFacade menu = new AuthorizedHeaderMenuPanelFacade(driver);
         menu.clickOnLogoutMenuItem();

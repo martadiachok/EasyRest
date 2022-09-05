@@ -20,7 +20,7 @@ public class AdministratorTest extends BaseTest {
     private AdministratorOperationsFacade administrator;
 
     @BeforeMethod
-    public void init() {
+    public void beforeMethod() {
         SignInPage signInPage = new SignInPage(driver);
         signInPage.goToSignInPage();
         SignInFacade signInFacade = new SignInFacade(driver);
@@ -61,7 +61,7 @@ public class AdministratorTest extends BaseTest {
     }
 
     @AfterMethod
-    public void cleanup() {
+    public void afterMethod() {
         AuthorizedHeaderMenuPanelFacade menu = new AuthorizedHeaderMenuPanelFacade(driver);
         menu.clickOnLogoutMenuItem();
     }
