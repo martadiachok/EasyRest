@@ -3,13 +3,8 @@ package com.easyrest.components.administrator;
 import com.easyrest.pages.administratorPanel.AcceptedOrders;
 import com.easyrest.pages.administratorPanel.WaitingForConfirmOrders;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.time.Duration;
-
-import static com.easyrest.constants.Constants.TimeoutVariable.EXPLICIT_WAIT;
 
 public class AdministratorMenu {
     private final WebDriver driver;
@@ -18,30 +13,23 @@ public class AdministratorMenu {
     private final By assignedWaitersOrdersTab = By.xpath("//div[@role='tablist']//button[3]");
     private final By waitersOrdersTab = By.xpath("//div[@role='tablist']//button[4]");
     private final By selectedTab = By.xpath("//button[@aria-selected='true']");
+    private final String scrollTopScript = "window.scrollTo(0, document.body.scrollTop)";
 
     public AdministratorMenu(WebDriver driver) {
         this.driver = driver;
     }
 
     public WaitingForConfirmOrders clickOnWaitingForConfirmOrdersTab() {
-        try {
-            driver.findElement(waitingForConfirmOrdersTab).click();
-        } catch (Exception e) {
-            driver.navigate().refresh();
-            new WebDriverWait(driver, Duration.ofSeconds(EXPLICIT_WAIT))
-                    .until(ExpectedConditions.elementToBeClickable(waitingForConfirmOrdersTab)).click();
-        }
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript(scrollTopScript);
+        driver.findElement(waitingForConfirmOrdersTab).click();
         return new WaitingForConfirmOrders(driver);
     }
 
     public AcceptedOrders clickOnAcceptedOrdersTab() {
-        try {
-            driver.findElement(acceptedOrdersTab).click();
-        } catch (Exception e) {
-            driver.navigate().refresh();
-            new WebDriverWait(driver, Duration.ofSeconds(EXPLICIT_WAIT))
-                    .until(ExpectedConditions.elementToBeClickable(acceptedOrdersTab)).click();
-        }
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript(scrollTopScript);
+        driver.findElement(acceptedOrdersTab).click();
         return new AcceptedOrders(driver);
     }
 
