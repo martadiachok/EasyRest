@@ -9,4 +9,7 @@ public class FakeData {
     public static String getEmail() { return faker.internet().emailAddress(); }
     public static String getPassword() { return faker.internet().password(8, 12); }
     public static String getPhone() { return faker.phoneNumber().phoneNumber(); }
+    public static String getNameRestaurants(){ return faker.company().name(); }
+    public static String getAddress() { return faker.address().fullAddress();}
+
 }

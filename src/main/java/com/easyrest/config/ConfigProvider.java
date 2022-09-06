@@ -49,6 +49,8 @@ public interface ConfigProvider {
     String adminPanelRestaurantUrl = readConfig().getString("url.adminUrl.adminPanelRestaurantUrl");
     String ownerPageUrl = readConfig().getString("url.ownerUrl.ownerPanelUrl");
 
+    String customerPanel = readConfig().getString("url.clientUrl.clientPanelUrl");
+
     /**
      * Read fakeDataForModeratorForm
      */
