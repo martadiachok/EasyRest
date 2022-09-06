@@ -18,35 +18,35 @@ public class AdministratorOperationsFacade {
 
     public WaitingForConfirmOrders seeWaitingForConfirmOrders() {
         return goToTabMenu()
-                .clickOnWaitingForConfirmOrders();
+                .clickOnWaitingForConfirmOrdersTab();
     }
 
     public AcceptedOrders seeAcceptedOrders() {
         return goToTabMenu()
-                .clickOnAcceptedOrders();
+                .clickOnAcceptedOrdersTab();
     }
 
     public void seeAssignedWaitersOrders() {
         goToTabMenu()
-                .clickOnAssignedWaiters();
+                .clickOnAssignedWaitersTab();
     }
 
     public void seeWaiters() {
         goToTabMenu()
-                .clickOnWaiters();
+                .clickOnWaitersTab();
     }
 
-    public void acceptOrder() {
+    public void acceptOrder(int orderNumber) {
         seeWaitingForConfirmOrders()
                 .getOrder()
-                .clickOnExpandOrderDetails();
+                .clickOnExpandOrderDetails(orderNumber);
         orderAction.clickOnAcceptOrder();
     }
 
-    public void assignWaiter() {
+    public void assignWaiter(int orderNumber) {
         seeAcceptedOrders()
                 .getOrder()
-                .clickOnExpandOrderDetails();
+                .clickOnExpandOrderDetails(orderNumber);
         orderAction
                 .clickOnPickWaiter()
                 .clickOnAssignWaiter();

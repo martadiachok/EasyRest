@@ -5,9 +5,9 @@ import org.openqa.selenium.WebDriver;
 
 public class OrderAction {
     private final WebDriver driver;
-    private final By acceptOrder = By.xpath("(//div[contains(@class,'AdministratorPanel-root')]/div//button/span[contains(.,'Accept')])[1]");
-    private final By pickWaiter = By.xpath("(//input[contains(@name,'waiters')])[1]");
-    private final By assignWaiter = By.xpath("(//div[contains(@class,'AdministratorPanel-root')]/div//span[contains(.,'Assign')])[1]");
+    private final By acceptOrder = By.xpath("//div[contains(@aria-expanded,'true')]/parent::div//span[contains(.,'Accept')]");
+    private final By pickWaiter = By.xpath("//div[contains(@aria-expanded,'true')]/parent::div//input[contains(@name,'waiters')]");
+    private final By assignWaiter = By.xpath("//div[contains(@aria-expanded,'true')]/parent::div//span[contains(.,'Assign')]");
 
     public OrderAction(WebDriver driver) {
         this.driver = driver;
