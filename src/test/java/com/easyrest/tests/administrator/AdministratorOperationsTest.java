@@ -18,7 +18,6 @@ public class AdministratorOperationsTest extends BaseTest {
     private final String password = ConfigProvider.administratorPassword;
     private AdministratorOperationsFacade administrator;
     private OrderDao orderDao;
-    private int insertedOrderId;
 
     @BeforeMethod
     public void beforeMethod() {
@@ -32,9 +31,9 @@ public class AdministratorOperationsTest extends BaseTest {
 
     @Test
     public void acceptWaitingForConfirmOrder() {
-        insertedOrderId = orderDao.saveWaitingForConfirmOrder(email);
+        int insertedOrderId = orderDao.saveWaitingForConfirmOrder(email);
         Integer ordersCountBeforeAccepting = administrator.seeWaitingForConfirmOrdersCount();
-        administrator.acceptOrder();
+        administrator.acceptOrder(insertedOrderId);
         Integer ordersCountAfterAccepting = administrator.seeWaitingForConfirmOrdersCount();
 
         Assert.assertEquals(ordersCountAfterAccepting, ordersCountBeforeAccepting - 1, "Order is not accepted");
@@ -42,9 +41,9 @@ public class AdministratorOperationsTest extends BaseTest {
 
     @Test
     public void assignWaiterForAcceptedOrder() {
-        insertedOrderId = orderDao.saveAcceptedOrder(email);
+        int insertedOrderId = orderDao.saveAcceptedOrder(email);
         Integer ordersCountBeforeAssigning = administrator.seeAcceptedOrdersCount();
-        administrator.assignWaiter();
+        administrator.assignWaiter(insertedOrderId);
         Integer ordersCountAfterAssigning = administrator.seeAcceptedOrdersCount();
 
         Assert.assertEquals(ordersCountAfterAssigning, ordersCountBeforeAssigning - 1, "Waiter is not assigned");
@@ -52,7 +51,7 @@ public class AdministratorOperationsTest extends BaseTest {
 
     @AfterMethod
     public void afterMethod() {
-        orderDao.deleteOrder(insertedOrderId);
+        orderDao.deleteOrder();
         AuthorizedHeaderMenuPanelFacade menu = new AuthorizedHeaderMenuPanelFacade(driver);
         menu.clickOnLogoutMenuItem();
     }

@@ -13,16 +13,16 @@ public class OrderDao {
             "FROM restaurants " +
             "WHERE administrator_id=?";
     public static final String INSERT_WAITING_FOR_CONFIRM_ORDER_QUERY = "INSERT " +
-            "INTO orders(status,user_id,rest_id) " +
-            "VALUES ('Waiting for confirm','27',?) " +
+            "INTO orders(creation_time,status,user_id,rest_id) " +
+            "VALUES ('0','Waiting for confirm','27',?) " +
             "RETURNING id";
     public static final String INSERT_ACCEPTED_ORDER_QUERY = "INSERT " +
-            "INTO orders(status,user_id,rest_id) " +
-            "VALUES ('Accepted','27',?) " +
+            "INTO orders(creation_time,status,user_id,rest_id) " +
+            "VALUES ('0','Accepted','27',?) " +
             "RETURNING id";
     public static final String DELETE_ORDER_QUERY = "DELETE " +
             "FROM orders " +
-            "WHERE id=?";
+            "WHERE creation_time='0'";
 
     public int saveWaitingForConfirmOrder(String email) {
         int insertedOrderId = 0;
@@ -58,10 +58,9 @@ public class OrderDao {
         return insertedOrderId;
     }
 
-    public void deleteOrder(int id) {
+    public void deleteOrder() {
         try (Connection connection = DBManager.openConnection();
              PreparedStatement deleteOrderStatement = connection.prepareStatement(DELETE_ORDER_QUERY)) {
-            deleteOrderStatement.setInt(1, id);
             deleteOrderStatement.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);

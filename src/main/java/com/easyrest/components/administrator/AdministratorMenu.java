@@ -4,6 +4,12 @@ import com.easyrest.pages.administratorPanel.AcceptedOrders;
 import com.easyrest.pages.administratorPanel.WaitingForConfirmOrders;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
+
+import static com.easyrest.constants.Constants.TimeoutVariable.EXPLICIT_WAIT;
 
 public class AdministratorMenu {
     private final WebDriver driver;
@@ -17,21 +23,33 @@ public class AdministratorMenu {
         this.driver = driver;
     }
 
-    public WaitingForConfirmOrders clickOnWaitingForConfirmOrders() {
-        driver.findElement(waitingForConfirmOrdersTab).click();
+    public WaitingForConfirmOrders clickOnWaitingForConfirmOrdersTab() {
+        try {
+            driver.findElement(waitingForConfirmOrdersTab).click();
+        } catch (Exception e) {
+            driver.navigate().refresh();
+            new WebDriverWait(driver, Duration.ofSeconds(EXPLICIT_WAIT))
+                    .until(ExpectedConditions.elementToBeClickable(waitingForConfirmOrdersTab)).click();
+        }
         return new WaitingForConfirmOrders(driver);
     }
 
-    public AcceptedOrders clickOnAcceptedOrders() {
-        driver.findElement(acceptedOrdersTab).click();
+    public AcceptedOrders clickOnAcceptedOrdersTab() {
+        try {
+            driver.findElement(acceptedOrdersTab).click();
+        } catch (Exception e) {
+            driver.navigate().refresh();
+            new WebDriverWait(driver, Duration.ofSeconds(EXPLICIT_WAIT))
+                    .until(ExpectedConditions.elementToBeClickable(acceptedOrdersTab)).click();
+        }
         return new AcceptedOrders(driver);
     }
 
-    public void clickOnAssignedWaiters() {
+    public void clickOnAssignedWaitersTab() {
         driver.findElement(assignedWaitersOrdersTab).click();
     }
 
-    public void clickOnWaiters() {
+    public void clickOnWaitersTab() {
         driver.findElement(waitersOrdersTab).click();
     }
 
