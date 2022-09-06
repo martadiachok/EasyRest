@@ -36,7 +36,7 @@ public class OrderDao {
                 }
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            throw new RuntimeException(e.getErrorCode() + ": " + e.getMessage(), e);
         }
         return insertedOrderId;
     }
@@ -53,7 +53,7 @@ public class OrderDao {
                 }
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            throw new RuntimeException(e.getErrorCode() + ": " + e.getMessage(), e);
         }
         return insertedOrderId;
     }
@@ -63,11 +63,11 @@ public class OrderDao {
              PreparedStatement deleteOrderStatement = connection.prepareStatement(DELETE_ORDER_QUERY)) {
             deleteOrderStatement.executeUpdate();
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            throw new RuntimeException(e.getErrorCode() + ": " + e.getMessage(), e);
         }
     }
 
-    private int getRestaurantId(Connection connection, String email) {
+    private int getRestaurantId(Connection connection, String email) throws SQLException {
         int administratorId = 0;
         int restaurantId = 0;
         try (PreparedStatement administratorIdStatement = connection.prepareStatement(USER_ID_BY_EMAIL_QUERY)) {
@@ -76,8 +76,6 @@ public class OrderDao {
             while (administratorResultSet.next()) {
                 administratorId = administratorResultSet.getInt("id");
             }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
         }
         try (PreparedStatement restaurantIdStatement = connection.prepareStatement(RESTAURANT_ID_BY_ADMINISTRATOR_ID_QUERY)) {
             restaurantIdStatement.setInt(1, administratorId);
@@ -85,8 +83,6 @@ public class OrderDao {
             while (restaurantResultSet.next()) {
                 restaurantId = restaurantResultSet.getInt("id");
             }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
         }
         return restaurantId;
     }

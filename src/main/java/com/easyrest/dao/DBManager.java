@@ -11,11 +11,7 @@ public class DBManager {
     private static final String user = ConfigProvider.user;
     private static final String password = ConfigProvider.password;
 
-    public static Connection openConnection() {
-        try {
-            return DriverManager.getConnection(host, user, password);
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+    public static Connection openConnection() throws SQLException {
+        return DriverManager.getConnection(host, user, password);
     }
 }
