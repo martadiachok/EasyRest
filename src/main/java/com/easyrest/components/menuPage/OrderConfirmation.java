@@ -9,6 +9,7 @@ public class OrderConfirmation {
     private final By submitInWindowButton = By.xpath("//*[text()='Submit']");
     private final By cancelInWindowButton = By.xpath("//span[text()='Cancel']");
     private final By deleteDishInOrderButton = By.xpath("//*[contains(@class, 'MuiTableRow-root')][1]//button[@aria-label= 'Remove item']");
+    private final By confirmationMessage = By.xpath("//*[text() = 'Order status changed to Waiting for confirm']");
 
     public OrderConfirmation(WebDriver driver) {
         this.driver = driver;
@@ -27,5 +28,15 @@ public class OrderConfirmation {
     public OrderConfirmation clickOnButtonDeleteFirstDish() {
         driver.findElement(deleteDishInOrderButton).click();
         return new OrderConfirmation(driver);
+    }
+
+    public boolean checkIfOrderWasMade(){
+        if(driver.findElement(confirmationMessage)==null){
+            return false;
+        }else return true;
+    }
+
+    public By getConfirmationMessage(){
+        return confirmationMessage;
     }
 }
