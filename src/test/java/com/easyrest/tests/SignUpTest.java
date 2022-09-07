@@ -4,17 +4,17 @@ import com.easyrest.config.ConfigProvider;
 import com.easyrest.facade.SignInFacade;
 import com.easyrest.pages.SignInPage;
 import com.easyrest.pages.SignUpPage;
+import com.easyrest.userData.FakeData;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+
 import java.time.Duration;
 
 public class SignUpTest extends BaseTest {
 
-    private final String name = ConfigProvider.testName;
-    private final String email = ConfigProvider.testEmail;
-    private final String phoneNumber = ConfigProvider.testPhoneNumber;
+    private final String email = FakeData.getEmail();
     private final String birthDate = ConfigProvider.testBirthDate;
     private final String birthMonth = ConfigProvider.testBirthMonth;
     private final String birthYear = ConfigProvider.testBirthYear;
@@ -30,10 +30,11 @@ public class SignUpTest extends BaseTest {
         wait.until(ExpectedConditions.urlToBe(pageUrl));
     }
 
-    @Test (priority = 1)
+    @Test(priority = 1)
     public void signUpPositiveTest() {
         signUpPage = new SignUpPage(driver);
-
+        String name = FakeData.getFullName();
+        String phoneNumber = FakeData.getPhone();
         signUpPage.goToSignUpPage();
         signUpPage.inputName(name);
         signUpPage.inputEmail(email);
@@ -42,19 +43,16 @@ public class SignUpTest extends BaseTest {
         signUpPage.inputPassword(password);
         signUpPage.clickCreateAccount();
         waitForUrlPresence(ConfigProvider.signInPageUrl);
-
         Assert.assertEquals(driver.getCurrentUrl(), ConfigProvider.signInPageUrl, "Sign up failed. Sign in page was not reached.");
     }
 
-    @Test (priority = 2)
+    @Test(priority = 2)
     public void secondCheckSignUp_tryToSignIn() {
         signInPage = new SignInPage(driver);
         signInFacade = new SignInFacade(driver);
-
         signInPage.goToSignInPage();
         signInFacade.signIn(email, password);
         waitForUrlPresence(ConfigProvider.restaurantsPageUrl);
-
         Assert.assertEquals(driver.getCurrentUrl(), ConfigProvider.restaurantsPageUrl, "Sign in of new user was not successful. Restaurant page was not reached.");
     }
 

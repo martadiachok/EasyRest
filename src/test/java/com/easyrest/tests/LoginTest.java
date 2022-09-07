@@ -12,13 +12,8 @@ import org.testng.annotations.Test;
 public class LoginTest extends BaseTest {
     @Test
     public void testLogin() throws InterruptedException {
-        extent = new ExtentReports();
-        // catch object from class ExtentReports to class ExtentTest and catch test results (have methods pass, fail etc);
-        test = extent.createTest("LoginTest");
-        //ExtentSparkReporter spark = new ExtentSparkReporter("src/test/Reports/loginTest_28.06.2022");
-        //extent.attachReporter(spark);
 
-       /* SignUpPage page = new SignUpPage(driver);
+        SignUpPage page = new SignUpPage(driver);
 
         page.goToSignUpPage();
 
@@ -26,27 +21,24 @@ public class LoginTest extends BaseTest {
 
         Thread.sleep(3000);
 
-        Assert.assertEquals(driver.getCurrentUrl(), ConfigProvider.logInPageUrl); */
+        Assert.assertEquals(driver.getCurrentUrl(), ConfigProvider.logInPageUrl);
 
         String clientEmail = ConfigProvider.clientEmail;
         String clientPassword = ConfigProvider.clientPassword;
 
         driver.get(ConfigProvider.logInPageUrl);
 
-        WebElement inputEmail = driver.findElement(By.xpath("/html/body/div/main/div/div[2]/form/div/div[1]/div/div/input"));
+        WebElement inputEmail = driver.findElement(By.xpath("//input[@name='email']"));
         inputEmail.clear();
         inputEmail.sendKeys(clientEmail);
-        test.info("Email has been entered.");
         Thread.sleep(1500);
-        WebElement inputPassword = driver.findElement(By.xpath("/html/body/div/main/div/div[2]/form/div/div[2]/div/div/input"));
+        WebElement inputPassword = driver.findElement(By.xpath("//input[@name='password']"));
         inputPassword.clear();
         inputPassword.sendKeys(clientPassword);
-        test.info("Password has been entered.");
         Thread.sleep(2000);
 
-        WebElement buttonSignIn = driver.findElement(By.xpath("/html/body/div/main/div/div[2]/form/div/div[3]/div/button/span[1]"));
+        WebElement buttonSignIn = driver.findElement(By.xpath("//span[text()='Sign In']"));
         buttonSignIn.click();
-        test.info("SignIn button has been clicked.");
         Thread.sleep(5000);
 
         Assert.assertEquals(driver.getCurrentUrl(), ConfigProvider.signUpPageUrl);

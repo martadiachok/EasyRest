@@ -4,11 +4,19 @@
     <listeners>
         <listener class-name="com.easyrest.tests.Listeners"/>
     </listeners>
-    <test verbose="2" preserve-order="true" name="/Users/marta/Documents/EasyRest-Testing">
-        <classes><class name="com.easyrest.tests.LoginTest">
-            <methods><include name="testLogin"/>
-            </methods>
-        </class>
+    <test verbose="2" name="C:\Users\shere\IdeaProjects\EasyRest-Testing">
+        <classes>
+            <class name="com.easyrest.tests.administrator.AdministratorOperationsTest"></class>
+            <class name="com.easyrest.tests.administrator.AdministratorSignInTest"></class>
+            <class name="com.easyrest.tests.administrator.AdministratorTest"></class>
+            <class name="com.easyrest.tests.adminTests.ActionOnClientTests"></class>
+            <class name="com.easyrest.tests.adminTests.AddModeratorTest"></class>
+            <class name="com.easyrest.tests.adminTests.SignInTests"></class>
+            <class name="com.easyrest.tests.customer.SignInTest"></class>
+            <class name="com.easyrest.tests.owner.ActionWithEmployeeTest"></class>
+            <class name="com.easyrest.tests.owner.AddSecondRestaurantTest"></class>
+            <class name="com.easyrest.tests.owner.OwnerSignInTest"></class>
+            <class name="com.easyrest.tests.SignUpTest"></class>
         </classes>
     </test>
 </suite>
