@@ -44,8 +44,7 @@ public class CurrentOrders extends BasePage {
         return new CurrentOrders(driver);
     }
 
-    public CurrentOrders declineOrder() {
-        driver.findElement(decline).click();
-        return new CurrentOrders(driver);
+    public By getDeclineElement(){
+        return decline;
     }
 }
