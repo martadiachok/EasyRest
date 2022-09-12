@@ -20,7 +20,7 @@ public class AdministratorOperationsTest extends BaseTest {
     private OrderDao orderDao;
 
     @BeforeMethod
-    public void beforeMethod() {
+    public void setUp() {
         SignInPage signInPage = new SignInPage(driver);
         signInPage.goToSignInPage();
         SignInFacade signInFacade = new SignInFacade(driver);
@@ -50,7 +50,7 @@ public class AdministratorOperationsTest extends BaseTest {
     }
 
     @AfterMethod
-    public void afterMethod() {
+    public void tearDown() {
         orderDao.deleteOrder();
         AuthorizedHeaderMenuPanelFacade menu = new AuthorizedHeaderMenuPanelFacade(driver);
         menu.clickOnLogoutMenuItem();

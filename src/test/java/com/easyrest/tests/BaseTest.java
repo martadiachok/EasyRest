@@ -35,7 +35,7 @@ abstract public class BaseTest {
      * Initialization of webdriver and assigning the settings for the webdriver
      */
     @BeforeSuite
-    public void setUp() {
+    public void baseSetUp() {
         // method setup() - download webdriver and show path to it
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
@@ -62,7 +62,7 @@ abstract public class BaseTest {
     }
 
     @AfterSuite
-    public void tearDown() {
+    public void baseTearDown() {
         // закриває хром драйвер, драйвер відповідає за процес взаємодії з браузером
         driver.close();
 

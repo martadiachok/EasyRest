@@ -21,7 +21,7 @@ public class AdministratorSignInTest extends BaseTest {
     private SignInFacade signInFacade;
 
     @BeforeMethod
-    public void beforeMethod() {
+    public void setUp() {
         SignInPage signInPage = new SignInPage(driver);
         signInFacade = new SignInFacade(driver);
         signInPage.goToSignInPage();
