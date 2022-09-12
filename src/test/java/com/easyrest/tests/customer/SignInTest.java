@@ -1,5 +1,6 @@
 package com.easyrest.tests.customer;
 
+import com.easyrest.components.HeaderForAuthorizedUser;
 import com.easyrest.config.ConfigProvider;
 import com.easyrest.constants.Constants;
 import com.easyrest.facade.SignInFacade;
@@ -25,6 +26,7 @@ public class SignInTest extends BaseTest {
     private WebDriverWait wait;
     private SignInFacade signInFacade;
     private SignInPage signInPage;
+    private HeaderForAuthorizedUser headerForAuthorizedUser;
 
     @BeforeMethod
     public void goToSignInPage() {
@@ -36,9 +38,11 @@ public class SignInTest extends BaseTest {
 
     @Test
     public void logInWithValidData() {
+        headerForAuthorizedUser = new HeaderForAuthorizedUser(driver);
         signInFacade.signIn(clientEmail, clientPassword);
+        headerForAuthorizedUser.clickOnUserProfileIcon().clickOnTheFirstMenuItem();
         wait.until(ExpectedConditions.urlToBe(expectedUrl));
-        Assert.assertEquals(driver.getCurrentUrl(), expectedUrl);
+        Assert.assertEquals(driver.getCurrentUrl(), expectedUrl , "Sign in failed.");
     }
 
    @Test

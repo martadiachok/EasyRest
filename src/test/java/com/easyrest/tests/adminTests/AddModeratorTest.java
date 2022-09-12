@@ -9,6 +9,7 @@ import com.easyrest.facade.admin.ActionOnClientFacade;
 import com.easyrest.pages.SignInPage;
 import com.easyrest.pages.adminPanel.Moderators_AdminPanel;
 import com.easyrest.tests.BaseTest;
+import com.easyrest.userData.FakeData;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -23,13 +24,13 @@ public class AddModeratorTest extends BaseTest {
 
     private final String adminEmail = ConfigProvider.adminEmail;
     private final String adminPassword = ConfigProvider.adminPassword;
-    private final String name = ConfigProvider.nameModerator;
-    private final String email = ConfigProvider.emailModerator;
-    private final String password = ConfigProvider.passwordModerator;
-    private final String phone = ConfigProvider.phoneModerator;
     private final String birthDate = ConfigProvider.birthDateModerator;
     private final String birthMonth = ConfigProvider.birthMonthModerator;
     private final String birthYear = ConfigProvider.birthYearModerator;
+    private final  String name = FakeData.getFullName();
+    private final  String email = FakeData.getEmail();
+    private final String phone = FakeData.getPhone();
+    private final String password = FakeData.getPassword();
     private final boolean isModeratorCreated = true;
 
     private SignInPage signInPage;
@@ -61,7 +62,6 @@ public class AddModeratorTest extends BaseTest {
         moderatorsPage = new Moderators_AdminPanel(driver);
         createModeratorForm = new CreateModeratorAccountForm(driver);
         calendar = new Calendar(driver);
-
         moderatorsPage.goToAdminPanel_ModeratorPage().clickOnCreateModerator();
         createModeratorForm.inputName(name)
                            .inputEmail(email)

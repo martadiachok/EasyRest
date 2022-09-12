@@ -20,9 +20,6 @@ import java.time.LocalDateTime;
 
 abstract public class BaseTest {
     protected WebDriver driver;
-    protected ExtentReports extent;
-    protected ExtentTest test;
-    protected ExtentSparkReporter spark;
     protected DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy.MM.dd HH:mm:ss");
     protected LocalDateTime now = LocalDateTime.now();
     protected String currentDate = dateTimeFormatter.format(now);
@@ -34,7 +31,7 @@ abstract public class BaseTest {
     /**
      * Initialization of webdriver and assigning the settings for the webdriver
      */
-    @BeforeSuite
+    @BeforeClass
     public void setUp() {
         // method setup() - download webdriver and show path to it
         WebDriverManager.chromedriver().setup();
@@ -42,14 +39,6 @@ abstract public class BaseTest {
         driver.manage().window().maximize();
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(20));
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(Constants.TimeoutVariable.IMPLICIT_WAIT));
-        String reportPath = System.getProperty("user.dir") + "/reports/index.html";
-        // Create object of ExtentSparkReporter class and set up address for report saving
-        spark = new ExtentSparkReporter(reportPath);
-        spark.config().setDocumentTitle("EasyRest Test Results");
-        // Create object of ExtentReports class who is responsible for executing reports
-        extent = new ExtentReports();
-        // give knowledge about report from ExtentSparkReporter class to main class ExtentReports
-        extent.attachReporter(spark);
     }
 
    public void getScreenShotPath(String testCaseName) throws IOException {
@@ -61,7 +50,7 @@ abstract public class BaseTest {
         FileUtils.copyFile(source, new File(destinationFile));
     }
 
-    @AfterSuite
+    @AfterClass
     public void tearDown() {
         // закриває хром драйвер, драйвер відповідає за процес взаємодії з браузером
         driver.close();
@@ -70,7 +59,6 @@ abstract public class BaseTest {
         driver.quit();
 
         //indicates that test is done and will not be monitored anymore
-        extent.flush();
     }
 
 }
